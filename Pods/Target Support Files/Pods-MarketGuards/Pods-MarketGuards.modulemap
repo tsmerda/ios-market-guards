@@ -1,0 +1,6 @@
+framework module Pods_MarketGuards {
+  umbrella header "Pods-MarketGuards-umbrella.h"
+
+  export *
+  module * { export * }
+}
