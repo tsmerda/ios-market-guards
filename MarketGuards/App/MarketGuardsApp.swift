@@ -12,7 +12,7 @@ import SwiftUI
 struct MarketGuardsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }
