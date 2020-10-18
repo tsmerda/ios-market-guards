@@ -27,7 +27,7 @@ enum LoginError: Error {
 
 class LoginViewModel: ObservableObject {
     @Published var login = "tsmerda2@gmail.com"
-    @Published var password = "gamifika"
+    @Published var password = "g"
     @Published var userLoggedIn = false
     
     let service = AuthService()

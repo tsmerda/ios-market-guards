@@ -15,32 +15,28 @@ struct LoginView: View {
         NavigationView {
             VStack(alignment: .center, spacing: 120.0) {
                 Spacer()
-                VStack{
-                    Image("logo")
-                        .resizable()
-                        .frame(width: 72.0, height: 72.0)
-                    
-                    Text("Market Guards")
-                        .font(.system(size: 34, weight: .light))
-                        .foregroundColor(Color("mainExtraLight"))
-                }
+                Image("logo_vertical")
+                    .resizable()
+                    .frame(width: 125.0, height: 140.0)
                 
                 VStack(spacing: 16.0) {
-                    TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "login", imageName: "user")
+                    TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "login", imageName: "name")
+                        .padding(.horizontal, 16)
                     
                     TextFieldWithIcon(type: .secured, text: $viewModel.password, label: "password", imageName: "lock")
+                        .padding(.horizontal, 16)
                     
-                    Button(action: {
-                        self.viewModel.loginButtonPressed()
-                    }, label: {
-                        ButtonWithBackground(text: "login", color: "pureBlack" ,backgroundColor: "main")
-                        
-                    })
-                    .padding(.top, 8)
+                    Button {
+                        viewModel.loginButtonPressed()
+                    } label: {
+                        ButtonWithBackground(text: "login", color: "pureBlack" ,backgroundColor: "mainDark")
+                            .padding(.horizontal, 64)
+                    }
+                    .padding(.top, 16)
                     NavigationLink(destination: ContentView()
                                     .navigationBarTitle(Text(""))
                                     .navigationBarHidden(true), isActive:
-                                        self.$viewModel.userLoggedIn) {
+                                        $viewModel.userLoggedIn) {
                         EmptyView()
                     }
                 }
@@ -51,7 +47,8 @@ struct LoginView: View {
             }
             .background(
                 ZStack {
-                    Image("background").resizable()
+                    Image("background")
+                        .resizable()
                         .scaledToFill()
                     
                     

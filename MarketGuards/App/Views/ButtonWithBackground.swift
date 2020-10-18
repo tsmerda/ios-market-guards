@@ -18,7 +18,7 @@ struct ButtonWithBackground: View {
             Text(text)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .frame(height: 40.0)
-                .font(.system(size: 17, weight: .regular))
+                .font(.system(size: 17, weight: .semibold))
                 .foregroundColor(Color(color))
                 .background(Color(backgroundColor))
                 .cornerRadius(/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)

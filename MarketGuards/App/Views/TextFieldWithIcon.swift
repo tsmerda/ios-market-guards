@@ -20,25 +20,28 @@ struct TextFieldWithIcon: View {
     let imageName: String
     
     var body: some View {
-        HStack {
-            if (type == .generic) {
-                Image(imageName)
-                    .foregroundColor(Color("main"))
-                TextField(label, text: $text)
-                    .foregroundColor(Color("main"))
-                    .autocapitalization(.none)
-            } else if (type == .secured) {
-                Image(imageName)
-                    .foregroundColor(Color("main"))
-                SecureField(label, text: $text)
-                    .foregroundColor(Color("main"))
-                    .autocapitalization(.none)
+        VStack {
+            HStack {
+                if (type == .generic) {
+                    Image(imageName)
+                        .foregroundColor(Color("main"))
+                    TextField(label, text: $text)
+                        .foregroundColor(Color("main"))
+                        .autocapitalization(.none)
+                } else if (type == .secured) {
+                    Image(imageName)
+                        .foregroundColor(Color("main"))
+                    SecureField(label, text: $text)
+                        .foregroundColor(Color("main"))
+                        .autocapitalization(.none)
+                }
             }
+            Divider()
+                .frame(height: 1)
+                .padding(.horizontal, 16)
+                .background(Color("mainDarkLow"))
+                .padding(.vertical, 4)
         }
-        Divider()
-            .frame(height: 1)
-            .padding(.horizontal, 16)
-            .background(Color("main"))
     }
 }
 

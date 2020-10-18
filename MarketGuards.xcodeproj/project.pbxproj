@@ -28,6 +28,32 @@
 		C357FCD52521D34B00D61651 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C357FCD72521D34B00D61651 /* Localizable.strings */; };
 		C357FCDD2521D76E00D61651 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCDC2521D76E00D61651 /* DashboardViewModel.swift */; };
 		C357FCE12521D7E500D61651 /* ButtonWithBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCE02521D7E500D61651 /* ButtonWithBackground.swift */; };
+		C357FCE62521E37700D61651 /* MissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCE52521E37700D61651 /* MissionRequest.swift */; };
+		C357FCE92521E38100D61651 /* MissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCE82521E38100D61651 /* MissionResponse.swift */; };
+		C357FCEC2521F0F600D61651 /* MissionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCEB2521F0F600D61651 /* MissionsService.swift */; };
+		C357FCEF2521F11C00D61651 /* MissionsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCEE2521F11C00D61651 /* MissionsTarget.swift */; };
+		C357FCF52521F87400D61651 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCF42521F87400D61651 /* StoryView.swift */; };
+		C357FCF92521F94B00D61651 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCF82521F94B00D61651 /* LibraryView.swift */; };
+		C357FCFC2521F98000D61651 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCFB2521F98000D61651 /* StoreView.swift */; };
+		C364A31125330D3200ABB2D4 /* TopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364A31025330D3200ABB2D4 /* TopMenu.swift */; };
+		C39F5EE32529EFF6008E04BD /* FinishedQuestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EE22529EFF6008E04BD /* FinishedQuestsView.swift */; };
+		C39F5EE62529F019008E04BD /* ActiveQuestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EE52529F019008E04BD /* ActiveQuestsView.swift */; };
+		C39F5EE92529F027008E04BD /* PreparedQuestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EE82529F027008E04BD /* PreparedQuestsView.swift */; };
+		C39F5EEC2529F6E2008E04BD /* MainSkillPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EEB2529F6E2008E04BD /* MainSkillPoint.swift */; };
+		C39F5EF02529F7B3008E04BD /* SkillPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EEF2529F7B3008E04BD /* SkillPoint.swift */; };
+		C39F5EF32529FA80008E04BD /* MissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EF22529FA80008E04BD /* MissionDetailView.swift */; };
+		C3D7F32C252515B300D44576 /* QuestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7F32B252515B300D44576 /* QuestRow.swift */; };
+		C3D7F32F2525276800D44576 /* MissionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7F32E2525276800D44576 /* MissionListView.swift */; };
+		C3D7F3322525278700D44576 /* MissionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7F3312525278700D44576 /* MissionListViewModel.swift */; };
+		C3D8E8A22531A29B009A95A7 /* Int+TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8A12531A29B009A95A7 /* Int+TimeFormatting.swift */; };
+		C3D8E8A52531A70A009A95A7 /* QuestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8A42531A70A009A95A7 /* QuestDetailView.swift */; };
+		C3D8E8A82531A71C009A95A7 /* QuestDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8A72531A71C009A95A7 /* QuestDetailViewModel.swift */; };
+		C3D8E8AD2531A7D9009A95A7 /* QuestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8AC2531A7D9009A95A7 /* QuestRequest.swift */; };
+		C3D8E8B02531A7E2009A95A7 /* QuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8AF2531A7E2009A95A7 /* QuestResponse.swift */; };
+		C3D8E8B32531AA7C009A95A7 /* QuestsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8B22531AA7C009A95A7 /* QuestsService.swift */; };
+		C3D8E8B62531AA94009A95A7 /* QuestsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8B52531AA94009A95A7 /* QuestsTarget.swift */; };
+		C3D8E8BE2531BA84009A95A7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */; };
+		C3F038352535990600DEA541 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F038342535990600DEA541 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +83,32 @@
 		C357FCD92521D34F00D61651 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C357FCDC2521D76E00D61651 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		C357FCE02521D7E500D61651 /* ButtonWithBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithBackground.swift; sourceTree = "<group>"; };
+		C357FCE52521E37700D61651 /* MissionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRequest.swift; sourceTree = "<group>"; };
+		C357FCE82521E38100D61651 /* MissionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionResponse.swift; sourceTree = "<group>"; };
+		C357FCEB2521F0F600D61651 /* MissionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsService.swift; sourceTree = "<group>"; };
+		C357FCEE2521F11C00D61651 /* MissionsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsTarget.swift; sourceTree = "<group>"; };
+		C357FCF42521F87400D61651 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		C357FCF82521F94B00D61651 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		C357FCFB2521F98000D61651 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		C364A31025330D3200ABB2D4 /* TopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenu.swift; sourceTree = "<group>"; };
+		C39F5EE22529EFF6008E04BD /* FinishedQuestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedQuestsView.swift; sourceTree = "<group>"; };
+		C39F5EE52529F019008E04BD /* ActiveQuestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveQuestsView.swift; sourceTree = "<group>"; };
+		C39F5EE82529F027008E04BD /* PreparedQuestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparedQuestsView.swift; sourceTree = "<group>"; };
+		C39F5EEB2529F6E2008E04BD /* MainSkillPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSkillPoint.swift; sourceTree = "<group>"; };
+		C39F5EEF2529F7B3008E04BD /* SkillPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPoint.swift; sourceTree = "<group>"; };
+		C39F5EF22529FA80008E04BD /* MissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailView.swift; sourceTree = "<group>"; };
+		C3D7F32B252515B300D44576 /* QuestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestRow.swift; sourceTree = "<group>"; };
+		C3D7F32E2525276800D44576 /* MissionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListView.swift; sourceTree = "<group>"; };
+		C3D7F3312525278700D44576 /* MissionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionListViewModel.swift; sourceTree = "<group>"; };
+		C3D8E8A12531A29B009A95A7 /* Int+TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeFormatting.swift"; sourceTree = "<group>"; };
+		C3D8E8A42531A70A009A95A7 /* QuestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestDetailView.swift; sourceTree = "<group>"; };
+		C3D8E8A72531A71C009A95A7 /* QuestDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestDetailViewModel.swift; sourceTree = "<group>"; };
+		C3D8E8AC2531A7D9009A95A7 /* QuestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestRequest.swift; sourceTree = "<group>"; };
+		C3D8E8AF2531A7E2009A95A7 /* QuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestResponse.swift; sourceTree = "<group>"; };
+		C3D8E8B22531AA7C009A95A7 /* QuestsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsService.swift; sourceTree = "<group>"; };
+		C3D8E8B52531AA94009A95A7 /* QuestsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsTarget.swift; sourceTree = "<group>"; };
+		C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		C3F038342535990600DEA541 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +216,9 @@
 			children = (
 				C357FC6B2520FABA00D61651 /* ContentView.swift */,
 				C357FCDB2521D75000D61651 /* Dashboard */,
+				C357FCF12521F82F00D61651 /* Story */,
+				C357FCF22521F84900D61651 /* Library */,
+				C357FCF32521F85000D61651 /* Store */,
 				C357FCB42521137F00D61651 /* Auth */,
 			);
 			path = Stories;
@@ -182,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				C357FCAA252112BB00D61651 /* AuthService.swift */,
+				C357FCEB2521F0F600D61651 /* MissionsService.swift */,
+				C3D8E8B22531AA7C009A95A7 /* QuestsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -190,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				C357FCAE252112D600D61651 /* AuthTarget.swift */,
+				C357FCEE2521F11C00D61651 /* MissionsTarget.swift */,
+				C3D8E8B52531AA94009A95A7 /* QuestsTarget.swift */,
 			);
 			path = Targets;
 			sourceTree = "<group>";
@@ -206,8 +265,9 @@
 		C357FCB9252113FA00D61651 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C357FCBA2521141400D61651 /* LoginRequest.swift */,
-				C357FCBE2521142900D61651 /* LoginResponse.swift */,
+				C3D8E8AA2531A79C009A95A7 /* Quests */,
+				C357FCE42521E34E00D61651 /* Missions */,
+				C357FCE32521E33E00D61651 /* Auth */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				C357FCC2252114B800D61651 /* String+Encrypting.swift */,
+				C3D8E8A12531A29B009A95A7 /* Int+TimeFormatting.swift */,
+				C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +287,11 @@
 			children = (
 				C357FCCE2521C7F300D61651 /* TextFieldWithIcon.swift */,
 				C357FCE02521D7E500D61651 /* ButtonWithBackground.swift */,
+				C3D7F32B252515B300D44576 /* QuestRow.swift */,
+				C39F5EEB2529F6E2008E04BD /* MainSkillPoint.swift */,
+				C39F5EEF2529F7B3008E04BD /* SkillPoint.swift */,
+				C364A31025330D3200ABB2D4 /* TopMenu.swift */,
+				C3F038342535990600DEA541 /* ProgressBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,8 +301,67 @@
 			children = (
 				C357FC8B2521079800D61651 /* DashboardView.swift */,
 				C357FCDC2521D76E00D61651 /* DashboardViewModel.swift */,
+				C3D7F32E2525276800D44576 /* MissionListView.swift */,
+				C3D7F3312525278700D44576 /* MissionListViewModel.swift */,
+				C39F5EF22529FA80008E04BD /* MissionDetailView.swift */,
+				C39F5EE52529F019008E04BD /* ActiveQuestsView.swift */,
+				C39F5EE82529F027008E04BD /* PreparedQuestsView.swift */,
+				C39F5EE22529EFF6008E04BD /* FinishedQuestsView.swift */,
+				C3D8E8A42531A70A009A95A7 /* QuestDetailView.swift */,
+				C3D8E8A72531A71C009A95A7 /* QuestDetailViewModel.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		C357FCE32521E33E00D61651 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C357FCBA2521141400D61651 /* LoginRequest.swift */,
+				C357FCBE2521142900D61651 /* LoginResponse.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C357FCE42521E34E00D61651 /* Missions */ = {
+			isa = PBXGroup;
+			children = (
+				C357FCE52521E37700D61651 /* MissionRequest.swift */,
+				C357FCE82521E38100D61651 /* MissionResponse.swift */,
+			);
+			path = Missions;
+			sourceTree = "<group>";
+		};
+		C357FCF12521F82F00D61651 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				C357FCF42521F87400D61651 /* StoryView.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		C357FCF22521F84900D61651 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C357FCF82521F94B00D61651 /* LibraryView.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		C357FCF32521F85000D61651 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C357FCFB2521F98000D61651 /* StoreView.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		C3D8E8AA2531A79C009A95A7 /* Quests */ = {
+			isa = PBXGroup;
+			children = (
+				C3D8E8AC2531A7D9009A95A7 /* QuestRequest.swift */,
+				C3D8E8AF2531A7E2009A95A7 /* QuestResponse.swift */,
+			);
+			path = Quests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,22 +481,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D8E8B02531A7E2009A95A7 /* QuestResponse.swift in Sources */,
+				C357FCFC2521F98000D61651 /* StoreView.swift in Sources */,
+				C39F5EEC2529F6E2008E04BD /* MainSkillPoint.swift in Sources */,
+				C39F5EF32529FA80008E04BD /* MissionDetailView.swift in Sources */,
+				C39F5EE62529F019008E04BD /* ActiveQuestsView.swift in Sources */,
 				C357FCC72521150800D61651 /* Shared.swift in Sources */,
+				C3D7F32F2525276800D44576 /* MissionListView.swift in Sources */,
+				C364A31125330D3200ABB2D4 /* TopMenu.swift in Sources */,
 				C357FC9F252111A800D61651 /* AuthenticatedProvider.swift in Sources */,
+				C39F5EF02529F7B3008E04BD /* SkillPoint.swift in Sources */,
+				C3D8E8B62531AA94009A95A7 /* QuestsTarget.swift in Sources */,
+				C3D8E8BE2531BA84009A95A7 /* NavigationBarModifier.swift in Sources */,
+				C3D8E8AD2531A7D9009A95A7 /* QuestRequest.swift in Sources */,
 				C357FCA52521122000D61651 /* CurrentUserManager.swift in Sources */,
+				C3D8E8A22531A29B009A95A7 /* Int+TimeFormatting.swift in Sources */,
+				C3D8E8B32531AA7C009A95A7 /* QuestsService.swift in Sources */,
+				C357FCF52521F87400D61651 /* StoryView.swift in Sources */,
 				C357FC6C2520FABA00D61651 /* ContentView.swift in Sources */,
 				C357FCBB2521141400D61651 /* LoginRequest.swift in Sources */,
 				C357FCAB252112BB00D61651 /* AuthService.swift in Sources */,
 				C357FCDD2521D76E00D61651 /* DashboardViewModel.swift in Sources */,
 				C357FC8C2521079800D61651 /* DashboardView.swift in Sources */,
+				C39F5EE32529EFF6008E04BD /* FinishedQuestsView.swift in Sources */,
 				C357FC6A2520FABA00D61651 /* MarketGuardsApp.swift in Sources */,
 				C357FCCF2521C7F300D61651 /* TextFieldWithIcon.swift in Sources */,
+				C3D8E8A82531A71C009A95A7 /* QuestDetailViewModel.swift in Sources */,
 				C357FCC3252114B800D61651 /* String+Encrypting.swift in Sources */,
+				C3D8E8A52531A70A009A95A7 /* QuestDetailView.swift in Sources */,
+				C39F5EE92529F027008E04BD /* PreparedQuestsView.swift in Sources */,
+				C357FCEF2521F11C00D61651 /* MissionsTarget.swift in Sources */,
 				C357FCB22521136E00D61651 /* LoginView.swift in Sources */,
 				C357FCAF252112D600D61651 /* AuthTarget.swift in Sources */,
 				C357FCE12521D7E500D61651 /* ButtonWithBackground.swift in Sources */,
 				C357FCBF2521142900D61651 /* LoginResponse.swift in Sources */,
+				C3F038352535990600DEA541 /* ProgressBar.swift in Sources */,
+				C357FCE92521E38100D61651 /* MissionResponse.swift in Sources */,
+				C3D7F32C252515B300D44576 /* QuestRow.swift in Sources */,
+				C357FCF92521F94B00D61651 /* LibraryView.swift in Sources */,
+				C357FCE62521E37700D61651 /* MissionRequest.swift in Sources */,
 				C357FCB62521139500D61651 /* LoginViewModel.swift in Sources */,
+				C357FCEC2521F0F600D61651 /* MissionsService.swift in Sources */,
+				C3D7F3322525278700D44576 /* MissionListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
