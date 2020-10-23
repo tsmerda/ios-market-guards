@@ -11,7 +11,7 @@ import Foundation
 class MissionListViewModel: ObservableObject {
     @Published var missionsPreview: [MissionsPreviewResponse]?
     
-    let service = MissionsService()
+    private let service = MissionsService()
     
     func fetchMissionsPreviewData() {
         service.fetchMissionsPreview { [weak self] result in

@@ -12,7 +12,7 @@ class QuestDetailViewModel: ObservableObject {
     @Published var questDetail: QuestDetailResponse?
     @Published var questId: Int?
     
-    let service = QuestsService()
+    private let service = QuestsService()
     
     func fetchQuestDetailData(questId: Int) {
         service.fetchQuestDetail(questId: questId) { [weak self] result in

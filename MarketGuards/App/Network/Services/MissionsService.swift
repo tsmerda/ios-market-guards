@@ -23,12 +23,11 @@ class MissionsService {
                     completion(.success(preview))
                 } catch {
                     print("Failed decoding with: \(error.localizedDescription)")
-                    //failed decoding or 500 response code.., user wouldn't understand the error message so just show them something  generic
                     completion(.failure(.generic))
                 }
                 
             case .failure(let error):
-                completion(.failure(.underlying(error))) //most likely a network error, user should understand this error
+                completion(.failure(.underlying(error)))
             }
         }
     }
@@ -44,12 +43,11 @@ class MissionsService {
                     completion(.success(preview))
                 } catch {
                     print("Failed decoding with: \(error.localizedDescription)")
-                    //failed decoding or 500 response code.., user wouldn't understand the error message so just show them something  generic
                     completion(.failure(.generic))
                 }
                 
             case .failure(let error):
-                completion(.failure(.underlying(error))) //most likely a network error, user should understand this error
+                completion(.failure(.underlying(error)))
             }
         }
     }

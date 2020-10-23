@@ -26,8 +26,8 @@ class DashboardViewModel: ObservableObject {
     @Published var missionDetail: MissionDetailResponse?
     @Published var missionId: Int?
     
-    let service = MissionsService()
-    
+    private let service = MissionsService()
+
     func fetchMissionDetailData(missionId: Int) {
         service.fetchMissionDetail(missionId: missionId) { [weak self] result in
             switch result {
@@ -39,8 +39,9 @@ class DashboardViewModel: ObservableObject {
             }
         }
     }
-    
+
     init() {
         fetchMissionDetailData(missionId: missionId ?? 0)
     }
+    
 }

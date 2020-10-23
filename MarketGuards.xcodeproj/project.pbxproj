@@ -36,6 +36,8 @@
 		C357FCF92521F94B00D61651 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCF82521F94B00D61651 /* LibraryView.swift */; };
 		C357FCFC2521F98000D61651 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357FCFB2521F98000D61651 /* StoreView.swift */; };
 		C364A31125330D3200ABB2D4 /* TopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364A31025330D3200ABB2D4 /* TopMenu.swift */; };
+		C364C2652542F8A10048B7B6 /* QuestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C2642542F8A10048B7B6 /* QuestType.swift */; };
+		C364C2682542F9820048B7B6 /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C2672542F9820048B7B6 /* BottomMenu.swift */; };
 		C39F5EE32529EFF6008E04BD /* FinishedQuestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EE22529EFF6008E04BD /* FinishedQuestsView.swift */; };
 		C39F5EE62529F019008E04BD /* ActiveQuestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EE52529F019008E04BD /* ActiveQuestsView.swift */; };
 		C39F5EE92529F027008E04BD /* PreparedQuestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EE82529F027008E04BD /* PreparedQuestsView.swift */; };
@@ -91,6 +93,8 @@
 		C357FCF82521F94B00D61651 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		C357FCFB2521F98000D61651 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		C364A31025330D3200ABB2D4 /* TopMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenu.swift; sourceTree = "<group>"; };
+		C364C2642542F8A10048B7B6 /* QuestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestType.swift; sourceTree = "<group>"; };
+		C364C2672542F9820048B7B6 /* BottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenu.swift; sourceTree = "<group>"; };
 		C39F5EE22529EFF6008E04BD /* FinishedQuestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedQuestsView.swift; sourceTree = "<group>"; };
 		C39F5EE52529F019008E04BD /* ActiveQuestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveQuestsView.swift; sourceTree = "<group>"; };
 		C39F5EE82529F027008E04BD /* PreparedQuestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparedQuestsView.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				C357FC692520FABA00D61651 /* MarketGuardsApp.swift */,
+				C364C2632542F8820048B7B6 /* Enums */,
+				C364C2622542F2410048B7B6 /* Modifiers */,
 				C357FCA3252111F100D61651 /* Base */,
 				C357FCCD2521C7BB00D61651 /* Views */,
 				C357FCC12521149F00D61651 /* Extensions */,
@@ -277,7 +283,6 @@
 			children = (
 				C357FCC2252114B800D61651 /* String+Encrypting.swift */,
 				C3D8E8A12531A29B009A95A7 /* Int+TimeFormatting.swift */,
-				C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +358,23 @@
 				C357FCFB2521F98000D61651 /* StoreView.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		C364C2622542F2410048B7B6 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		C364C2632542F8820048B7B6 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C364C2642542F8A10048B7B6 /* QuestType.swift */,
+				C364C2672542F9820048B7B6 /* BottomMenu.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		C3D8E8AA2531A79C009A95A7 /* Quests */ = {
@@ -490,6 +512,7 @@
 				C3D7F32F2525276800D44576 /* MissionListView.swift in Sources */,
 				C364A31125330D3200ABB2D4 /* TopMenu.swift in Sources */,
 				C357FC9F252111A800D61651 /* AuthenticatedProvider.swift in Sources */,
+				C364C2652542F8A10048B7B6 /* QuestType.swift in Sources */,
 				C39F5EF02529F7B3008E04BD /* SkillPoint.swift in Sources */,
 				C3D8E8B62531AA94009A95A7 /* QuestsTarget.swift in Sources */,
 				C3D8E8BE2531BA84009A95A7 /* NavigationBarModifier.swift in Sources */,
@@ -509,6 +532,7 @@
 				C3D8E8A82531A71C009A95A7 /* QuestDetailViewModel.swift in Sources */,
 				C357FCC3252114B800D61651 /* String+Encrypting.swift in Sources */,
 				C3D8E8A52531A70A009A95A7 /* QuestDetailView.swift in Sources */,
+				C364C2682542F9820048B7B6 /* BottomMenu.swift in Sources */,
 				C39F5EE92529F027008E04BD /* PreparedQuestsView.swift in Sources */,
 				C357FCEF2521F11C00D61651 /* MissionsTarget.swift in Sources */,
 				C357FCB22521136E00D61651 /* LoginView.swift in Sources */,
@@ -592,7 +616,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -647,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

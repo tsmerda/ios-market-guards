@@ -12,7 +12,7 @@ enum MenuType {
     case dashboard
     case questDetail
     
-    var topMenu: Array<String> {
+    var topMenu: [String] {
         switch self {
         case .dashboard:
             return ["missions_active","missions_prepared","missions_finished"]

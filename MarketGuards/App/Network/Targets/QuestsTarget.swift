@@ -11,7 +11,7 @@ import Moya
 enum QuestsTarget: TargetType, AccessTokenAuthorizable {
     
     case questPatch(QuestRequest)
-    case questDetail(QuestRequest)
+    case questDetail(Int)
     
     var baseURL: URL {
         return Shared.shared.baseUrl.appendingPathComponent("quests")
@@ -22,7 +22,7 @@ enum QuestsTarget: TargetType, AccessTokenAuthorizable {
         case .questPatch(let request):
             return "\(request.questId)/\(request.action)"
         case .questDetail(let request):
-            return "\(request.questId)"
+            return "\(request)"
         }
     }
     
