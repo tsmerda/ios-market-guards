@@ -16,32 +16,31 @@ struct QuestRow: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text("| \(quest.title.uppercased())")
-                    .font(.system(size: 20))
+                    .font(headline)
                     .foregroundColor(Color("mainExtraLight"))
-                    .padding(.bottom, 8)
                 
                 Text(quest.story)
                     .lineLimit(1)
-                    .font(.system(size: 14))
+                    .font(footnote)
                     .foregroundColor(Color("mainExtraLight"))
                 
                 // TODO - resolve rsponsiveness for multiple skillpoints.
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 4) {
                     MainSkillPoint(experiences: quest.experiences, bonusExperiences: quest.bonusExperiences ?? 0)
-                    HStack(spacing: 8) {
+                    HStack(spacing: 4) {
                         ForEach(quest.questSkillDtos) { skill in
                             SkillPoint(code: skill.code, experiences: skill.experiences, bonusExperiences: skill.bonusExperiences)
                         }
                     }
-                }.padding(.vertical, 4)
+                }
                 
-                HStack(spacing: 4) {
+                HStack(spacing: 2) {
                     Image(type.timeIcon)
                     
                     Text(type.time)
-                        .font(.system(size: 12))
+                        .font(caption)
                         .multilineTextAlignment(.trailing)
                 }
                 .foregroundColor(Color(type.timeColor))

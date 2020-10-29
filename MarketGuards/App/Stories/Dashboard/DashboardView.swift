@@ -10,11 +10,10 @@ import SwiftUI
 
 struct DashboardView: View {
     @State var topIndex = 0
-    @ObservedObject var viewModel = DashboardViewModel()
+    @StateObject var viewModel = DashboardViewModel()
     @State private var isMissionListPresented = false
     @State private var isMissionDetailPresented = false
-    @State private var missionImage = ""
-    @State private var missionId = 0
+    @State private var missionId: Int = 0
     
     var body: some View {
         ScrollView {
@@ -31,7 +30,7 @@ struct DashboardView: View {
                             .background(Color("negativeSemi").opacity(0.5))
                             .clipShape(Circle())
                     }
-                    .sheet(isPresented: $isMissionListPresented, onDismiss: {viewModel.fetchMissionDetailData(missionId: missionId)}, content: { MissionsListView(isMissionsListPresented: $isMissionListPresented, missionId: $missionId, missionImage: $missionImage) })
+                    .sheet(isPresented: $isMissionListPresented, onDismiss: {viewModel.fetchMissionDetailData(missionId: missionId)}, content: { MissionsListView(isMissionsListPresented: $isMissionListPresented, missionId: $missionId) })
                     
                     Spacer()
                     
@@ -50,14 +49,14 @@ struct DashboardView: View {
                 }
                 .padding(.bottom, 16)
                 
-                Text(viewModel.missionDetail?.title ?? "Všechny questy")
-                    .font(.system(size: 32, weight: .light))
+                Text(viewModel.missionDetail?.title?.uppercased() ?? "Všechny questy".uppercased())
+                    .font(largeTitle)
                     .foregroundColor(Color("mainExtraLight"))
                 
                 if viewModel.missionDetail?.id != nil {
                     Text(viewModel.missionDetail?.story ?? "")
+                        .font(footnote)
                         .lineLimit(2)
-                        .font(.system(size: 16, weight: .light))
                         .foregroundColor(Color("mainExtraLight"))
                         .opacity(0.6)
                     
@@ -66,17 +65,17 @@ struct DashboardView: View {
                     }) {
                         HStack {
                             Text("missions_show_more")
-                                .font(.system(size: 17, weight: .regular))
+                                .font(caption)
                                 .foregroundColor(Color("mainExtraLight"))
-                                .padding(.horizontal, 24.0)
-                                .padding(.vertical, 8)
+                                .padding(.horizontal, 16.0)
+                                .padding(.vertical, 4)
                                 .background(Color("mainExtraLightExtraLow"))
                                 .cornerRadius(30)
                         }
                     }
                     .padding(.top, 16)
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .sheet(isPresented: $isMissionDetailPresented, content: { MissionDetailView(missionDetail: $viewModel.missionDetail, isMissionDetailPresented: $isMissionDetailPresented, missionImage: $missionImage) })
+                    .sheet(isPresented: $isMissionDetailPresented, content: { MissionDetailView(missionDetail: $viewModel.missionDetail, isMissionDetailPresented: $isMissionDetailPresented) })
                 }
                 
                 Divider()
@@ -92,7 +91,7 @@ struct DashboardView: View {
                 
                 if topIndex == 0 {
                     Section(header: Text("missions_active_quests")
-                                .font(.system(size: 12, weight: .bold))
+                                .font(caption).bold()
                                 .foregroundColor(Color("mainExtraLight"))
                                 .padding(.bottom)) {
                         ActiveQuestsView(missionDetail: $viewModel.missionDetail)
@@ -100,7 +99,7 @@ struct DashboardView: View {
                 }
                 if topIndex == 1 {
                     Section(header: Text("missions_prepared_quests")
-                                .font(.system(size: 12, weight: .bold))
+                                .font(caption).bold()
                                 .foregroundColor(Color("mainExtraLight"))
                                 .padding(.bottom)) {
                         PreparedQuestsView(missionDetail: $viewModel.missionDetail)
@@ -108,7 +107,7 @@ struct DashboardView: View {
                 }
                 if topIndex == 2 {
                     Section(header:  Text("missions_finished_quests")
-                                .font(.system(size: 12, weight: .bold))
+                                .font(caption).bold()
                                 .foregroundColor(Color("mainExtraLight"))
                                 .padding(.bottom)) {
                         FinishedQuestsView(missionDetail: $viewModel.missionDetail)
@@ -116,6 +115,9 @@ struct DashboardView: View {
                 }
             }
             .padding(16)
+        }
+        .onAppear() {
+            viewModel.fetchMissionDetailData(missionId: missionId)
         }
         .background(
             ZStack {
@@ -128,8 +130,8 @@ struct DashboardView: View {
     }
 }
 
-struct DashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        DashboardView()
-    }
-}
+//struct DashboardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DashboardView()
+//    }
+//}

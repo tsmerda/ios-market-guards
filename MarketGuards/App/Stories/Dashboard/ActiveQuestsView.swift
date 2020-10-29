@@ -14,7 +14,7 @@ struct ActiveQuestsView: View {
     var body: some View {
         if missionDetail?.activeQuests.isEmpty ?? true {
             Text("missions_no_active_quests")
-                .font(.system(size: 14))
+                .font(footnote)
                 .foregroundColor(Color("disabled"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom)

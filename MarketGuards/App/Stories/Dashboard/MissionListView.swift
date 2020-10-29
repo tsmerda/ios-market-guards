@@ -9,61 +9,55 @@
 import SwiftUI
 
 struct MissionsListView: View {
-    @ObservedObject var viewModel = MissionListViewModel()
-    @ObservedObject var dashboardViewModel = DashboardViewModel()
+    @StateObject var viewModel = MissionListViewModel()
     @Binding var isMissionsListPresented: Bool
     @Binding var missionId: Int
-    @Binding var missionImage: String
     
     var body: some View {
         NavigationView {
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    ForEach(viewModel.missionsPreview ?? []) { mission in
-                        
-                        // TODO: Add component/subview MissionListRowView
-                        // TODO: Add background for selected rows
-                        
-                        Button {
-                            if mission.totalQuests != nil {
-                                dashboardViewModel.missionId = mission.id
-                                missionId = mission.id ?? 0
-                                missionImage = mission.missionType.code ?? ""
-                                isMissionsListPresented.toggle()
-                            }
-                        } label: {
-                            if mission.totalQuests != nil {
-                                if (self.viewModel.isFinished(totalQuests: mission.totalQuests ?? 0, finishedQuests: mission.finishedQuests ?? 0)) {
-                                    HStack {
-                                        Text("\(mission.missionType.id ?? 0). ") + Text(mission.title)
-                                        Spacer()
-                                        Image("ok")
-                                    }
-                                    .foregroundColor(Color("success"))
-                                } else {
-                                    HStack {
-                                        Text("\(mission.missionType.id ?? 0). ") + Text(mission.title)
-                                        Spacer()
-                                        Text("\(mission.finishedQuests ?? 0) / \(mission.totalQuests ?? 0)")
-                                        Image("finished_quests")
-                                    }
-                                    .foregroundColor(Color("main"))
+            VStack {
+                Button {
+                    missionId = 0
+                    isMissionsListPresented.toggle()
+                } label: {
+                    HStack {
+                        Text("missions_all_quests")
+                        Spacer()
+                        Text("\(viewModel.finishedQuestsCount()) / \(viewModel.totalQuestsCount())")
+                        Image("remaining_time")
+                    }
+                    .font(callout)
+                    .foregroundColor(Color("main"))
+                }
+                .padding(.bottom, 8)
+                
+                Divider()
+                    .background(Color("mainLow"))
+                Divider()
+                    .background(Color("mainLow"))
+                    .padding(.bottom, 2)
+                
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 12) {
+                        ForEach(viewModel.missionsPreview ?? []) { mission in
+                            // TODO: Add sign / background for selected rows (NICE TO HAVE)
+                            Button {
+                                if mission.totalQuests != nil {
+                                    missionId = mission.id ?? 0
+                                    isMissionsListPresented.toggle()
                                 }
-                            } else {
-                                HStack {
-                                    Text("\(mission.missionType.id ?? 0). \(mission.title)")
-                                    Spacer()
-                                    Image("lock")
-                                }
-                                .foregroundColor(Color("disabled"))
+                            } label: {
+                                MissionRow(title: "\(mission.missionType.id ?? 0). \(mission.title)", totalQuests: mission.totalQuests ?? 0, finishedQuests: mission.finishedQuests ?? 0)
                             }
+                            Divider()
+                                .background(Color("mainLow"))
                         }
-                        Divider()
-                            .background(Color("mainLow"))
                     }
                     Spacer()
-                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-            }.padding()
+                }
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            }
+            .padding()
             .background(Color("negative"))
             .navigationBarTitle(Text("missions_missions_list"), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)

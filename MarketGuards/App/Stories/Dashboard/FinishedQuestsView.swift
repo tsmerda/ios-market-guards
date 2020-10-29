@@ -14,7 +14,7 @@ struct FinishedQuestsView: View {
     var body: some View {
         if missionDetail?.finishedQuests.isEmpty ?? true {
             Text("missions_no_finished_quests")
-                .font(.system(size: 14))
+                .font(footnote)
                 .foregroundColor(Color("disabled"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom)

@@ -33,8 +33,7 @@ struct TopMenu: View {
         } label: {
             ZStack {
                 Text(LocalizedStringKey(menuType.topMenu[menu]))
-                    .font(.system(size: 16))
-                    .fontWeight(index == menu ? .bold : .none)
+                    .font(subhead).bold()
                     .foregroundColor(index == menu ? Color("mainExtraLight") : Color("disabled"))
                 
                 Rectangle()

@@ -26,22 +26,24 @@ class DashboardViewModel: ObservableObject {
     @Published var missionDetail: MissionDetailResponse?
     @Published var missionId: Int?
     
-    private let service = MissionsService()
-
+    private var service = MissionsService()
+    
     func fetchMissionDetailData(missionId: Int) {
         service.fetchMissionDetail(missionId: missionId) { [weak self] result in
             switch result {
             case .success(let response):
                 self?.missionDetail = response
-                print(response)
             case .failure(let error):
                 print("Failed fetch response with: \(error.localizedDescription)")
             }
         }
     }
-
-    init() {
-        fetchMissionDetailData(missionId: missionId ?? 0)
+    
+    convenience init() {
+        self.init(service: MissionsService())
     }
     
+    init(service: MissionsService) {
+        self.service = service
+    }
 }

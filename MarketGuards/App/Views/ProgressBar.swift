@@ -12,6 +12,7 @@ struct ProgressBar: View {
     @Binding var value: CGFloat
     @Binding var maxValue: CGFloat
     @State var color: String = "main"
+    @State var isShowing = false
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -23,12 +24,14 @@ struct ProgressBar: View {
                     Capsule()
                         .foregroundColor(Color(color))
                         .shadow(color: Color(color), radius: 5)
-                        .frame(width: geometryReader.size.width * (value / maxValue))
+                        .frame(width: self.isShowing ? geometryReader.size.width * (value / maxValue) : 0)
+                        .animation(.easeOut(duration: 0.5))
                 }
-                // TODO - resolve animation bug
-                //                    .animation(.easeIn(duration: 1))
             }
             .frame(height: 12)
+        }
+        .onAppear {
+            self.isShowing = true
         }
     }
 }

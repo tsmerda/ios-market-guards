@@ -26,12 +26,14 @@ struct TextFieldWithIcon: View {
                     Image(imageName)
                         .foregroundColor(Color("main"))
                     TextField(label, text: $text)
+                        .font(callout)
                         .foregroundColor(Color("main"))
                         .autocapitalization(.none)
                 } else if (type == .secured) {
                     Image(imageName)
                         .foregroundColor(Color("main"))
                     SecureField(label, text: $text)
+                        .font(callout)
                         .foregroundColor(Color("main"))
                         .autocapitalization(.none)
                 }

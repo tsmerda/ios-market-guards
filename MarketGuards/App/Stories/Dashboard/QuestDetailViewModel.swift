@@ -10,9 +10,8 @@ import Foundation
 
 class QuestDetailViewModel: ObservableObject {
     @Published var questDetail: QuestDetailResponse?
-    @Published var questId: Int?
     
-    private let service = QuestsService()
+    private var service = QuestsService()
     
     func fetchQuestDetailData(questId: Int) {
         service.fetchQuestDetail(questId: questId) { [weak self] result in
@@ -28,11 +27,19 @@ class QuestDetailViewModel: ObservableObject {
     func patchQuestDetail(questId: Int, action: String) {
         service.patchQuestDetail(questId: questId, action: action) { [weak self] result in
             switch result {
-            case .success(let response):
-                print(response)
+            case .success:
+                break
             case .failure(let error):
                 print("Failed fetch response with: \(error.localizedDescription)")
             }
         }
+    }
+    
+    convenience init() {
+        self.init(service: QuestsService())
+    }
+    
+    init(service: QuestsService) {
+        self.service = service
     }
 }

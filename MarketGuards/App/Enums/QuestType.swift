@@ -45,26 +45,4 @@ enum QuestType {
             return "successLight"
         }
     }
-    
-    var buttonText: LocalizedStringKey {
-        switch self {
-        case .prepared:
-            return "quests_start_quest"
-        case .active:
-            return "quests_finish_quest"
-        case .finished:
-            return ""
-        }
-    }
-    
-    var buttonAction: String {
-        switch self {
-        case .prepared:
-            return "activate"
-        case .active:
-            return "finish"
-        case .finished:
-            return ""
-        }
-    }
 }

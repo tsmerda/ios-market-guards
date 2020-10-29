@@ -14,7 +14,7 @@ struct PreparedQuestsView: View {
     var body: some View {
         if missionDetail?.preparedQuests.isEmpty ?? true {
             Text("missions_no_prepared_quests")
-                .font(.system(size: 14))
+                .font(footnote)
                 .foregroundColor(Color("disabled"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom)

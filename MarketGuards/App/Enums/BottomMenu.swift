@@ -14,7 +14,7 @@ enum BottomMenu {
     case library
     case store
     
-    var imageName: String {
+    private var imageName: String {
         switch self {
         case .dashboard:
             return "person"
@@ -27,7 +27,7 @@ enum BottomMenu {
         }
     }
     
-    var imageNameSelected: String {
+    private var imageNameSelected: String {
         return imageName + ".fill"
     }
     

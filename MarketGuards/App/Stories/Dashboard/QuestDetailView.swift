@@ -11,7 +11,7 @@ import SwiftUI
 struct QuestDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var topIndex = 0
-    @State var viewModel = QuestDetailViewModel()
+    @StateObject var viewModel = QuestDetailViewModel()
     @State var questId: Int
     @State private var textFieldValue: String = ""
     @State var type: QuestType
@@ -19,34 +19,34 @@ struct QuestDetailView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text(self.viewModel.questDetail?.title.uppercased() ?? "")
-                        .font(.system(size: 32))
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(title)
                         .foregroundColor(Color("mainExtraLight"))
+                        .padding(.bottom, 12)
                     
                     Text(viewModel.questDetail?.missionTitle ?? "")
-                        .font(.system(size: 12))
+                        .font(footnote)
                         .foregroundColor(Color("mainLight"))
-                        .padding(.bottom, 4)
                     
                     Text(type.time)
-                        .font(.system(size: 16))
+                        .font(subhead)
                         .foregroundColor(Color("warning"))
-                        .padding(.bottom, 4)
                     
                     Text(viewModel.questDetail?.story ?? "")
-                        .font(.system(size: 16))
+                        .font(subhead)
                         .foregroundColor(Color("main"))
-                        .padding(.bottom, 8)
                 }
                 
-                if (type.buttonAction == "activate") || (type.buttonAction == "finish") {
+                if (viewModel.questDetail?.finished == nil) {
                     Button(action: {
-                        viewModel.patchQuestDetail(questId: questId, action: type.buttonAction)
-                        viewModel.fetchQuestDetailData(questId: questId) //fix !!!
-                        
+                        viewModel.patchQuestDetail(questId: questId, action: (viewModel.questDetail?.activated == nil) ? "activate" : "finish")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            viewModel.fetchQuestDetailData(questId: questId)
+                        }
                     }) {
-                        ButtonWithBackground(text: type.buttonText, color: "pureBlack" ,backgroundColor: "main")
+                        ButtonWithBackground(text: (viewModel.questDetail?.activated == nil) ? "quests_start_quest" : "quests_finish_quest", color: "pureBlack" ,backgroundColor: "main")
                             .padding(.top)
                             .frame(width: 200)
                     }
@@ -66,25 +66,23 @@ struct QuestDetailView: View {
                 
                 HStack {
                     if topIndex == 0 {
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text("quests_skills")
-                                .font(.system(size: 16, weight: .bold))
+                                .font(callout).bold()
                                 .foregroundColor(Color("mainExtraLight"))
-                                .padding(.bottom, 8)
                             
                             Text("quests_finished_quest_points")
-                                .font(.system(size: 16, weight: .regular))
+                                .font(subhead)
                                 .foregroundColor(Color("mainExtraLight"))
-                                .padding(.bottom, 4)
                             
                             Text("quests_finished_quest_points_subtitle")
-                                .font(.system(size: 12))
+                                .font(caption)
                                 .foregroundColor(Color("mainLight"))
                             
                             HStack {
                                 MainSkillPoint(experiences: viewModel.questDetail?.experiences, bonusExperiences: viewModel.questDetail?.bonusExperiences)
                                 Text("quests_experiences")
-                                    .font(.system(size: 12))
+                                    .font(caption)
                                     .foregroundColor(Color("mainExtraLight"))
                             }
                             
@@ -93,8 +91,8 @@ struct QuestDetailView: View {
                                     HStack {
                                         SkillPoint(code: skill.code, experiences: subskill.experiences, bonusExperiences: subskill.bonusExperiences)
                                         
-                                        Text("subskills_\(subskill.code)")
-                                            .font(.system(size: 12))
+                                        Text(LocalizedStringKey(subskill.code))
+                                            .font(caption)
                                             .foregroundColor(Color("mainExtraLight"))
                                     }
                                 }
@@ -103,18 +101,17 @@ struct QuestDetailView: View {
                     }
                     
                     if topIndex == 1 {
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text("quests_statistics")
-                                .font(.system(size: 16, weight: .bold))
+                                .font(callout).bold()
                                 .foregroundColor(Color("mainExtraLight"))
-                                .padding(.bottom, 8)
                             
                             Text("quests_average_time")
-                                .font(.system(size: 14))
+                                .font(subhead)
                                 .foregroundColor(Color("mainExtraLight"))
                             
                             Text("\(viewModel.questDetail?.averageTime ?? 0) / \(viewModel.questDetail?.timeToFinish ?? 0)")
-                                .font(.system(size: 14))
+                                .font(subhead)
                                 .foregroundColor(Color("mainLight"))
                             
                             ProgressBar(value: .constant(CGFloat(viewModel.questDetail?.averageTime ?? 0)), maxValue: .constant(CGFloat(viewModel.questDetail?.timeToFinish ?? 0)),
@@ -123,15 +120,14 @@ struct QuestDetailView: View {
                     }
                     
                     if topIndex == 2 {
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text("quests_notes")
-                                .font(.system(size: 16, weight: .bold))
+                                .font(callout).bold()
                                 .foregroundColor(Color("mainExtraLight"))
-                                .padding(.bottom, 8)
                             
                             TextField("quests_notes_placeholder", text: $textFieldValue)
                                 .padding(8)
-                                .font(.system(size: 16))
+                                .font(footnote)
                                 .foregroundColor(Color("mainExtraLightLow"))
                                 .frame(maxWidth: .infinity)
                                 .border(Color("mainLow"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
@@ -142,7 +138,9 @@ struct QuestDetailView: View {
             }
             .padding(16)
         }
-        .onAppear() { viewModel.fetchQuestDetailData(questId: questId)} // fix !!!
+        .onAppear() {
+            viewModel.fetchQuestDetailData(questId: questId)
+        }
         .background(
             ZStack {
                 Color("negative")
