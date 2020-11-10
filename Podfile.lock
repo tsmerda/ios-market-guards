@@ -1,22 +1,26 @@
 PODS:
   - Alamofire (5.2.2)
+  - JWTDecode (2.5.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
 
 DEPENDENCIES:
+  - JWTDecode (~> 2.4)
   - Moya
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - JWTDecode
     - Moya
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  JWTDecode: d4c176a28a29f7e6f9abf5c90ad3002f69b98c7c
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
 
-PODFILE CHECKSUM: 893c1374056a0f51e04f08872b927244a30e57c2
+PODFILE CHECKSUM: ee76158e3684b8242b5f23417893ce324094423f
 
 COCOAPODS: 1.9.3
