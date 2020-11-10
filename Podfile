@@ -7,4 +7,5 @@ target 'MarketGuards' do
 
   # Pods for MarketGuards
 pod 'Moya'
+pod 'JWTDecode', '~> 2.4'
 end
