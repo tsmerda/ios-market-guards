@@ -18,7 +18,7 @@ struct ButtonWithBackground: View {
             Text(text)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .frame(height: 40.0)
-                .font(headline)
+                .font(.chakraPetchSemiBold(size: 17))
                 .foregroundColor(Color(color))
                 .background(Color(backgroundColor))
                 .cornerRadius(30.0)

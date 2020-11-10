@@ -9,6 +9,8 @@
 "login" = "Přihlásit se";
 "password" = "Heslo";
 
+"done" = "Hotovo";
+
 "dashboard" = "Základna";
 "story" = "Můj příběh";
 "library" = "Knihovna";
@@ -38,15 +40,17 @@
 "quests_skills" = "Dovednosti";
 "quests_start_quest" = "Spustit quest";
 "quests_finish_quest" = "Splnit quest";
-"quests_remaining_time %lld" = "Zbývající čas: %lld";
+"quests_remaining_time" = "Zbývající čas:";
+"quests_time_to_finish" = "Čas na splnění:";
+"quests_finished" = "Splněno:";
 "quests_notes_placeholder" = "Zde si můžeš psát poznámky k plnění questu.";
-
+"quests_notes_saved" = "Automaticky uloženo";
 
 "acquisitions" = "Akvizice";
 "administration" = "Administrativa";
 "business" = "Business";
 "clientContacting" = "Kontaktování klientů";
-"communication" = "Communication";
+"communication" = "Komunikace";
 "conductingMeetings" = "Vedení porad";
 "coworkers" = "Strážci Trhu";
 "coworkerContacting" = "Kontaktování Strážců";

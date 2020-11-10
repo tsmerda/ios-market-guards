@@ -12,8 +12,30 @@ import Moya
 class QuestsService {
     let provider = AuthenticatedProvider<QuestsTarget>.buildProvider()
     
-    func patchQuestDetail(questId: Int, action: String, completion: @escaping (Result<Void, MissionsError>) -> Void) {
-        provider.request(.questPatch(QuestRequest(questId: questId, action: action))) { result in
+    func patchQuestDetail(id: Int, note: String, completion: @escaping (Result<Void, MissionsError>) -> Void) {
+        provider.request(.questPatch(QuestRequest(id: id, note: note))) { result in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                completion(.failure(.underlying(error)))
+            }
+        }
+    }
+    
+    func patchActivateQuest(questId: Int, completion: @escaping (Result<Void, MissionsError>) -> Void) {
+        provider.request(.questActivate(questId)) { result in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                completion(.failure(.underlying(error)))
+            }
+        }
+    }
+    
+    func patchFinishQuest(questId: Int, completion: @escaping (Result<Void, MissionsError>) -> Void) {
+        provider.request(.questFinish(questId)) { result in
             switch result {
             case .success:
                 break
@@ -36,7 +58,6 @@ class QuestsService {
                     print("Failed decoding with: \(error.localizedDescription)")
                     completion(.failure(.generic))
                 }
-                
             case .failure(let error):
                 completion(.failure(.underlying(error)))
             }

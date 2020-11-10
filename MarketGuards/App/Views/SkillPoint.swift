@@ -10,24 +10,25 @@ import SwiftUI
 
 struct SkillPoint: View {
     @State var code: String?
+    @State var subSkillCode: String?
     @State var experiences: Int?
     @State var bonusExperiences: Int?
     
     var body: some View {
         HStack(spacing: 4) {
-            Image(code ?? "")
+            Image(subSkillCode ?? code ?? "")
                 .resizable()
                 .frame(width: 24, height: 24)
                 .foregroundColor(Color(code ?? ""))
             
             HStack(spacing: 0) {
                 Text("\(experiences ?? 0)")
-                    .font(caption).bold()
+                    .font(.chakraPetchBold(size: 12))
                     .foregroundColor(Color(code ?? ""))
                 
                 if (bonusExperiences != 0) {
                     Text(" +\(bonusExperiences ?? 0)")
-                        .font(caption).bold()
+                        .font(.chakraPetchBold(size: 12))
                         .foregroundColor(Color("warning"))
                 }
             }

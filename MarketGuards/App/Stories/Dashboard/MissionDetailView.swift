@@ -23,12 +23,12 @@ struct MissionDetailView: View {
                     }.frame(height: 200)
                     
                     Text(missionDetail?.title ?? "")
-                        .font(title)
+                        .font(.chakraPetchRegular(size: 26))
                         .foregroundColor(Color("mainExtraLight"))
                         .padding(.horizontal, 16)
                     
                     Text(missionDetail?.story ?? "")
-                        .font(callout)
+                        .font(.chakraPetchRegular(size: 16))
                         .foregroundColor(Color("main"))
                         .padding(.horizontal, 16)
                 }
@@ -36,11 +36,12 @@ struct MissionDetailView: View {
             .background(Color("negative"))
             .edgesIgnoringSafeArea(.bottom)
             .navigationBarTitle(Text("missions_mission_detail"), displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(trailing: Button {
                 isMissionDetailPresented.toggle()
-            }) {
-                Image("cross")
-                    .foregroundColor(Color("main"))
+            } label: {
+                Text("done")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(Color("mainExtraLight"))
             })
         }
     }

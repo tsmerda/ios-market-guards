@@ -18,63 +18,40 @@ struct DashboardView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                HStack {
-                    Button {
-                        isMissionListPresented.toggle()
-                    } label: {
-                        Image("burger_menu")
-                            .resizable()
-                            .foregroundColor(Color("mainExtraLight"))
-                            .frame(width: 36.0, height: 36.0)
-                            .padding(8)
-                            .background(Color("negativeSemi").opacity(0.5))
-                            .clipShape(Circle())
-                    }
-                    .sheet(isPresented: $isMissionListPresented, onDismiss: {viewModel.fetchMissionDetailData(missionId: missionId)}, content: { MissionsListView(isMissionsListPresented: $isMissionListPresented, missionId: $missionId) })
-                    
-                    Spacer()
-                    
-                    Button {
-                        // self.isUserViewPresented = true
-                    } label: {
-                        Image("user")
-                            .resizable()
-                            .foregroundColor(Color("mainExtraLight"))
-                            .frame(width: 36.0, height: 36.0)
-                            .padding(8)
-                            .background(Color("negativeSemi").opacity(0.5))
-                            .clipShape(Circle())
-                    }
-                    // .sheet(isPresented: $isUserViewPresented, content: { UserProfileView(isUserViewPresented: self.$isUserViewPresented) })
+                Button {
+                    isMissionListPresented.toggle()
+                } label: {
+                    Text("missions_choose_mission")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .frame(height: 30.0)
+                        .font(.chakraPetchSemiBold(size: 15))
+                        .foregroundColor(Color("mainExtraLight"))
+                        .background(Color("mainExtraLightExtraLow"))
+                        .cornerRadius(15)
                 }
+                .padding(.top, 8)
                 .padding(.bottom, 16)
+                .sheet(isPresented: $isMissionListPresented, onDismiss: {viewModel.fetchMissionDetailData(missionId: missionId)}, content: { MissionsListView(isMissionsListPresented: $isMissionListPresented, missionId: $missionId) })
                 
                 Text(viewModel.missionDetail?.title?.uppercased() ?? "Všechny questy".uppercased())
-                    .font(largeTitle)
+                    .font(.chakraPetchRegular(size: 34))
                     .foregroundColor(Color("mainExtraLight"))
                 
                 if viewModel.missionDetail?.id != nil {
                     Text(viewModel.missionDetail?.story ?? "")
-                        .font(footnote)
-                        .lineLimit(2)
+                        .font(.chakraPetchRegular(size: 13))
+                        .lineLimit(4)
                         .foregroundColor(Color("mainExtraLight"))
                         .opacity(0.6)
                     
-                    Button(action: {
+                    Button {
                         isMissionDetailPresented.toggle()
-                    }) {
-                        HStack {
-                            Text("missions_show_more")
-                                .font(caption)
-                                .foregroundColor(Color("mainExtraLight"))
-                                .padding(.horizontal, 16.0)
-                                .padding(.vertical, 4)
-                                .background(Color("mainExtraLightExtraLow"))
-                                .cornerRadius(30)
-                        }
+                    } label: {
+                        Text("missions_show_more")
+                            .font(.chakraPetchRegular(size: 13))
+                            .foregroundColor(Color("main"))
+                            .padding(.top)
                     }
-                    .padding(.top, 16)
-                    .frame(maxWidth: .infinity, alignment: .center)
                     .sheet(isPresented: $isMissionDetailPresented, content: { MissionDetailView(missionDetail: $viewModel.missionDetail, isMissionDetailPresented: $isMissionDetailPresented) })
                 }
                 
@@ -91,7 +68,7 @@ struct DashboardView: View {
                 
                 if topIndex == 0 {
                     Section(header: Text("missions_active_quests")
-                                .font(caption).bold()
+                                .font(.chakraPetchBold(size: 12))
                                 .foregroundColor(Color("mainExtraLight"))
                                 .padding(.bottom)) {
                         ActiveQuestsView(missionDetail: $viewModel.missionDetail)
@@ -99,7 +76,7 @@ struct DashboardView: View {
                 }
                 if topIndex == 1 {
                     Section(header: Text("missions_prepared_quests")
-                                .font(caption).bold()
+                                .font(.chakraPetchBold(size: 12))
                                 .foregroundColor(Color("mainExtraLight"))
                                 .padding(.bottom)) {
                         PreparedQuestsView(missionDetail: $viewModel.missionDetail)
@@ -107,14 +84,14 @@ struct DashboardView: View {
                 }
                 if topIndex == 2 {
                     Section(header:  Text("missions_finished_quests")
-                                .font(caption).bold()
+                                .font(.chakraPetchBold(size: 12))
                                 .foregroundColor(Color("mainExtraLight"))
                                 .padding(.bottom)) {
                         FinishedQuestsView(missionDetail: $viewModel.missionDetail)
                     }
                 }
             }
-            .padding(16)
+            .padding(.horizontal)
         }
         .onAppear() {
             viewModel.fetchMissionDetailData(missionId: missionId)
@@ -123,8 +100,6 @@ struct DashboardView: View {
             ZStack {
                 Color("negative")
             }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
             .edgesIgnoringSafeArea(.vertical)
         )
     }

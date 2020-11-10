@@ -55,7 +55,7 @@ struct MissionDetailQuestsResponse: Codable, Identifiable, Hashable {
     let finished: String?
     let timeToActive: Int?
     let timeToFinish: Int
-    let experiences: Int
+    let experiences: Int?
     let bonusExperiences: Int?
     let difficultyEvaluation: Int?
     let questSkillDtos: [MissionDetailSkillCategoryResponse]
@@ -65,7 +65,7 @@ struct MissionDetailQuestsResponse: Codable, Identifiable, Hashable {
 struct MissionDetailSkillCategoryResponse: Codable, Identifiable, Hashable {
     let id: Int
     let code: String
-    let experiences: Int
+    let experiences: Int?
     let bonusExperiences: Int?
     let questSubSkills: [MissionDetailSkillCategoryResponse]?
 }

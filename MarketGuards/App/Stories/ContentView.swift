@@ -24,33 +24,37 @@ struct ContentView: View {
     @State private var isUserViewPresented = false
     
     var body: some View {
-        
         NavigationView {
             TabView(selection: $selected) {
                 DashboardView()
                     .tabItem({
                         BottomMenu.dashboard.provideImage(isSelected: BottomMenu.dashboard == selected)
-                        Text(BottomMenu.dashboard.localizedName)
                     })
                     .tag(BottomMenu.dashboard)
                 StoryView()
                     .tabItem({ BottomMenu.story.provideImage(isSelected: BottomMenu.story == selected)
-                        Text(BottomMenu.story.localizedName)
                     })
                     .tag(BottomMenu.story)
                 LibraryView()
                     .tabItem({ BottomMenu.library.provideImage(isSelected: BottomMenu.library == selected)
-                        Text(BottomMenu.library.localizedName)
                     })
                     .tag(BottomMenu.library)
                 StoreView()
                     .tabItem({ BottomMenu.store.provideImage(isSelected: BottomMenu.store == selected)
-                        Text(BottomMenu.store.localizedName)
                     })
                     .tag(BottomMenu.store)
-                
             }
             .accentColor(Color("mainExtraLight"))
+            .navigationBarTitle(Text(selected.localizedName), displayMode: .inline)
+            .navigationBarItems(trailing:
+                                    Button {
+                                        // self.isUserViewPresented = true
+                                    } label: {
+                                        Image(systemName: isUserViewPresented ? "person.fill" : "person")
+                                            .foregroundColor(Color("mainExtraLight"))
+                                    }
+                                // .sheet(isPresented: $isUserViewPresented, content: { UserProfileView(isUserViewPresented: self.$isUserViewPresented) })
+            )
         }
     }
 }

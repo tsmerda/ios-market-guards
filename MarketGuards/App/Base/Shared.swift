@@ -11,7 +11,7 @@ import Foundation
 class Shared {
     static var shared = Shared()
     var baseUrl: URL {
-        guard let url = URL(string: "http://localhost:8080") else { fatalError("No base URL") }
+        guard let url = URL(string: "http://37.46.208.113:8080") else { fatalError("No base URL") }
         return url
     }
 }

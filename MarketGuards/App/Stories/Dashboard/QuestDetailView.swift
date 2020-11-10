@@ -10,11 +10,13 @@ import SwiftUI
 
 struct QuestDetailView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State var topIndex = 0
     @StateObject var viewModel = QuestDetailViewModel()
+    @State var topIndex = 0
     @State var questId: Int
     @State private var textFieldValue: String = ""
-    @State var type: QuestType
+    @State private var noteSaved: Bool = false
+    @State private var noteColor: Bool = false // TODO
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -22,26 +24,41 @@ struct QuestDetailView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(self.viewModel.questDetail?.title.uppercased() ?? "")
                         .fixedSize(horizontal: false, vertical: true)
-                        .font(title)
+                        .font(.chakraPetchRegular(size: 26))
                         .foregroundColor(Color("mainExtraLight"))
                         .padding(.bottom, 12)
                     
                     Text(viewModel.questDetail?.missionTitle ?? "")
-                        .font(footnote)
+                        .font(.chakraPetchRegular(size: 13))
                         .foregroundColor(Color("mainLight"))
                     
-                    Text(type.time)
-                        .font(subhead)
-                        .foregroundColor(Color("warning"))
+                    HStack {
+                        Text(viewModel.questType?.timeText ?? "")
+                        
+                        if viewModel.questType == QuestType.active {
+                            Text("\(viewModel.diff?.secondsTimeFormating ?? "")")
+                                .onReceive(timer) { _ in
+                                    if viewModel.diff ?? 0 > 0 {
+                                        viewModel.diff? -= 1
+                                    }
+                                }
+                        } else {
+                            Text(viewModel.questType == QuestType.prepared ? "\((viewModel.questDetail?.timeToFinish ?? 0).minutesTimeFormating)" : "\(viewModel.questDetail?.finished ?? "")")
+                        }
+                        
+                    }
+                    .font(.chakraPetchRegular(size: 15))
+                    .foregroundColor(Color(viewModel.questType?.timeColor ?? "mainLight"))
                     
                     Text(viewModel.questDetail?.story ?? "")
-                        .font(subhead)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(.chakraPetchRegular(size: 15))
                         .foregroundColor(Color("main"))
                 }
                 
                 if (viewModel.questDetail?.finished == nil) {
                     Button(action: {
-                        viewModel.patchQuestDetail(questId: questId, action: (viewModel.questDetail?.activated == nil) ? "activate" : "finish")
+                        viewModel.questDetail?.activated == nil ? viewModel.patchActivateQuest(questId: questId) : viewModel.patchFinishQuest(questId: questId)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             viewModel.fetchQuestDetailData(questId: questId)
                         }
@@ -56,7 +73,6 @@ struct QuestDetailView: View {
                     .background(Color("mainExtraLightLow"))
                     .padding(.vertical)
                 
-                
                 HStack {
                     ForEach(0..<MenuType.questDetail.topMenu.count) { menu in
                         TopMenu(menu: menu, index: $topIndex, menuType: MenuType.questDetail)
@@ -67,32 +83,28 @@ struct QuestDetailView: View {
                 HStack {
                     if topIndex == 0 {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("quests_skills")
-                                .font(callout).bold()
-                                .foregroundColor(Color("mainExtraLight"))
-                            
                             Text("quests_finished_quest_points")
-                                .font(subhead)
+                                .font(.chakraPetchRegular(size: 15))
                                 .foregroundColor(Color("mainExtraLight"))
                             
                             Text("quests_finished_quest_points_subtitle")
-                                .font(caption)
+                                .font(.chakraPetchRegular(size: 12))
                                 .foregroundColor(Color("mainLight"))
                             
                             HStack {
-                                MainSkillPoint(experiences: viewModel.questDetail?.experiences, bonusExperiences: viewModel.questDetail?.bonusExperiences)
+                                MainSkillPoint(experiences: viewModel.questDetail?.experiences ?? 0, bonusExperiences: viewModel.questDetail?.bonusExperiences ?? 0)
                                 Text("quests_experiences")
-                                    .font(caption)
+                                    .font(.chakraPetchRegular(size: 12))
                                     .foregroundColor(Color("mainExtraLight"))
                             }
                             
                             ForEach(viewModel.questDetail?.questSkills ?? []) { skill in
                                 ForEach(skill.questSubSkills ?? []) { subskill in
                                     HStack {
-                                        SkillPoint(code: skill.code, experiences: subskill.experiences, bonusExperiences: subskill.bonusExperiences)
+                                        SkillPoint(code: skill.code, subSkillCode: subskill.code, experiences: subskill.experiences ?? 0, bonusExperiences: subskill.bonusExperiences ?? 0)
                                         
                                         Text(LocalizedStringKey(subskill.code))
-                                            .font(caption)
+                                            .font(.chakraPetchRegular(size: 12))
                                             .foregroundColor(Color("mainExtraLight"))
                                     }
                                 }
@@ -102,16 +114,12 @@ struct QuestDetailView: View {
                     
                     if topIndex == 1 {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("quests_statistics")
-                                .font(callout).bold()
-                                .foregroundColor(Color("mainExtraLight"))
-                            
                             Text("quests_average_time")
-                                .font(subhead)
+                                .font(.chakraPetchRegular(size: 15))
                                 .foregroundColor(Color("mainExtraLight"))
                             
                             Text("\(viewModel.questDetail?.averageTime ?? 0) / \(viewModel.questDetail?.timeToFinish ?? 0)")
-                                .font(subhead)
+                                .font(.chakraPetchRegular(size: 15))
                                 .foregroundColor(Color("mainLight"))
                             
                             ProgressBar(value: .constant(CGFloat(viewModel.questDetail?.averageTime ?? 0)), maxValue: .constant(CGFloat(viewModel.questDetail?.timeToFinish ?? 0)),
@@ -121,16 +129,39 @@ struct QuestDetailView: View {
                     
                     if topIndex == 2 {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("quests_notes")
-                                .font(callout).bold()
-                                .foregroundColor(Color("mainExtraLight"))
-                            
-                            TextField("quests_notes_placeholder", text: $textFieldValue)
+                            TextField("quests_notes_placeholder", text: Binding(
+                                        get: {
+                                            return viewModel.questDetail?.note ?? textFieldValue
+                                        },
+                                        set: { newValue in
+                                            return textFieldValue = newValue
+                                        }), onEditingChanged: { (changed) in
+                                            if changed == true {
+                                                noteSaved = false
+                                            } else {
+                                                noteSaved = true
+                                                viewModel.patchQuestDetail(id: questId, note: textFieldValue)
+                                            }
+                                        })
                                 .padding(8)
-                                .font(footnote)
-                                .foregroundColor(Color("mainExtraLightLow"))
+                                .font(.chakraPetchRegular(size: 13))
+                                .foregroundColor(Color("mainExtraLight"))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color("mainLow"), lineWidth: 1)
+                                )
                                 .frame(maxWidth: .infinity)
-                                .border(Color("mainLow"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                            
+                            if noteSaved == true {
+                                HStack {
+                                    Image("ok")
+                                        .foregroundColor(Color("success"))
+                                    
+                                    Text("quests_notes_saved")
+                                        .font(.chakraPetchRegular(size: 13))
+                                        .foregroundColor(Color("success"))
+                                }
+                            }
                         }
                     }
                     Spacer()
@@ -152,8 +183,8 @@ struct QuestDetailView: View {
         .navigationBarItems(leading: Button(action: {
             presentationMode.wrappedValue.dismiss()
         }) {
-            Image("arrow_left")
-                .foregroundColor(Color("main"))
+            Image(systemName: "chevron.left")
+                .foregroundColor(Color("mainExtraLight"))
         })
     }
 }

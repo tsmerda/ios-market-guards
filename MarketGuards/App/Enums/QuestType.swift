@@ -9,18 +9,18 @@
 import SwiftUI
 
 enum QuestType {
-    case prepared(minutes: Int)
-    case active(minutes: Int)
-    case finished(date: String)
+    case prepared
+    case active
+    case finished
     
-    var time: LocalizedStringKey {
+    var timeText: LocalizedStringKey {
         switch self {
-        case .prepared(let minutes):
-            return "Čas na splnění: \(minutes.minutesToRemainingTime)"
-        case .active(let request):
-            return "quests_remaining_time \(request)" // Add timer function
-        case .finished(let date):
-            return "Splněno: \(date)"
+        case .prepared:
+            return "quests_time_to_finish"
+        case .active:
+            return "quests_remaining_time"
+        case .finished:
+            return "quests_finished"
         }
     }
     
@@ -44,5 +44,25 @@ enum QuestType {
         case .finished:
             return "successLight"
         }
+    }
+    
+    func getDateDifference(activated: String?, finished: Int?) -> Int {
+        let nowDate = Date()
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss.SSS"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+
+        let activatedDate = dateFormatter.date(from: activated ?? "")
+        
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: activatedDate ?? Date())
+
+        let finalActivatedDate = calendar.date(from:components) ?? Date()
+        
+        let finishDate = calendar.date(byAdding: .minute, value: finished ?? 0, to: finalActivatedDate) ?? Date()
+        
+        return Calendar.current.dateComponents([.second], from: nowDate, to: finishDate).second ?? 0
     }
 }

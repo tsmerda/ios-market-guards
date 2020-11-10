@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-    var minutesToRemainingTime: String {
+    var minutesTimeFormating: String {
         let interval = self * 60 // minutes to seconds
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]
@@ -17,12 +17,11 @@ extension Int {
         return formatter.string(from: TimeInterval(interval))!
     }
     
-    // TODO: Resolve formatting datetime
-    
-//    var formatDateTime: String {
-//        let dateTime = self
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "HH:mm E, d MMM y"
-//        return formatter.string(from: dateTime)
-//    }
+    var secondsTimeFormating: String {
+        let interval = self
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .full
+        return formatter.string(from: TimeInterval(interval))!
+    }
 }

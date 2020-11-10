@@ -26,7 +26,7 @@ struct MissionsListView: View {
                         Text("\(viewModel.finishedQuestsCount()) / \(viewModel.totalQuestsCount())")
                         Image("remaining_time")
                     }
-                    .font(callout)
+                    .font(.chakraPetchRegular(size: 16))
                     .foregroundColor(Color("main"))
                 }
                 .padding(.bottom, 8)
@@ -61,11 +61,12 @@ struct MissionsListView: View {
             .background(Color("negative"))
             .navigationBarTitle(Text("missions_missions_list"), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
-            .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(trailing: Button {
                 isMissionsListPresented.toggle()
-            }) {
-                Image("cross")
-                    .foregroundColor(Color("main"))
+            } label: {
+                Text("done")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(Color("mainExtraLight"))
             })
         }
     }

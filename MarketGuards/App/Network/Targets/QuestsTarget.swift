@@ -12,6 +12,8 @@ enum QuestsTarget: TargetType, AccessTokenAuthorizable {
     
     case questPatch(QuestRequest)
     case questDetail(Int)
+    case questActivate(Int)
+    case questFinish(Int)
     
     var baseURL: URL {
         return Shared.shared.baseUrl.appendingPathComponent("quests")
@@ -20,15 +22,19 @@ enum QuestsTarget: TargetType, AccessTokenAuthorizable {
     var path: String {
         switch self {
         case .questPatch(let request):
-            return "\(request.questId)/\(request.action)"
+            return "\(request.id)"
         case .questDetail(let request):
             return "\(request)"
+        case .questActivate(let request):
+            return "\(request)/activate"
+        case .questFinish(let request):
+            return "\(request)/finish"
         }
     }
     
     var method: Method {
         switch self {
-        case .questPatch:
+        case .questPatch, .questFinish, .questActivate:
             return .patch
         case .questDetail:
             return .get
@@ -37,21 +43,23 @@ enum QuestsTarget: TargetType, AccessTokenAuthorizable {
     
     var sampleData: Data {
         switch self {
-        case .questPatch, .questDetail:
+        case .questPatch, .questDetail, .questFinish, .questActivate:
             return Data()
         }
     }
     
     var task: Task {
         switch self {
-        case .questPatch, .questDetail:
+        case .questDetail, .questFinish, .questActivate:
             return .requestPlain
+        case .questPatch(let request):
+            return .requestJSONEncodable(request)
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .questPatch, .questDetail:
+        case .questPatch, .questDetail, .questFinish, .questActivate:
             return ["Content-Type": "application/json"]
         }
     }

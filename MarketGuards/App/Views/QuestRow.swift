@@ -11,27 +11,27 @@ import SwiftUI
 struct QuestRow: View {
     @State var quest: MissionDetailQuestsResponse
     @State var type: QuestType
-    @State var timeRemaining = 10
+    @State var diff: Int? = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
                 Text("| \(quest.title.uppercased())")
-                    .font(headline)
+                    .font(.chakraPetchSemiBold(size: 17))
                     .foregroundColor(Color("mainExtraLight"))
                 
                 Text(quest.story)
                     .lineLimit(1)
-                    .font(footnote)
+                    .font(.chakraPetchRegular(size: 13))
                     .foregroundColor(Color("mainExtraLight"))
                 
-                // TODO - resolve rsponsiveness for multiple skillpoints.
+                // TODO - resolve rsponsiveness for multiple subskillpoints.
                 VStack(alignment: .leading, spacing: 4) {
-                    MainSkillPoint(experiences: quest.experiences, bonusExperiences: quest.bonusExperiences ?? 0)
+                    MainSkillPoint(experiences: quest.experiences ?? 0, bonusExperiences: quest.bonusExperiences ?? 0)
                     HStack(spacing: 4) {
                         ForEach(quest.questSkillDtos) { skill in
-                            SkillPoint(code: skill.code, experiences: skill.experiences, bonusExperiences: skill.bonusExperiences)
+                            SkillPoint(code: skill.code, experiences: skill.experiences  ?? 0, bonusExperiences: skill.bonusExperiences ?? 0)
                         }
                     }
                 }
@@ -39,18 +39,36 @@ struct QuestRow: View {
                 HStack(spacing: 2) {
                     Image(type.timeIcon)
                     
-                    Text(type.time)
-                        .font(caption)
-                        .multilineTextAlignment(.trailing)
+                    Text(type.timeText)
+                    
+                    if type == .active {
+                        Text("\((diff ?? 0).secondsTimeFormating)")
+                            .onReceive(timer) { _ in
+                                if diff ?? 0 > 0 {
+                                    diff? -= 1
+                                }
+                            }
+                    } else {
+                        Text(type == .prepared ? "\(quest.timeToFinish.minutesTimeFormating)" : "\(quest.finished ?? "")")
+                    }
                 }
+                .font(.chakraPetchSemiBold(size: 12))
                 .foregroundColor(Color(type.timeColor))
+                .multilineTextAlignment(.trailing)
             }
             .padding()
             
             Spacer()
         }
-        .background(Color("mainExtraLightExtraLow"))
+        .onAppear() {
+            getFormatedTime()
+        }
+        .background(Color("disabledLow"))
         .cornerRadius(8)
+    }
+    
+    func getFormatedTime() {
+        diff = QuestType.active.getDateDifference(activated: quest.activated ?? "", finished: quest.timeToFinish)
     }
 }
 

@@ -18,7 +18,6 @@ class MissionListViewModel: ObservableObject {
             switch result {
             case .success(let response):
                 self?.missionsPreview = response
-            //                            print(response)
             case .failure(let error):
                 print("Failed fetch response with: \(error.localizedDescription)")
             }

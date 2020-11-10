@@ -25,7 +25,6 @@ class MissionsService {
                     print("Failed decoding with: \(error.localizedDescription)")
                     completion(.failure(.generic))
                 }
-                
             case .failure(let error):
                 completion(.failure(.underlying(error)))
             }
@@ -45,7 +44,6 @@ class MissionsService {
                     print("Failed decoding with: \(error.localizedDescription)")
                     completion(.failure(.generic))
                 }
-                
             case .failure(let error):
                 completion(.failure(.underlying(error)))
             }

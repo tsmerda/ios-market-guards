@@ -300,6 +300,7 @@
 		C357FCC12521149F00D61651 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C3D43B422546F621007B6C17 /* FontNameManager.swift */,
 				C357FCC2252114B800D61651 /* String+Encrypting.swift */,
 				C3D8E8A12531A29B009A95A7 /* Int+TimeFormatting.swift */,
 			);
@@ -384,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */,
-				C3D43B422546F621007B6C17 /* FontNameManager.swift */,
 				C3D43B5A25470BF0007B6C17 /* ColorsConstants.swift */,
 			);
 			path = Modifiers;

@@ -21,12 +21,12 @@ struct MainSkillPoint: View {
             
             HStack(spacing: 0) {
                 Text("\(experiences ?? 0)")
-                    .font(subhead).bold()
+                    .font(.chakraPetchBold(size: 15))
                     .foregroundColor(Color("main"))
                 
                 if (bonusExperiences != 0) {
                     Text(" +\(bonusExperiences ?? 0)")
-                        .font(subhead).bold()
+                        .font(.chakraPetchBold(size: 15))
                         .foregroundColor(Color("warning"))
                 }
             }

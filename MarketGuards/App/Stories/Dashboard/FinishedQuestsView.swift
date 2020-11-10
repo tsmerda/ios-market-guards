@@ -14,20 +14,19 @@ struct FinishedQuestsView: View {
     var body: some View {
         if missionDetail?.finishedQuests.isEmpty ?? true {
             Text("missions_no_finished_quests")
-                .font(footnote)
+                .font(.chakraPetchRegular(size: 13))
                 .foregroundColor(Color("disabled"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom)
                 .padding(.horizontal)
         } else {
             ForEach(missionDetail?.finishedQuests ?? []) { quest in
-                NavigationLink(destination: QuestDetailView(questId: quest.id, type: .finished(date: quest.finished!))) {
-                    QuestRow(quest: quest, type: .finished(date: quest.finished!))
-                        .padding(.bottom)
+                NavigationLink(destination: QuestDetailView(questId: quest.id)) {
+                    QuestRow(quest: quest, type: .finished)
+                        .padding(.bottom, 8)
                 }
             }
         }
-        
     }
 }
 

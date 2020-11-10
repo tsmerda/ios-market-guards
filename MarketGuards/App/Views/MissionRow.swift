@@ -20,12 +20,12 @@ struct MissionRow: View {
             Text(getCount(totalQuests: totalQuests, finishedQuests: finishedQuests))
             Image(getImage(totalQuests: totalQuests, finishedQuests: finishedQuests))
         }
-        .font(callout)
+        .font(.chakraPetchRegular(size: 16))
         .foregroundColor(Color(getColor(totalQuests: totalQuests, finishedQuests: finishedQuests)))
     }
     
     func getCount(totalQuests: Int, finishedQuests: Int) -> String {
-        return (totalQuests != finishedQuests) ? "\(totalQuests) / \(finishedQuests)" : ""
+        return (totalQuests != finishedQuests) ? "\(finishedQuests) / \(totalQuests)" : ""
     }
     
     func getColor(totalQuests: Int, finishedQuests: Int) -> String {

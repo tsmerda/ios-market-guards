@@ -9,11 +9,11 @@
 import Foundation
 
 struct QuestRequest: Encodable {
-    let questId: Int
-    let action: String
+    let id: Int
+    let note: String
     
-    init(questId: Int, action: String) {
-        self.questId = questId
-        self.action = action
+    init(id: Int, note: String) {
+        self.id = id
+        self.note = note
     }
 }

@@ -20,8 +20,8 @@ struct QuestDetailResponse: Codable, Identifiable, Hashable {
     let activated: String?
     let finished: String?
     let timeToFinish: Int?
-    let currency: Int
-    let experiences: Int
+    let currency: Int?
+    let experiences: Int?
     let bonusExperiences: Int?
     let averageTime: Int?
     let note: String?

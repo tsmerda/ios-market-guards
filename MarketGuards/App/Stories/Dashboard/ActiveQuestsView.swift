@@ -14,20 +14,19 @@ struct ActiveQuestsView: View {
     var body: some View {
         if missionDetail?.activeQuests.isEmpty ?? true {
             Text("missions_no_active_quests")
-                .font(footnote)
+                .font(.chakraPetchRegular(size: 13))
                 .foregroundColor(Color("disabled"))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom)
                 .padding(.horizontal)
         } else {
             ForEach(missionDetail?.activeQuests ?? []) { quest in
-                NavigationLink(destination: QuestDetailView(questId: quest.id, type: .active(minutes: quest.timeToFinish))) {
-                    QuestRow(quest: quest, type: .active(minutes: quest.timeToFinish))
-                        .padding(.bottom)
+                NavigationLink(destination: QuestDetailView(questId: quest.id)) {
+                    QuestRow(quest: quest, type: .active)
+                        .padding(.bottom, 8)
                 }
             }
         }
-        
     }
 }
 

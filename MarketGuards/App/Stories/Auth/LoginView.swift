@@ -51,14 +51,12 @@ struct LoginView: View {
                         .resizable()
                         .scaledToFill()
                     
-                    
                     Rectangle()
                         .background(Color("negative"))
                         .opacity(0.6)
                     
                 }.edgesIgnoringSafeArea(.all)
             )
-            
         }
     }
 }

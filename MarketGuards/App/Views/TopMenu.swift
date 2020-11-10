@@ -33,14 +33,14 @@ struct TopMenu: View {
         } label: {
             ZStack {
                 Text(LocalizedStringKey(menuType.topMenu[menu]))
-                    .font(subhead).bold()
+                    .font(.chakraPetchSemiBold(size: 15))
                     .foregroundColor(index == menu ? Color("mainExtraLight") : Color("disabled"))
                 
                 Rectangle()
                     .fill(Color("mainExtraLightExtraLow"))
                     .opacity(index == menu ? 1 : 0)
                     .cornerRadius(/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
-                    .frame(height: 32)
+                    .frame(height: 30)
             }
         }
         .frame(maxWidth: .infinity, alignment: .center)
