@@ -24,25 +24,24 @@ struct TextFieldWithIcon: View {
             HStack {
                 if (type == .generic) {
                     Image(imageName)
-                        .foregroundColor(Color("main"))
+                        .foregroundColor(Color("mainExtraLight"))
+                    
                     TextField(label, text: $text)
-                        .font(.chakraPetchRegular(size: 16))
-                        .foregroundColor(Color("main"))
+                        .foregroundColor(Color("mainExtraLight"))
                         .autocapitalization(.none)
                 } else if (type == .secured) {
                     Image(imageName)
-                        .foregroundColor(Color("main"))
+                        .foregroundColor(Color("mainExtraLight"))
+                    
                     SecureField(label, text: $text)
-                        .font(.chakraPetchRegular(size: 16))
-                        .foregroundColor(Color("main"))
+                        .foregroundColor(Color("mainExtraLight"))
                         .autocapitalization(.none)
                 }
             }
-            Divider()
-                .frame(height: 1)
-                .padding(.horizontal, 16)
-                .background(Color("mainDarkLow"))
-                .padding(.vertical, 4)
+            .padding(.leading, 16)
+            .frame(height: 48)
+            .background(Color("mainExtraLightLow").opacity(0.5))
+            .cornerRadius(30)
         }
     }
 }

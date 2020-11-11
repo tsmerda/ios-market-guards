@@ -43,7 +43,7 @@ struct QuestDetailView: View {
                                     }
                                 }
                         } else {
-                            Text(viewModel.questType == QuestType.prepared ? "\((viewModel.questDetail?.timeToFinish ?? 0).minutesTimeFormating)" : "\(viewModel.questDetail?.finished ?? "")")
+                            Text(viewModel.questType == QuestType.prepared ? "\((viewModel.questDetail?.timeToFinish ?? 0).minutesTimeFormating)" : "\((viewModel.questDetail?.finished ?? "").formatFinishedDate)")
                         }
                         
                     }
@@ -118,11 +118,23 @@ struct QuestDetailView: View {
                                 .font(.chakraPetchRegular(size: 15))
                                 .foregroundColor(Color("mainExtraLight"))
                             
-                            Text("\(viewModel.questDetail?.averageTime ?? 0) / \(viewModel.questDetail?.timeToFinish ?? 0)")
+                            Text("\(viewModel.questDetail?.averageTime ?? 0) / \(viewModel.questDetail?.timeToFinish ?? 0) min")
                                 .font(.chakraPetchRegular(size: 15))
                                 .foregroundColor(Color("mainLight"))
                             
                             ProgressBar(value: .constant(CGFloat(viewModel.questDetail?.averageTime ?? 0)), maxValue: .constant(CGFloat(viewModel.questDetail?.timeToFinish ?? 0)),
+                                        color: "main")
+                                .padding(.bottom, 16)
+                            
+                            Text("quests_my_time")
+                                .font(.chakraPetchRegular(size: 15))
+                                .foregroundColor(Color("mainExtraLight"))
+                            
+                            Text("\(QuestType.finished.getFinishedTime(activated: viewModel.questDetail?.activated, finished: viewModel.questDetail?.finished)) / \(viewModel.questDetail?.timeToFinish ?? 0) min")
+                                .font(.chakraPetchRegular(size: 15))
+                                .foregroundColor(Color("mainLight"))
+                            
+                            ProgressBar(value: .constant(CGFloat(QuestType.finished.getFinishedTime(activated: viewModel.questDetail?.activated, finished: viewModel.questDetail?.finished))), maxValue: .constant(CGFloat(viewModel.questDetail?.timeToFinish ?? 0)),
                                         color: "main")
                         }
                     }

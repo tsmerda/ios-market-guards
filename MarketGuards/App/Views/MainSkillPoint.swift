@@ -16,7 +16,7 @@ struct MainSkillPoint: View {
         HStack(spacing: 4) {
             Image("experiences")
                 .resizable()
-                .frame(width: 28, height: 28)
+                .frame(width: 24, height: 24)
                 .foregroundColor(Color("main"))
             
             HStack(spacing: 0) {

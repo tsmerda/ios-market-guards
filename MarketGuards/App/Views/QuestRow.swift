@@ -26,14 +26,9 @@ struct QuestRow: View {
                     .font(.chakraPetchRegular(size: 13))
                     .foregroundColor(Color("mainExtraLight"))
                 
-                // TODO - resolve rsponsiveness for multiple subskillpoints.
                 VStack(alignment: .leading, spacing: 4) {
                     MainSkillPoint(experiences: quest.experiences ?? 0, bonusExperiences: quest.bonusExperiences ?? 0)
-                    HStack(spacing: 4) {
-                        ForEach(quest.questSkillDtos) { skill in
-                            SkillPoint(code: skill.code, experiences: skill.experiences  ?? 0, bonusExperiences: skill.bonusExperiences ?? 0)
-                        }
-                    }
+                    SkillRow(skillPoints: quest.questSkillDtos)
                 }
                 
                 HStack(spacing: 2) {
@@ -49,7 +44,7 @@ struct QuestRow: View {
                                 }
                             }
                     } else {
-                        Text(type == .prepared ? "\(quest.timeToFinish.minutesTimeFormating)" : "\(quest.finished ?? "")")
+                        Text(type == .prepared ? "\(quest.timeToFinish.minutesTimeFormating)" : "\((quest.finished ?? "").formatFinishedDate)")
                     }
                 }
                 .font(.chakraPetchSemiBold(size: 12))
@@ -68,7 +63,7 @@ struct QuestRow: View {
     }
     
     func getFormatedTime() {
-        diff = QuestType.active.getDateDifference(activated: quest.activated ?? "", finished: quest.timeToFinish)
+        diff = QuestType.active.getRemainingTime(activated: quest.activated ?? "", finished: quest.timeToFinish)
     }
 }
 

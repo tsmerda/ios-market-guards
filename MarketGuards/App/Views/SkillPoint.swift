@@ -16,7 +16,7 @@ struct SkillPoint: View {
     
     var body: some View {
         HStack(spacing: 4) {
-            Image(subSkillCode ?? code ?? "")
+            Image((subSkillCode ?? code ?? "") + "_small")
                 .resizable()
                 .frame(width: 24, height: 24)
                 .foregroundColor(Color(code ?? ""))

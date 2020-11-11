@@ -46,7 +46,7 @@ enum QuestType {
         }
     }
     
-    func getDateDifference(activated: String?, finished: Int?) -> Int {
+    func getRemainingTime(activated: String?, finished: Int?) -> Int {
         let nowDate = Date()
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
@@ -64,5 +64,21 @@ enum QuestType {
         let finishDate = calendar.date(byAdding: .minute, value: finished ?? 0, to: finalActivatedDate) ?? Date()
         
         return Calendar.current.dateComponents([.second], from: nowDate, to: finishDate).second ?? 0
+    }
+    
+    func getFinishedTime(activated: String?, finished: String?) -> Int {
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd' 'HH:mm:ss.SSS"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+
+        let activatedDate = dateFormatter.date(from: activated ?? "") ?? Date()
+        let finishedDate = dateFormatter.date(from: finished ?? "") ?? Date()
+        
+        let diffDate = calendar.dateComponents([.minute], from: activatedDate, to: finishedDate).minute
+        
+        return diffDate ?? 0
     }
 }

@@ -9,6 +9,12 @@
 "login" = "Přihlásit se";
 "password" = "Heslo";
 
+"invalid_credentials" = "Nesprávně přihlašovací údaje";
+
+"save" = "Uložit";
+"cancel" = "Zrušit";
+"confirm" = "Potvrdit";
+"close" = "Zavřít";
 "done" = "Hotovo";
 
 "dashboard" = "Základna";
@@ -43,8 +49,47 @@
 "quests_remaining_time" = "Zbývající čas:";
 "quests_time_to_finish" = "Čas na splnění:";
 "quests_finished" = "Splněno:";
+"quests_my_time" = "Můj čas";
 "quests_notes_placeholder" = "Zde si můžeš psát poznámky k plnění questu.";
 "quests_notes_saved" = "Automaticky uloženo";
+
+"profile_edit_profile" = "Upravit profil";
+"profile_level" = "Level";
+"profile_currency" = "Krystaly";
+"profile_xp" = "XP";
+"profile" = "Profil";
+"profile_change_photo" = "Změnit fotku";
+"profile_change_nickname" = "Změňte si svoji přezdívku";
+"profile_analysis" = "Analýzy";
+"profile_contacts" = "Kontakty";
+"profile_addressing" = "Oslovení";
+"profile_consulting" = "Poradenství";
+"profile_services" = "Servisy";
+"profile_skills" = "Dovednosti";
+"profile_badges" = "Odznaky";
+"profile_my_team" = "Můj tým";
+"profile_settings" = "Nastavení";
+"profile_week" = "Týden";
+"profile_region" = "Kraje";
+
+"skills" = "Dovednosti";
+"skills_level" = "Level";
+"skills_subskill_detail" = "Detail poddovednosti";
+
+"settings" = "Nastavení";
+"settings_name" = "Jméno";
+"settings_lastname" = "Příjmení";
+"settings_email" = "Email";
+"settings_registration_date" = "Datum registrace";
+"settings_change_password" = "Změna hesla";
+"settings_invite_player" = "Pozvat hráče";
+"settings_send_invitation" = "Odeslat pozvánku";
+"settings_about_application" = "O aplikaci";
+"settings_logout" = "Odhlásit se";
+"settings_actual_password" = "Aktuální heslo";
+"settings_new_password" = "Nové heslo";
+"settings_confirm_new_password" = "Nové heslo znovu";
+"settings_version" = "Verze";
 
 "acquisitions" = "Akvizice";
 "administration" = "Administrativa";

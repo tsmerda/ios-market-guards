@@ -21,18 +21,16 @@ struct LoginView: View {
                 
                 VStack(spacing: 16.0) {
                     TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "login", imageName: "name")
-                        .padding(.horizontal, 16)
                     
                     TextFieldWithIcon(type: .secured, text: $viewModel.password, label: "password", imageName: "lock")
-                        .padding(.horizontal, 16)
                     
                     Button {
                         viewModel.loginButtonPressed()
                     } label: {
                         ButtonWithBackground(text: "login", color: "pureBlack" ,backgroundColor: "mainDark")
-                            .padding(.horizontal, 64)
+                            .frame(width: 175)
                     }
-                    .padding(.top, 16)
+                    .padding(.top, 8)
                     NavigationLink(destination: ContentView()
                                     .navigationBarTitle(Text(""))
                                     .navigationBarHidden(true), isActive:
@@ -40,11 +38,14 @@ struct LoginView: View {
                         EmptyView()
                     }
                 }
-                .padding(24)
+                .padding(16)
                 
                 Spacer()
                     .frame(height: 48)
             }
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(title: Text("Chyba"), message: Text(LocalizedStringKey("\(viewModel.alertText)".lowercased())), dismissButton: .default(Text("close")))
+                    }
             .background(
                 ZStack {
                     Image("background")
@@ -54,8 +55,8 @@ struct LoginView: View {
                     Rectangle()
                         .background(Color("negative"))
                         .opacity(0.6)
-                    
-                }.edgesIgnoringSafeArea(.all)
+                }
+                .edgesIgnoringSafeArea(.all)
             )
         }
     }

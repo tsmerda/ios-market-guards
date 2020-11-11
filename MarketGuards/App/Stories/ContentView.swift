@@ -21,7 +21,6 @@ struct ContentView: View {
     }
     
     @State private var selected = BottomMenu.dashboard
-    @State private var isUserViewPresented = false
     
     var body: some View {
         NavigationView {
@@ -47,13 +46,10 @@ struct ContentView: View {
             .accentColor(Color("mainExtraLight"))
             .navigationBarTitle(Text(selected.localizedName), displayMode: .inline)
             .navigationBarItems(trailing:
-                                    Button {
-                                        // self.isUserViewPresented = true
-                                    } label: {
-                                        Image(systemName: isUserViewPresented ? "person.fill" : "person")
+                                    NavigationLink(destination: UserProfileView()) {
+                                        Image(systemName: "person")
                                             .foregroundColor(Color("mainExtraLight"))
                                     }
-                                // .sheet(isPresented: $isUserViewPresented, content: { UserProfileView(isUserViewPresented: self.$isUserViewPresented) })
             )
         }
     }
