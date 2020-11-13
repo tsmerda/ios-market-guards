@@ -41,10 +41,11 @@ class SettingsViewModel: ObservableObject {
     func changePassword(idPlayer: String, oldPassword: String, newPassword: String) {
         settingsService.changePassword(idPlayer: idPlayer, oldPassword: oldPassword, newPassword: newPassword) { result in
             switch result {
-            case .success(let response):
+            case .success:
+                break
                 // TODO - fix service completion to print this response
-                print(response)
             case .failure(let error):
+                print(error)
                 print("Failed fetch response with: \(error.localizedDescription)")
             }
         }

@@ -10,19 +10,9 @@ import SwiftUI
 
 @main
 struct MarketGuardsApp: App {
-//    @EnvironmentObject var session: LoginViewModel
-    
     var body: some Scene {
         WindowGroup {
             LoginView()
         }
     }
 }
-
-//WindowGroup {
-//    if !session.userLoggedIn {
-//        LoginView()
-//    } else {
-//        ContentView()
-//    }
-//}

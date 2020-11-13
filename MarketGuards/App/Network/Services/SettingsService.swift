@@ -15,8 +15,8 @@ class SettingsService {
     func createInvitation(email: String, firstName: String, lastName: String, completion: @escaping (Result<Void, SettingsError>) -> Void) {
         provider.request(.createInvitation(CreateInvitationRequest(email: email, firstName: firstName, lastName: lastName))) { result in
             switch result {
-            case .success:
-                break
+            case .success(let response):
+                print(response)
             case .failure(let error):
                 completion(.failure(.underlying(error)))
             }

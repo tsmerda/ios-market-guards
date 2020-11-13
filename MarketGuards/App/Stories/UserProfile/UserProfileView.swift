@@ -9,91 +9,78 @@
 import SwiftUI
 
 struct UserProfileView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel = UserProfileViewModel()
     @State private var isEditProfilePresented = false
     
     var body: some View {
-        ZStack {
-            Color("negative")
-                .edgesIgnoringSafeArea(.bottom)
-            VStack {
-                VStack {
+        ScrollView {
+            VStack(spacing: 0) {
+                HStack(spacing: 0) {
                     Image("\("avatar".getFromToken)".lowercased())
                         .resizable()
                         .clipShape(Circle())
                         .aspectRatio(contentMode: .fill)
-                        .frame(width:150, height: 150)
+                        .frame(width: 100, height: 100)
                         .overlay(Circle().stroke(Color("mainExtraLightLow")))
                         .padding(.top)
                     
-                    Text("firstName".getFromToken)
-                        .font(.chakraPetchSemiBold(size: 20))
-                        .foregroundColor(Color("mainExtraLight"))
-                        .padding(.vertical, 8)
-                    
-                    Button {
-                        isEditProfilePresented.toggle()
-                    } label: {
-                        Text("profile_edit_profile")
-                            .textCase(.uppercase)
-                            .font(.chakraPetchMedium(size: 11))
-                            .frame(width: 104, height: 22)
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("firstName".getFromToken)
+                            .font(.chakraPetchSemiBold(size: 20))
                             .foregroundColor(Color("mainExtraLight"))
-                            .background(Color("mainExtraLightExtraLow"))
-                            .cornerRadius(30)
-                    }
-                    .padding(.bottom, 40)
-                    .sheet(isPresented: $isEditProfilePresented, content: { EditProfileView(isEditProfilePresented: $isEditProfilePresented) })
-                    
-                    GeometryReader { geometryReader in
-                        HStack(spacing: 0) {
-                            HStack {
-                                Text("profile_level")
-                                    .font(.chakraPetchRegular(size: 16))
-                                    .foregroundColor(Color("disabled"))
+                            .padding(.bottom, 8)
+                        
+                        HStack(spacing: 24) {
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("profile_level")
+                                        .font(.chakraPetchRegular(size: 16))
+                                        .foregroundColor(Color("disabled"))
+                                    
+                                    Text("\(viewModel.gameStatus?.level ?? 0)")
+                                        .font(.chakraPetchBold(size: 16))
+                                        .foregroundColor(Color("mainExtraLight"))
+                                }
                                 
-                                Text("\(viewModel.gameStatus?.level ?? 0)")
-                                    .font(.chakraPetchBold(size: 16))
-                                    .foregroundColor(Color("mainExtraLight"))
+                                HStack {
+                                    Text("profile_region")
+                                        .font(.chakraPetchRegular(size: 16))
+                                        .foregroundColor(Color("disabled"))
+                                    
+                                    Text("3")
+                                        .font(.chakraPetchBold(size: 16))
+                                        .foregroundColor(Color("mainExtraLight"))
+                                }
                             }
-                            .frame(width: geometryReader.size.width/4)
                             
-                            HStack {
-                                Text("profile_currency")
-                                    .font(.chakraPetchRegular(size: 16))
-                                    .foregroundColor(Color("disabled"))
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("profile_currency")
+                                        .font(.chakraPetchRegular(size: 16))
+                                        .foregroundColor(Color("disabled"))
+                                    
+                                    Text("\(viewModel.gameStatus?.currency ?? 0)")
+                                        .font(.chakraPetchBold(size: 16))
+                                        .foregroundColor(Color("mainExtraLight"))
+                                }
                                 
-                                Text("\(viewModel.gameStatus?.currency ?? 0)")
-                                    .font(.chakraPetchBold(size: 16))
-                                    .foregroundColor(Color("mainExtraLight"))
+                                HStack {
+                                    Text("profile_week")
+                                        .font(.chakraPetchRegular(size: 16))
+                                        .foregroundColor(Color("disabled"))
+                                    
+                                    Text("24")
+                                        .font(.chakraPetchBold(size: 16))
+                                        .foregroundColor(Color("mainExtraLight"))
+                                }
                             }
-                            .frame(width: geometryReader.size.width/4)
-                            
-                            HStack {
-                                Text("profile_week")
-                                    .font(.chakraPetchRegular(size: 16))
-                                    .foregroundColor(Color("disabled"))
-                                
-                                Text("24")
-                                    .font(.chakraPetchBold(size: 16))
-                                    .foregroundColor(Color("mainExtraLight"))
-                            }
-                            .frame(width: geometryReader.size.width/4)
-                            
-                            HStack {
-                                Text("profile_region")
-                                    .font(.chakraPetchRegular(size: 16))
-                                    .foregroundColor(Color("disabled"))
-                                
-                                Text("3")
-                                    .font(.chakraPetchBold(size: 16))
-                                    .foregroundColor(Color("mainExtraLight"))
-                            }.frame(width: geometryReader.size.width/4)
                         }
                     }
-                    .frame(height: 32)
+                    .padding(.leading, 24)
+                    
+                    Spacer()
                 }
+                .padding(.horizontal)
                 
                 HStack {
                     Text("profile_xp")
@@ -107,7 +94,22 @@ struct UserProfileView: View {
                         .font(.chakraPetchRegular(size: 16))
                         .foregroundColor(Color("disabled"))
                 }
-                .padding(.horizontal, 16)
+                .padding()
+                
+                Button {
+                    isEditProfilePresented.toggle()
+                } label: {
+                    Text("profile_edit_profile")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .frame(height: 30.0)
+                        .font(.chakraPetchMedium(size: 16))
+                        .foregroundColor(Color("mainExtraLight"))
+                        .background(Color("mainExtraLightExtraLow"))
+                        .cornerRadius(15)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 40)
+                .sheet(isPresented: $isEditProfilePresented, content: { EditProfileView(isEditProfilePresented: $isEditProfilePresented) })
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
@@ -122,12 +124,11 @@ struct UserProfileView: View {
                         
                         UserResourceView(image: "services", text: "profile_services", value: viewModel.gameStatus?.services ?? 0)
                     }
+                    .padding(.horizontal, 8)
                 }
-                .padding(.horizontal, 8)
-                .padding(.top, 16)
                 
                 Divider()
-                    .background(Color("disabled"))
+                    .background(Color("mainLow"))
                     .padding(.vertical, 16)
                 
                 VStack(spacing: 16) {
@@ -152,14 +153,12 @@ struct UserProfileView: View {
                 Spacer()
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarTitle(Text("profile"), displayMode: .inline)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
-        })
+        .background(
+            ZStack {
+                Color("negative")
+            }
+            .edgesIgnoringSafeArea(.vertical)
+        )
     }
 }
 

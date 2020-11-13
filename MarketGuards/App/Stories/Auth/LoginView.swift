@@ -19,8 +19,18 @@ struct LoginView: View {
                     .resizable()
                     .frame(width: 125.0, height: 140.0)
                 
-                VStack(spacing: 16.0) {
-                    TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "login", imageName: "name")
+                VStack(spacing: 16) {
+                    HStack {
+                        if !viewModel.alert.isEmpty {
+                            Image("warning")
+                        }
+                        Text(LocalizedStringKey("\(viewModel.alert)".lowercased()))
+                    }
+                    .frame(height: 24)
+                    .font(.chakraPetchRegular(size: 13))
+                    .foregroundColor(Color("error"))
+                    
+                    TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "user_login", imageName: "name")
                     
                     TextFieldWithIcon(type: .secured, text: $viewModel.password, label: "password", imageName: "lock")
                     
@@ -43,9 +53,6 @@ struct LoginView: View {
                 Spacer()
                     .frame(height: 48)
             }
-            .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Chyba"), message: Text(LocalizedStringKey("\(viewModel.alertText)".lowercased())), dismissButton: .default(Text("close")))
-                    }
             .background(
                 ZStack {
                     Image("background")
@@ -53,16 +60,15 @@ struct LoginView: View {
                         .scaledToFill()
                     
                     Rectangle()
-                        .background(Color("negative"))
+                        .background(Color("loginBackground"))
                         .opacity(0.6)
                 }
+                .navigationBarHidden(true)
                 .edgesIgnoringSafeArea(.all)
             )
         }
     }
 }
-
-
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

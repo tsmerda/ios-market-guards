@@ -12,7 +12,6 @@ struct SkillsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel = SkillsViewModel()
     
-    
     init(){
         UITableView.appearance().backgroundColor = .clear
         UITableView.appearance().tableFooterView = UIView()

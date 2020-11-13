@@ -7,9 +7,10 @@
 */
 
 "login" = "Přihlásit se";
+"user_login" = "Uživatelské jméno";
 "password" = "Heslo";
 
-"invalid_credentials" = "Nesprávně přihlašovací údaje";
+"invalid_credentials" = "Nesprávné přihlašovací údaje";
 
 "save" = "Uložit";
 "cancel" = "Zrušit";
@@ -90,6 +91,7 @@
 "settings_new_password" = "Nové heslo";
 "settings_confirm_new_password" = "Nové heslo znovu";
 "settings_version" = "Verze";
+"settings_email_not_valid" = "Nesprávný formát emailu";
 
 "acquisitions" = "Akvizice";
 "administration" = "Administrativa";

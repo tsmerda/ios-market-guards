@@ -7,50 +7,47 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
-    init() {
-        UINavigationBar.appearance().barTintColor = UIColor(Color("negative"))
-        UINavigationBar.appearance().titleTextAttributes = [
-            .foregroundColor: UIColor(Color("mainExtraLight"))]
-        UINavigationBar.appearance().largeTitleTextAttributes = [
-            .foregroundColor: UIColor(Color("mainExtraLight")),
-            .font : UIFont.systemFont(ofSize: 24)
-        ]
-        UITabBar.appearance().barTintColor = UIColor(Color("negative"))
-    }
-    
     @State private var selected = BottomMenu.dashboard
     
     var body: some View {
-        NavigationView {
-            TabView(selection: $selected) {
-                DashboardView()
-                    .tabItem({
-                        BottomMenu.dashboard.provideImage(isSelected: BottomMenu.dashboard == selected)
-                    })
-                    .tag(BottomMenu.dashboard)
-                StoryView()
-                    .tabItem({ BottomMenu.story.provideImage(isSelected: BottomMenu.story == selected)
-                    })
-                    .tag(BottomMenu.story)
-                LibraryView()
-                    .tabItem({ BottomMenu.library.provideImage(isSelected: BottomMenu.library == selected)
-                    })
-                    .tag(BottomMenu.library)
-                StoreView()
-                    .tabItem({ BottomMenu.store.provideImage(isSelected: BottomMenu.store == selected)
-                    })
-                    .tag(BottomMenu.store)
+        GeometryReader { geometry in
+            NavigationView {
+                TabView(selection: $selected) {
+                    DashboardView()
+                        .tabItem({
+                            Image(BottomMenu.dashboard.imageName)
+                        })
+                        .tag(BottomMenu.dashboard)
+                    StoryView()
+                        .tabItem({
+                            Image(BottomMenu.story.imageName)
+                        })
+                        .tag(BottomMenu.story)
+                    LibraryView()
+                        .tabItem({
+                            Image(BottomMenu.library.imageName)
+                        })
+                        .tag(BottomMenu.library)
+                    StoreView()
+                        .tabItem({
+                            Image(BottomMenu.store.imageName)
+                        })
+                        .tag(BottomMenu.store)
+                    UserProfileView()
+                        .tabItem({
+                            Image(BottomMenu.profile.imageName)
+                        })
+                        .tag(BottomMenu.profile)
+                }
+                .accentColor(Color("mainExtraLight"))
+                .navigationBarTitle(Text(""), displayMode: .inline)
+                .navigationBarItems(leading: Text(selected.localizedName)
+                                        .font(.chakraPetchMedium(size: 24))
+                                        .foregroundColor(Color("mainExtraLight")))
             }
-            .accentColor(Color("mainExtraLight"))
-            .navigationBarTitle(Text(selected.localizedName), displayMode: .inline)
-            .navigationBarItems(trailing:
-                                    NavigationLink(destination: UserProfileView()) {
-                                        Image(systemName: "person")
-                                            .foregroundColor(Color("mainExtraLight"))
-                                    }
-            )
         }
     }
 }

@@ -25,7 +25,6 @@ struct ChangePasswordView: View {
                         if oldPassword.isEmpty {
                             Text("settings_actual_password")
                                 .opacity(0.4)
-                            
                         }
                         SecureField("", text: $oldPassword)
                             .autocapitalization(.none)
@@ -77,10 +76,11 @@ struct ChangePasswordView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .frame(height: 30.0)
                         .font(.chakraPetchMedium(size: 16))
-                        .foregroundColor(Color("mainExtraLight"))
-                        .background(Color("mainExtraLightLow"))
+                        .foregroundColor(Color((oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty) ? "disabled" : "mainExtraLight"))
+                        .background(Color((oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty) ? "mainExtraLightExtraLow" : "mainExtraLightLow"))
                         .cornerRadius(15)
                 }
+                .disabled(oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty)
                 
                 Spacer()
             }

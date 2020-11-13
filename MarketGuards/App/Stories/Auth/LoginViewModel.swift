@@ -29,8 +29,7 @@ class LoginViewModel: ObservableObject {
     @Published var login = "xsmerda@mendelu.cz"
     @Published var password = "g"
     @Published var userLoggedIn = false
-    @Published var showAlert: Bool = false
-    @Published var alertText: String = ""
+    @Published var alert: String = ""
     
     let service = AuthService()
     
@@ -41,8 +40,7 @@ class LoginViewModel: ObservableObject {
                 print("successfuly logged in")
                 self?.userLoggedIn = true
             case .failure(let error):
-                self?.showAlert = true
-                self?.alertText = error.localizedDescription
+                self?.alert = error.localizedDescription
                 print("failed to log in with: \(error.localizedDescription)")
             }
         }

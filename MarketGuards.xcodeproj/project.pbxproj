@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		839E648C25035CE4365E8EE2 /* Pods_MarketGuards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D17985F84F277FD1D576F5 /* Pods_MarketGuards.framework */; };
 		C320C8EB254ACEC50056C5B2 /* MissionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320C8EA254ACEC50056C5B2 /* MissionRow.swift */; };
+		C32C8FD5255EAEFD00D21E2B /* CustomNavigationElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C8FD4255EAEFD00D21E2B /* CustomNavigationElements.swift */; };
 		C32D322C255C11CB00CBA785 /* SkillRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D322B255C11CB00CBA785 /* SkillRow.swift */; };
 		C32D322F255C377400CBA785 /* String+TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D322E255C377400CBA785 /* String+TimeFormatting.swift */; };
 		C3519C32255B275B007582C0 /* String+GetFromToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3519C31255B275B007582C0 /* String+GetFromToken.swift */; };
@@ -106,6 +107,7 @@
 		24347BD1151DCD6362CBD6C0 /* Pods-MarketGuards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGuards.debug.xcconfig"; path = "Target Support Files/Pods-MarketGuards/Pods-MarketGuards.debug.xcconfig"; sourceTree = "<group>"; };
 		71D17985F84F277FD1D576F5 /* Pods_MarketGuards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketGuards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C320C8EA254ACEC50056C5B2 /* MissionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRow.swift; sourceTree = "<group>"; };
+		C32C8FD4255EAEFD00D21E2B /* CustomNavigationElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationElements.swift; sourceTree = "<group>"; };
 		C32D322B255C11CB00CBA785 /* SkillRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillRow.swift; sourceTree = "<group>"; };
 		C32D322E255C377400CBA785 /* String+TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TimeFormatting.swift"; sourceTree = "<group>"; };
 		C3519C31255B275B007582C0 /* String+GetFromToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+GetFromToken.swift"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				C3519C5D255B291C007582C0 /* EditProfileView.swift */,
+				C3519C69255B2939007582C0 /* ChangeAvatarView.swift */,
 				C3519C5F255B291C007582C0 /* UserProfileView.swift */,
 				C3519C5E255B291C007582C0 /* UserProfileViewModel.swift */,
 				C3519C5C255B291B007582C0 /* UserResourceView.swift */,
@@ -272,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				C3519C68255B2939007582C0 /* AboutView.swift */,
-				C3519C69255B2939007582C0 /* ChangeAvatarView.swift */,
 				C3519C6A255B2939007582C0 /* ChangePasswordView.swift */,
 				C3519C6B255B2939007582C0 /* InviteView.swift */,
 				C3519C67255B2939007582C0 /* SettingsView.swift */,
@@ -451,6 +453,7 @@
 				C3D8E8A12531A29B009A95A7 /* Int+TimeFormatting.swift */,
 				C3519C31255B275B007582C0 /* String+GetFromToken.swift */,
 				C32D322E255C377400CBA785 /* String+TimeFormatting.swift */,
+				C32C8FD4255EAEFD00D21E2B /* CustomNavigationElements.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				C364A31125330D3200ABB2D4 /* TopMenu.swift in Sources */,
 				C357FC9F252111A800D61651 /* AuthenticatedProvider.swift in Sources */,
 				C3519C81255B294E007582C0 /* SkillsView.swift in Sources */,
+				C32C8FD5255EAEFD00D21E2B /* CustomNavigationElements.swift in Sources */,
 				C3519C3E255B27C9007582C0 /* CreateInvitationRequest.swift in Sources */,
 				C3D43B5B25470BF0007B6C17 /* ColorsConstants.swift in Sources */,
 				C364C2652542F8A10048B7B6 /* QuestType.swift in Sources */,

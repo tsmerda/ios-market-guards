@@ -25,17 +25,28 @@ struct TextFieldWithIcon: View {
                 if (type == .generic) {
                     Image(imageName)
                         .foregroundColor(Color("mainExtraLight"))
-                    
-                    TextField(label, text: $text)
-                        .foregroundColor(Color("mainExtraLight"))
-                        .autocapitalization(.none)
+                    ZStack(alignment: .leading) {
+                        if text.isEmpty {
+                            Text(label)
+                                .foregroundColor(Color("mainExtraLightLow"))
+                        }
+                        TextField("", text: $text)
+                            .foregroundColor(Color("mainExtraLight"))
+                            .autocapitalization(.none)
+                    }
                 } else if (type == .secured) {
                     Image(imageName)
                         .foregroundColor(Color("mainExtraLight"))
                     
-                    SecureField(label, text: $text)
-                        .foregroundColor(Color("mainExtraLight"))
-                        .autocapitalization(.none)
+                    ZStack(alignment: .leading) {
+                        if text.isEmpty {
+                            Text(label)
+                                .foregroundColor(Color("mainExtraLightLow"))
+                        }
+                        SecureField("", text: $text)
+                            .foregroundColor(Color("mainExtraLight"))
+                            .autocapitalization(.none)
+                    }
                 }
             }
             .padding(.leading, 16)

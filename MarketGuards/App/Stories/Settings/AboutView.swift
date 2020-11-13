@@ -38,9 +38,9 @@ struct AboutView: View {
         }
         .navigationBarTitle(Text("settings_about_application"), displayMode: .inline)
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
+        .navigationBarItems(leading: Button {
             presentationMode.wrappedValue.dismiss()
-        }) {
+        } label: {
             Image(systemName: "chevron.left")
                 .foregroundColor(Color("mainExtraLight"))
         })
