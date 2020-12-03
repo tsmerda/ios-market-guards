@@ -17,11 +17,16 @@
 "confirm" = "Potvrdit";
 "close" = "Zavřít";
 "done" = "Hotovo";
+"search" = "Hledat";
 
 "dashboard" = "Základna";
 "story" = "Můj příběh";
 "library" = "Knihovna";
 "store" = "Obchod";
+
+"library_stories" = "Příběhy";
+"library_best-practice" = "Best-practice";
+"library_dictionary" = "Slovníček";
 
 "missions_active" = "Aktivní";
 "missions_prepared" = "Připravené";
@@ -56,7 +61,7 @@
 
 "profile_edit_profile" = "Upravit profil";
 "profile_level" = "Level";
-"profile_currency" = "Krystaly";
+"profile_currency" = "Peníze";
 "profile_xp" = "XP";
 "profile" = "Profil";
 "profile_change_photo" = "Změnit fotku";
@@ -92,6 +97,13 @@
 "settings_confirm_new_password" = "Nové heslo znovu";
 "settings_version" = "Verze";
 "settings_email_not_valid" = "Nesprávný formát emailu";
+
+"store_currency" = "Peníze";
+"store_subtitle" = "Odměna dostupná pouze pro tvůj tým";
+"store_buy %lld" = "Koupit za %lld";
+"store_remaining %lld %lld" = "Zbývá %lld / %lld";
+"store_to_buy" = "K zakoupení";
+"store_my_rewards" = "Moje odměny";
 
 "acquisitions" = "Akvizice";
 "administration" = "Administrativa";

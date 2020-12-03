@@ -11,6 +11,8 @@ import SwiftUI
 enum MenuType {
     case dashboard
     case questDetail
+    case store
+    case library
     
     var topMenu: [String] {
         switch self {
@@ -18,6 +20,10 @@ enum MenuType {
             return ["missions_active","missions_prepared","missions_finished"]
         case .questDetail:
             return ["quests_skills","quests_statistics","quests_notes"]
+        case .store:
+            return ["store_to_buy","store_my_rewards"]
+        case .library:
+            return ["library_stories","library_best-practice","library_dictionary"]
         }
     }
 }

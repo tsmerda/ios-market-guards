@@ -10,7 +10,6 @@ import SwiftUI
 
 enum BottomMenu {
     case dashboard
-    case story
     case library
     case store
     case profile
@@ -19,8 +18,6 @@ enum BottomMenu {
         switch self {
         case .dashboard:
             return "dashboard"
-        case .story:
-            return "story"
         case .library:
             return "library"
         case .store:
@@ -34,8 +31,6 @@ enum BottomMenu {
         switch self {
         case .dashboard:
             return "dashboard"
-        case .story:
-            return "story"
         case .library:
             return "library"
         case .store:
