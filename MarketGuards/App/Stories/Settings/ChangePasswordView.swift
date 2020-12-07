@@ -17,7 +17,7 @@ struct ChangePasswordView: View {
     
     var body: some View {
         ZStack {
-            Color("negative")
+            Color(ColorsConstants.negative)
                 .edgesIgnoringSafeArea(.bottom)
             VStack(spacing: 16) {
                 VStack(spacing: 16) {
@@ -30,11 +30,11 @@ struct ChangePasswordView: View {
                             .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color("mainExtraLightLow"))
+                        .background(Color(ColorsConstants.mainExtraLightLow))
                     
                     ZStack(alignment: .leading) {
                         if newPassword.isEmpty {
@@ -45,11 +45,11 @@ struct ChangePasswordView: View {
                             .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color("mainExtraLightLow"))
+                        .background(Color(ColorsConstants.mainExtraLightLow))
                     
                     ZStack(alignment: .leading) {
                         if confirmNewPassword.isEmpty {
@@ -60,24 +60,24 @@ struct ChangePasswordView: View {
                             .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .padding(.horizontal, 16)
                 }
                 .padding(.vertical, 16)
-                .background(Color("mainExtraLightExtraLow"))
+                .background(Color(ColorsConstants.mainExtraLightExtraLow))
                 .cornerRadius(5)
                 
                 Button {
                     if newPassword == confirmNewPassword {
-                        viewModel.changePassword(idPlayer: "sub".getFromToken, oldPassword: oldPassword.sha256, newPassword: newPassword.sha256)
+                        viewModel.changePassword(idPlayer: viewModel.idPlayer, oldPassword: oldPassword.sha256, newPassword: newPassword.sha256)
                     }
                 } label: {
                     Text("confirm")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .frame(height: 30.0)
                         .font(.chakraPetchMedium(size: 16))
-                        .foregroundColor(Color((oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty) ? "disabled" : "mainExtraLight"))
-                        .background(Color((oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty) ? "mainExtraLightExtraLow" : "mainExtraLightLow"))
+                        .foregroundColor(Color((oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty) ? ColorsConstants.disabled : ColorsConstants.mainExtraLight))
+                        .background(Color((oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty) ? ColorsConstants.mainExtraLightExtraLow : ColorsConstants.mainExtraLightLow))
                         .cornerRadius(15)
                 }
                 .disabled(oldPassword.isEmpty || newPassword.isEmpty || confirmNewPassword.isEmpty)
@@ -92,7 +92,7 @@ struct ChangePasswordView: View {
             presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
         })
     }
 }

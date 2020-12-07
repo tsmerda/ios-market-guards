@@ -27,14 +27,14 @@ struct MissionsListView: View {
                         Image("remaining_time")
                     }
                     .font(.chakraPetchRegular(size: 16))
-                    .foregroundColor(Color("main"))
+                    .foregroundColor(Color(ColorsConstants.main))
                 }
                 .padding(.bottom, 8)
                 
                 Divider()
-                    .background(Color("mainLow"))
+                    .background(Color(ColorsConstants.mainLow))
                 Divider()
-                    .background(Color("mainLow"))
+                    .background(Color(ColorsConstants.mainLow))
                     .padding(.bottom, 2)
                 
                 ScrollView(showsIndicators: false) {
@@ -50,7 +50,7 @@ struct MissionsListView: View {
                                 MissionRow(title: "\(mission.missionType.id ?? 0). \(mission.title)", totalQuests: mission.totalQuests ?? 0, finishedQuests: mission.finishedQuests ?? 0)
                             }
                             Divider()
-                                .background(Color("mainLow"))
+                                .background(Color(ColorsConstants.mainLow))
                         }
                     }
                     Spacer()
@@ -58,7 +58,7 @@ struct MissionsListView: View {
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             }
             .padding()
-            .background(Color("negative"))
+            .background(Color(ColorsConstants.negative))
             .navigationBarTitle(Text("missions_missions_list"), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
             .navigationBarItems(trailing: Button {
@@ -66,7 +66,7 @@ struct MissionsListView: View {
             } label: {
                 Text("done")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
             })
         }
     }

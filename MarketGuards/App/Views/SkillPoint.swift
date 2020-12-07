@@ -29,7 +29,7 @@ struct SkillPoint: View {
                 if (bonusExperiences != 0) {
                     Text(" +\(bonusExperiences ?? 0)")
                         .font(.chakraPetchBold(size: 12))
-                        .foregroundColor(Color("warning"))
+                        .foregroundColor(Color(ColorsConstants.warning))
                 }
             }
         }

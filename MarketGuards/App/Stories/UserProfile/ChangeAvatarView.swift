@@ -23,31 +23,21 @@ struct ChangeAvatarView: View {
                                     avatar = "MAN_\(index)"
                                     isChangeAvatarPresented.toggle()
                                 } label: {
-                                    Image("man_\(index)")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: geometryReader.size.width / 2, height: geometryReader.size.width / 2)
-                                        .clipped()
-                                        .padding(1)
+                                    AvatarView(avatar: "man_\(index)")
                                 }
                                 
                                 Button {
                                     avatar = "WOMAN_\(index)"
                                     isChangeAvatarPresented.toggle()
                                 } label: {
-                                    Image("woman_\(index)")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: geometryReader.size.width / 2, height: geometryReader.size.width / 2)
-                                        .clipped()
-                                        .padding(1)
+                                    AvatarView(avatar: "woman_\(index)")
                                 }
                             }
                         }
                         Spacer()
                     }
                 }
-                .background(Color("negative"))
+                .background(Color(ColorsConstants.negative))
                 .edgesIgnoringSafeArea(.bottom)
                 .navigationBarTitle(Text("Vybrat avatara"), displayMode: .inline)
                 .navigationBarItems(leading: Button {
@@ -55,7 +45,7 @@ struct ChangeAvatarView: View {
                 } label: {
                     Text("cancel")
                         .font(.chakraPetchMedium(size: 14))
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                 })
             }
         }

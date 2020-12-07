@@ -22,13 +22,14 @@ struct DashboardView: View {
                     Text(viewModel.missionDetail?.title?.uppercased() ?? "Všechny questy".uppercased())
                         .fixedSize(horizontal: false, vertical: true)
                         .font(.chakraPetchRegular(size: 34))
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                        .padding(.top)
                     
                     if viewModel.missionDetail?.id != nil {
                         Text(viewModel.missionDetail?.story ?? "")
                             .font(.chakraPetchRegular(size: 13))
                             .lineLimit(4)
-                            .foregroundColor(Color("mainExtraLight"))
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
                             .opacity(0.6)
                         
                         Button {
@@ -36,14 +37,14 @@ struct DashboardView: View {
                         } label: {
                             Text("missions_show_more")
                                 .font(.chakraPetchRegular(size: 13))
-                                .foregroundColor(Color("main"))
+                                .foregroundColor(Color(ColorsConstants.main))
                                 .padding(.top)
                         }
                         .sheet(isPresented: $isMissionDetailPresented, content: { MissionDetailView(missionDetail: $viewModel.missionDetail, isMissionDetailPresented: $isMissionDetailPresented) })
                     }
                     
                     Divider()
-                        .background(Color("mainExtraLightLow"))
+                        .background(Color(ColorsConstants.mainExtraLightLow))
                         .padding(.vertical)
                     
                     HStack {
@@ -56,23 +57,15 @@ struct DashboardView: View {
                     if topIndex == 0 {
                         Section(header: Text("missions_active_quests")
                                     .font(.chakraPetchBold(size: 12))
-                                    .foregroundColor(Color("mainExtraLight"))
+                                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                                     .padding(.bottom)) {
                             ActiveQuestsView(missionDetail: $viewModel.missionDetail)
                         }
                     }
                     if topIndex == 1 {
-                        Section(header: Text("missions_prepared_quests")
-                                    .font(.chakraPetchBold(size: 12))
-                                    .foregroundColor(Color("mainExtraLight"))
-                                    .padding(.bottom)) {
-                            PreparedQuestsView(missionDetail: $viewModel.missionDetail)
-                        }
-                    }
-                    if topIndex == 2 {
                         Section(header:  Text("missions_finished_quests")
                                     .font(.chakraPetchBold(size: 12))
-                                    .foregroundColor(Color("mainExtraLight"))
+                                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                                     .padding(.bottom)) {
                             FinishedQuestsView(missionDetail: $viewModel.missionDetail)
                         }
@@ -85,7 +78,7 @@ struct DashboardView: View {
             }
             .background(
                 ZStack {
-                    Color("negative")
+                    Color(ColorsConstants.negative)
                 }
                 .edgesIgnoringSafeArea(.vertical)
             )
@@ -95,8 +88,8 @@ struct DashboardView: View {
             } label: {
                 Image("burger_menu_full")
                     .padding(4)
-                    .foregroundColor(Color("negative"))
-                    .background(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.negative))
+                    .background(Color(ColorsConstants.mainExtraLight))
                     .clipShape(Circle())
                     .padding()
             }

@@ -8,23 +8,14 @@
 
 import Foundation
 
-enum SettingsError: Error {
-    case generic
-    case underlying(Error)
-    
-    var localizedDescription: String {
-        switch self {
-        case .generic:
-            return "Something went wrong."
-        case .underlying(let error):
-            return error.localizedDescription
-        }
-    }
-}
-
 class SettingsViewModel: ObservableObject {    
     private var settingsService = SettingsService()
     private var playerService = PlayerService()
+    let idPlayer: String = TokenManager.shared.getFromToken("sub")
+    let firstName: String = TokenManager.shared.getFromToken("firstName")
+    let lastName: String = TokenManager.shared.getFromToken("lastName")
+    let email: String = TokenManager.shared.getFromToken("email")
+    let registerDate: String = TokenManager.shared.getFromToken("registerDate")
     
     func createInvitation(email: String, firstName: String, lastName: String) {
         settingsService.createInvitation(email: email, firstName: firstName, lastName: lastName) { result in
@@ -61,6 +52,14 @@ class SettingsViewModel: ObservableObject {
                 print("Failed fetch response with: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func textFieldValidatorEmail(_ string: String) -> Bool {
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        
+        return emailPredicate.evaluate(with: string)
     }
     
     convenience init() {

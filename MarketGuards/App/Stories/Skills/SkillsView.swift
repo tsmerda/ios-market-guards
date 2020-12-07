@@ -12,16 +12,11 @@ struct SkillsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel = SkillsViewModel()
     
-    init(){
-        UITableView.appearance().backgroundColor = .clear
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
         ZStack {
-            Color("negative")
+            Color(ColorsConstants.negative)
                 .edgesIgnoringSafeArea(.bottom)
-            List {
+            ScrollView {
                 ForEach(viewModel.skills ?? []) { skill in
                     if self.viewModel.isAllowedSkill(code: skill.code) {
                         NavigationLink(destination: SubSkillsView(skillId: skill.id)
@@ -29,9 +24,11 @@ struct SkillsView: View {
                             SkillItemView(skill: skill)
                         }
                     }
-                }.listRowBackground(Color("negative"))
+                }
             }
-            .padding(.top)
+            .padding(.vertical)
+            
+            Spacer()
         }
         .navigationBarTitle(Text("skills"), displayMode: .inline)
         .navigationBarBackButtonHidden(true)
@@ -39,7 +36,7 @@ struct SkillsView: View {
             presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
         })
     }
 }

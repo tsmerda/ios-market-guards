@@ -40,4 +40,7 @@ struct ColorsConstants {
     static let success = "success"
     static let warning = "warning"
     static let error = "error"
+
+    // MARK: - Other colors
+    static let loginBackground = "loginBackground"
 }

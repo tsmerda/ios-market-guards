@@ -10,44 +10,45 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @StateObject var viewModel = SettingsViewModel()
     
     var body: some View {
         ZStack {
-            Color("negative")
+            Color(ColorsConstants.negative)
                 .edgesIgnoringSafeArea(.bottom)
             VStack(spacing: 16) {
                 HStack {
                     Text("settings_name")
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.8)
                     Spacer()
                     HStack {
-                        Text("firstName".getFromToken)
-                        Text("lastName".getFromToken)
+                        Text(viewModel.firstName)
+                        Text(viewModel.lastName)
                     }
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .opacity(0.4)
                 }
                 .font(.chakraPetchRegular(size: 14))
                 
                 HStack {
                     Text("settings_email")
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.8)
                     Spacer()
-                    Text("email".getFromToken)
-                        .foregroundColor(Color("mainExtraLight"))
+                    Text(viewModel.email)
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.4)
                 }
                 .font(.chakraPetchRegular(size: 14))
                 
                 HStack {
                     Text("settings_registration_date")
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.8)
                     Spacer()
-                    Text("registerDate".getFromToken)
-                        .foregroundColor(Color("mainExtraLight"))
+                    Text(viewModel.registerDate)
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.4)
                 }
                 .font(.chakraPetchRegular(size: 14))
@@ -69,7 +70,7 @@ struct SettingsView: View {
                 Button {
                     //                    viewModel.userLoggedIn = false
                 } label: {
-                    ButtonWithBackground(text: "settings_logout", color: "pureBlack", backgroundColor: "mainExtraLight")
+                    ButtonWithBackground(text: "settings_logout", color: ColorsConstants.pureBlack, backgroundColor: ColorsConstants.mainExtraLight)
                         .frame(width: 175)
                 }
             }
@@ -81,7 +82,7 @@ struct SettingsView: View {
             presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
         })
     }
 }

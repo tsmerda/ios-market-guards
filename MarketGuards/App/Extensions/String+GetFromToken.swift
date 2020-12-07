@@ -19,3 +19,18 @@ extension String {
         }
     }
 }
+
+class TokenManager {    
+    static let shared = TokenManager()
+    
+    private init() { }
+    
+    func getFromToken(_ string: String) -> String {
+        do {
+            let jwt = try decode(jwt: CurrentUserManager.shared.accessToken ?? "")
+            return jwt.claim(name: string).string ?? ""
+        } catch {
+            return ""
+        }
+    }
+}

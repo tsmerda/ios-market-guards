@@ -8,25 +8,8 @@
 
 import Foundation
 
-enum LoginError: Error {
-    case moyaError(Error)
-    case loginFailed(String)
-    case generic
-    
-    var localizedDescription: String {
-        switch self {
-        case.generic:
-            return "Something went wrong"
-        case .moyaError(let error):
-            return error.localizedDescription
-        case .loginFailed(let message):
-            return message
-        }
-    }
-}
-
 class LoginViewModel: ObservableObject {
-    @Published var login = "xsmerda@mendelu.cz"
+    @Published var login = "tomas.smerda@threatmark.com"
     @Published var password = "g"
     @Published var userLoggedIn = false
     @Published var alert: String = ""

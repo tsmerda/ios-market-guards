@@ -24,16 +24,13 @@
 "store" = "Obchod";
 
 "missions_active" = "Aktivní";
-"missions_prepared" = "Připravené";
 "missions_finished" = "Splněné";
 "missions_active_quests" = "Aktivní questy";
 "missions_all_quests" = "Všechny questy";
 "missions_finished_quests" = "Splněné questy";
-"missions_prepared_quests" = "Připravené questy";
 "missions_mission_detail" = "Detail mise";
 "missions_missions_list" = "Seznam misí";
 "missions_no_active_quests" = "Právě teď nemáš žádné aktivní questy. Pokud máš nějaké připravené questy, můžeš si některý z nich spustit a tím jej přesunout do aktivních.";
-"missions_no_prepared_quests" = "Momentálně nemáš žádné připravené questy. Nové připravené questy ti přibydou po dokončení určitých aktivních questů.";
 "missions_no_finished_quests" = "Zatím nemáš žádné splněné questy. Až dokončíš aktivní quest, přesune se mezi splněné.";
 "missions_choose_mission" = "Vybrat misi";
 "missions_show_more" = "Zobrazit více";

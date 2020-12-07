@@ -9,14 +9,11 @@
 import SwiftUI
 
 enum QuestType {
-    case prepared
     case active
     case finished
     
     var timeText: LocalizedStringKey {
         switch self {
-        case .prepared:
-            return "quests_time_to_finish"
         case .active:
             return "quests_remaining_time"
         case .finished:
@@ -26,8 +23,6 @@ enum QuestType {
     
     var timeIcon: String {
         switch self {
-        case .prepared:
-            return "time"
         case .active:
             return "remaining_time"
         case .finished:
@@ -37,8 +32,6 @@ enum QuestType {
     
     var timeColor: String {
         switch self {
-        case .prepared:
-            return "mainLight"
         case .active:
             return "warningLight"
         case .finished:

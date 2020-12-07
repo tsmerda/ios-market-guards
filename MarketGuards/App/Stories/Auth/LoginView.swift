@@ -22,13 +22,13 @@ struct LoginView: View {
                 VStack(spacing: 16) {
                     HStack {
                         if !viewModel.alert.isEmpty {
-                            Image("warning")
+                            Image(ColorsConstants.warning)
                         }
                         Text(LocalizedStringKey("\(viewModel.alert)".lowercased()))
                     }
                     .frame(height: 24)
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("error"))
+                    .foregroundColor(Color(ColorsConstants.error))
                     
                     TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "user_login", imageName: "name")
                     
@@ -37,7 +37,7 @@ struct LoginView: View {
                     Button {
                         viewModel.loginButtonPressed()
                     } label: {
-                        ButtonWithBackground(text: "login", color: "pureBlack" ,backgroundColor: "mainDark")
+                        ButtonWithBackground(text: "login", color: ColorsConstants.pureBlack ,backgroundColor: ColorsConstants.mainDark)
                             .frame(width: 175)
                     }
                     .padding(.top, 8)
@@ -60,7 +60,7 @@ struct LoginView: View {
                         .scaledToFill()
                     
                     Rectangle()
-                        .background(Color("loginBackground"))
+                        .background(Color(ColorsConstants.loginBackground))
                         .opacity(0.6)
                 }
                 .navigationBarHidden(true)

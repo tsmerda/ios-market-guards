@@ -19,12 +19,12 @@ struct QuestRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("| \(quest.title.uppercased())")
                     .font(.chakraPetchSemiBold(size: 17))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                 
                 Text(quest.story)
                     .lineLimit(1)
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                 
                 VStack(alignment: .leading, spacing: 4) {
                     MainSkillPoint(experiences: quest.experiences ?? 0, bonusExperiences: quest.bonusExperiences ?? 0)
@@ -44,7 +44,7 @@ struct QuestRow: View {
                                 }
                             }
                     } else {
-                        Text(type == .prepared ? "\(quest.timeToFinish.minutesTimeFormating)" : "\((quest.finished ?? "").formatFinishedDate)")
+                        Text("\((quest.finished ?? "").formatFinishedDate)")
                     }
                 }
                 .font(.chakraPetchSemiBold(size: 12))
@@ -58,7 +58,7 @@ struct QuestRow: View {
         .onAppear() {
             getFormatedTime()
         }
-        .background(Color("disabledLow"))
+        .background(Color(ColorsConstants.disabledLow))
         .cornerRadius(8)
     }
     

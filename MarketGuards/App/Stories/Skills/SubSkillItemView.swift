@@ -13,39 +13,43 @@ struct SubSkillItemView: View {
     @State var skillType: SkillType?
     
     var body: some View {
-        HStack {
-            Image(subSkill?.code ?? "")
-                .resizable()
-                .frame(width: 68, height: 68)
-                .foregroundColor(Color("\(subSkill?.code ?? "")"))
-                .border(Color("\(skillType?.code ?? "")Low"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-            
-            VStack(alignment: .leading) {
-                Text((subSkill?.title ?? "").uppercased())
-                    .font(.chakraPetchRegular(size: 18))
-                    .foregroundColor(Color("mainExtraLight"))
-                HStack {
-                    HStack {
-                        Text("skills_level")
-                        Text("\(subSkill?.level ?? 0)")
-                    }
-                    .foregroundColor(Color("mainExtraLight"))
-                    
-                    Text("|")
-                        .foregroundColor(Color("mainExtraLight"))
-                    
-                    Text("\(subSkill?.experiences ?? 0) / \(subSkill?.experiencesToNextLevel ?? 0)")
-                        .foregroundColor(Color("mainExtraLight"))
-                }
-                .font(.chakraPetchRegular(size: 16))
+        VStack {
+            HStack {
+                Image(subSkill?.code ?? "")
+                    .resizable()
+                    .frame(width: 68, height: 68)
+                    .foregroundColor(Color("\(subSkill?.code ?? "")"))
+                    .border(Color("\(skillType?.code ?? "")Low"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 
-                ProgressBar(value: .constant(CGFloat(subSkill?.experiences ?? 0)),
-                            maxValue: .constant(CGFloat(subSkill?.experiencesToNextLevel ?? 0)),
-                            color: skillType?.code ?? "main")
+                VStack(alignment: .leading, spacing: 4) {
+                    Text((subSkill?.title ?? "").uppercased())
+                        .font(.chakraPetchRegular(size: 18))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                    HStack {
+                        HStack {
+                            Text("skills_level")
+                            Text("\(subSkill?.level ?? 0)")
+                        }
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                        
+                        Text("|")
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                        
+                        Text("\(subSkill?.experiences ?? 0) / \(subSkill?.experiencesToNextLevel ?? 0)")
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                    }
+                    .font(.chakraPetchRegular(size: 16))
+                    
+                    ProgressBar(value: .constant(CGFloat(subSkill?.experiences ?? 0)),
+                                maxValue: .constant(CGFloat(subSkill?.experiencesToNextLevel ?? 0)),
+                                color: skillType?.code ?? ColorsConstants.main)
+                }
             }
+            .padding(.vertical, 8)
+            
+            Divider()
+                .background(Color(ColorsConstants.mainExtraLow))
         }
-        .padding(.vertical, 8)
-        .padding(.trailing)
     }
 }
 
