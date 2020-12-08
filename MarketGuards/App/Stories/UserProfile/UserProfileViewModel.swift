@@ -12,7 +12,7 @@ class UserProfileViewModel: ObservableObject {
     @Published var gameStatus: GameStatusResponse?
     private var service = PlayerService()
     let avatar: String = TokenManager.shared.getFromToken("avatar")
-    let firstName: String = TokenManager.shared.getFromToken("firstName")
+    let nickName: String = TokenManager.shared.getFromToken("nickName")
     
     func fetchGameStatusData() {
         service.fetchGameStatus { [weak self] result in

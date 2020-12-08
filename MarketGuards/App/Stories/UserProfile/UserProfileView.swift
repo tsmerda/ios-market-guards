@@ -25,7 +25,7 @@ struct UserProfileView: View {
                         .padding(.top)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(viewModel.firstName)
+                        Text(viewModel.nickName)
                             .font(.chakraPetchSemiBold(size: 20))
                             .foregroundColor(Color(ColorsConstants.mainExtraLight))
                             .padding(.bottom, 8)
@@ -102,14 +102,6 @@ struct UserProfileView: View {
                 VStack(spacing: 16) {
                     NavigationLink(destination: SkillsView()) {
                         MenuRowView(image: "skills", text: "profile_skills")
-                    }
-                    
-                    NavigationLink(destination: EmptyView()) {
-                        MenuRowView(image: "badges", text: "profile_badges")
-                    }
-                    
-                    NavigationLink(destination: EmptyView()) {
-                        MenuRowView(image: "overview", text: "profile_my_team")
                     }
                     
                     NavigationLink(destination: SettingsView()) {
