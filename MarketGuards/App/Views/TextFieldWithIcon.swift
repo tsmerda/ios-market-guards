@@ -24,34 +24,34 @@ struct TextFieldWithIcon: View {
             HStack {
                 if (type == .generic) {
                     Image(imageName)
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     ZStack(alignment: .leading) {
                         if text.isEmpty {
                             Text(label)
-                                .foregroundColor(Color("mainExtraLightLow"))
+                                .foregroundColor(Color(ColorsConstants.mainExtraLightLow))
                         }
                         TextField("", text: $text)
-                            .foregroundColor(Color("mainExtraLight"))
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
                             .autocapitalization(.none)
                     }
                 } else if (type == .secured) {
                     Image(imageName)
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     
                     ZStack(alignment: .leading) {
                         if text.isEmpty {
                             Text(label)
-                                .foregroundColor(Color("mainExtraLightLow"))
+                                .foregroundColor(Color(ColorsConstants.mainExtraLightLow))
                         }
                         SecureField("", text: $text)
-                            .foregroundColor(Color("mainExtraLight"))
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
                             .autocapitalization(.none)
                     }
                 }
             }
             .padding(.leading, 16)
             .frame(height: 48)
-            .background(Color("mainExtraLightLow").opacity(0.5))
+            .background(Color(ColorsConstants.mainExtraLightLow).opacity(0.5))
             .cornerRadius(30)
         }
     }

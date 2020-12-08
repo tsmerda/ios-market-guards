@@ -24,16 +24,16 @@ struct MissionDetailView: View {
                     
                     Text(missionDetail?.title ?? "")
                         .font(.chakraPetchRegular(size: 26))
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .padding(.horizontal, 16)
                     
                     Text(missionDetail?.story ?? "")
                         .font(.chakraPetchRegular(size: 16))
-                        .foregroundColor(Color("main"))
+                        .foregroundColor(Color(ColorsConstants.main))
                         .padding(.horizontal, 16)
                 }
             }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-            .background(Color("negative"))
+            .background(Color(ColorsConstants.negative))
             .edgesIgnoringSafeArea(.bottom)
             .navigationBarTitle(Text("missions_mission_detail"), displayMode: .inline)
             .navigationBarItems(trailing: Button {
@@ -41,7 +41,7 @@ struct MissionDetailView: View {
             } label: {
                 Text("done")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
             })
         }
     }

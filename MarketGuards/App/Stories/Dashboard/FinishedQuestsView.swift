@@ -15,7 +15,7 @@ struct FinishedQuestsView: View {
         if missionDetail?.finishedQuests.isEmpty ?? true {
             Text("missions_no_finished_quests")
                 .font(.chakraPetchRegular(size: 13))
-                .foregroundColor(Color("disabled"))
+                .foregroundColor(Color(ColorsConstants.disabled))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom)
                 .padding(.horizontal)

@@ -37,11 +37,11 @@ struct ContentView: View {
                         })
                         .tag(BottomMenu.profile)
                 }
-                .accentColor(Color("mainExtraLight"))
+                .accentColor(Color(ColorsConstants.mainExtraLight))
                 .navigationBarTitle(Text(""), displayMode: .inline)
                 .navigationBarItems(leading: Text(selected.localizedName)
                                         .font(.chakraPetchMedium(size: 24))
-                                        .foregroundColor(Color("mainExtraLight")))
+                                        .foregroundColor(Color(ColorsConstants.mainExtraLight)))
             }
         }
     }

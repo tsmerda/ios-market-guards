@@ -18,7 +18,7 @@ struct InviteView: View {
     
     var body: some View {
         ZStack {
-            Color("negative")
+            Color(ColorsConstants.negative)
                 .edgesIgnoringSafeArea(.bottom)
             VStack(spacing: 16) {
                 VStack(spacing: 16) {
@@ -32,11 +32,11 @@ struct InviteView: View {
                             .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color("mainExtraLightLow"))
+                        .background(Color(ColorsConstants.mainExtraLightLow))
                     
                     ZStack(alignment: .leading) {
                         if lastName.isEmpty {
@@ -47,11 +47,11 @@ struct InviteView: View {
                             .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color("mainExtraLightLow"))
+                        .background(Color(ColorsConstants.mainExtraLightLow))
                     
                     ZStack(alignment: .leading) {
                         if email.isEmpty {
@@ -60,7 +60,7 @@ struct InviteView: View {
                         }
                         TextField("", text: $email, onEditingChanged: { (isChanged) in
                             if !isChanged {
-                                if self.textFieldValidatorEmail(self.email) {
+                                if self.viewModel.textFieldValidatorEmail(self.email) {
                                     self.isEmailValid = true
                                 } else {
                                     self.isEmailValid = false
@@ -71,18 +71,18 @@ struct InviteView: View {
                         .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .padding(.horizontal, 16)
                     
                     if !self.isEmailValid {
                         Text("settings_email_not_valid")
                             .font(.chakraPetchRegular(size: 13))
-                            .foregroundColor(Color("error"))
+                            .foregroundColor(Color(ColorsConstants.error))
                     }
                     
                 }
                 .padding(.vertical, 16)
-                .background(Color("mainExtraLightExtraLow"))
+                .background(Color(ColorsConstants.mainExtraLightExtraLow))
                 .cornerRadius(5)
                 
                 Button {
@@ -92,8 +92,8 @@ struct InviteView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .frame(height: 30.0)
                         .font(.chakraPetchMedium(size: 16))
-                        .foregroundColor(Color((!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty) ? "disabled" : "mainExtraLight"))
-                        .background(Color((!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty) ? "mainExtraLightExtraLow" : "mainExtraLightLow"))
+                        .foregroundColor(Color((!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty) ? ColorsConstants.disabled : ColorsConstants.mainExtraLight))
+                        .background(Color((!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty) ? ColorsConstants.mainExtraLightExtraLow : ColorsConstants.mainExtraLightLow))
                         .cornerRadius(15)
                 }
                 .disabled(!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty)
@@ -108,19 +108,10 @@ struct InviteView: View {
             presentationMode.wrappedValue.dismiss()
         } label: {
             Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
         })
     }
-    func textFieldValidatorEmail(_ string: String) -> Bool {
-        let emailFormat = "(?:[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}" + "~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\" + "x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[\\p{L}0-9](?:[a-" + "z0-9-]*[\\p{L}0-9])?\\.)+[\\p{L}0-9](?:[\\p{L}0-9-]*[\\p{L}0-9])?|\\[(?:(?:25[0-5" + "]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-" + "9][0-9]?|[\\p{L}0-9-]*[\\p{L}0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21" + "-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
-        //let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-        
-        return emailPredicate.evaluate(with: string)
-    }
 }
-
 
 struct InviteView_Previews: PreviewProvider {
     static var previews: some View {

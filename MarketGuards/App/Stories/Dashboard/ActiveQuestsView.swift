@@ -15,7 +15,7 @@ struct ActiveQuestsView: View {
         if missionDetail?.activeQuests.isEmpty ?? true {
             Text("missions_no_active_quests")
                 .font(.chakraPetchRegular(size: 13))
-                .foregroundColor(Color("disabled"))
+                .foregroundColor(Color(ColorsConstants.disabled))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.bottom)
                 .padding(.horizontal)

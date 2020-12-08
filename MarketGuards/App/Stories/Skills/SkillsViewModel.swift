@@ -10,6 +10,8 @@ import Foundation
 
 class SkillsViewModel: ObservableObject {
     @Published var skills: [SkillsResponse]?
+    @Published var skillDetail: SkillDetail?
+    @Published var subSkillDetail: SubSkillDetail?
     private let skillsService = SkillsService()
     
     init() {
@@ -21,6 +23,30 @@ class SkillsViewModel: ObservableObject {
             switch result {
             case .success(let response):
                 self?.skills = response
+//                print(response)
+            case .failure(let error):
+                print("Failed fetch response with: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func fetchSkillDetail(skillId: Int) {
+        skillsService.fetchSkillDetail(skillId: skillId) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.skillDetail = response
+//                print(response)
+            case .failure(let error):
+                print("Failed fetch response with: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func fetchSubSkillDetail(skillId: Int, subSkillId: Int) {
+        skillsService.fetchSubSkillDetail(skillId: skillId, subSkillId: subSkillId) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.subSkillDetail = response
 //                print(response)
             case .failure(let error):
                 print("Failed fetch response with: \(error.localizedDescription)")

@@ -16,25 +16,25 @@ struct UserResourceView: View {
     var body: some View {
         VStack(spacing: 4) {
             Image(image)
-                .foregroundColor(Color("mainDark"))
+                .foregroundColor(Color(ColorsConstants.mainDark))
             
             Text(text)
                 .font(.chakraPetchRegular(size: 14))
-                .foregroundColor(Color("disabled"))
+                .foregroundColor(Color(ColorsConstants.disabled))
             
             Text("\(value)")
                 .font(.chakraPetchBold(size: 16))
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
         }
         .frame(width: 100, height: 120)
-        .background(Color("disabledLow"))
+        .background(Color(ColorsConstants.disabledLow))
         .cornerRadius(8)
     }
 }
 
 struct UserResourceView_Previews: PreviewProvider {
     static var previews: some View {
-        UserResourceView(image: "analysis", text: "Analysis", value: 1).background(Color("mainExtraLow"))
-            .background(Color("negative"))
+        UserResourceView(image: "analysis", text: "Analysis", value: 1).background(Color(ColorsConstants.mainExtraLow))
+            .background(Color(ColorsConstants.negative))
     }
 }

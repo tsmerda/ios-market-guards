@@ -13,21 +13,21 @@ struct AboutView: View {
     
     var body: some View {
         ZStack {
-            Color("negative")
+            Color(ColorsConstants.negative)
                 .edgesIgnoringSafeArea(.bottom)
             VStack(spacing: 16) {
                 HStack {
                     Text("settings_version")
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.8)
                     Spacer()
                     Text("1.0")
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.4)
                 }
                 
                 Text("Gamifikovaná aplikace určená pro on-boarding zaměstnanců firmy Optimal-Energy.cz, a.s.")
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .opacity(0.4)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -42,7 +42,7 @@ struct AboutView: View {
             presentationMode.wrappedValue.dismiss()
         } label: {
             Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
         })
     }
 }

@@ -62,9 +62,7 @@ class QuestDetailViewModel: ObservableObject {
     }
     
     func onTypeChanged() {
-        if questDetail?.activated == nil {
-            questType = QuestType.prepared
-        } else if questDetail?.activated != nil && questDetail?.finished == nil {
+        if questDetail?.activated != nil && questDetail?.finished == nil {
             questType = QuestType.active
         } else {
             questType = QuestType.finished

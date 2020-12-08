@@ -10,21 +10,21 @@ import SwiftUI
 
 struct SubSkillsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var viewModel = SubSkillsViewModel()
+    @StateObject var viewModel = SkillsViewModel()
     @State private var isSubSkillDetailPresented = false
     @State var skillId: Int
     
     var body: some View {
         ZStack {
-            Color("negative")
+            Color(ColorsConstants.negative)
                 .edgesIgnoringSafeArea(.bottom)
             
             VStack {
                 Text("\(viewModel.skillDetail?.skillType.description ?? "")")
                     .font(.chakraPetchRegular(size: 14))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                 
-                List {
+                ScrollView {
                     ForEach(viewModel.skillDetail?.subSkills ?? []) { subSkill in
                         Button {
                             isSubSkillDetailPresented.toggle()
@@ -33,9 +33,7 @@ struct SubSkillsView: View {
                         }
                         .sheet(isPresented: $isSubSkillDetailPresented, content: { SubSkillDetailView(isSubSkillDetailPresented: $isSubSkillDetailPresented, skillId: skillId, subSkillId: subSkill.id)})
                     }
-                    .listRowBackground(Color("negative"))
                 }
-                .padding(.top)
             }
             .padding()
         }
@@ -47,7 +45,7 @@ struct SubSkillsView: View {
             presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
         })
     }
 }

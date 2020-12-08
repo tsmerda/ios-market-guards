@@ -8,40 +8,11 @@
 
 import Foundation
 
-enum GameStatusError: Error {
-    case generic
-    case underlying(Error)
-    case incorrectEmailFormat //just example
-    
-    var localizedDescription: String {
-        switch self {
-        case .generic:
-            return "Something went wrong."
-        case .underlying(let error):
-            return error.localizedDescription
-        case .incorrectEmailFormat:
-            return "Your mail is not in correct format."
-        }
-    }
-}
-
-enum SkillsError: Error {
-    case generic
-    case underlying(Error)
-    
-    var localizedDescription: String {
-        switch self {
-        case .generic:
-            return "Something went wrong."
-        case .underlying(let error):
-            return error.localizedDescription
-        }
-    }
-}
-
 class UserProfileViewModel: ObservableObject {
     @Published var gameStatus: GameStatusResponse?
     private var service = PlayerService()
+    let avatar: String = TokenManager.shared.getFromToken("avatar")
+    let nickName: String = TokenManager.shared.getFromToken("nickName")
     
     func fetchGameStatusData() {
         service.fetchGameStatus { [weak self] result in

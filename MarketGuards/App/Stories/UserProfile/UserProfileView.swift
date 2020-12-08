@@ -16,63 +16,31 @@ struct UserProfileView: View {
         ScrollView {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    Image("\("avatar".getFromToken)".lowercased())
+                    Image(viewModel.avatar.lowercased())
                         .resizable()
                         .clipShape(Circle())
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 100, height: 100)
-                        .overlay(Circle().stroke(Color("mainExtraLightLow")))
+                        .overlay(Circle().stroke(Color(ColorsConstants.mainExtraLightLow)))
                         .padding(.top)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("firstName".getFromToken)
+                        Text(viewModel.nickName)
                             .font(.chakraPetchSemiBold(size: 20))
-                            .foregroundColor(Color("mainExtraLight"))
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
                             .padding(.bottom, 8)
                         
                         HStack(spacing: 24) {
                             VStack(alignment: .leading) {
-                                HStack {
-                                    Text("profile_level")
-                                        .font(.chakraPetchRegular(size: 16))
-                                        .foregroundColor(Color("disabled"))
-                                    
-                                    Text("\(viewModel.gameStatus?.level ?? 0)")
-                                        .font(.chakraPetchBold(size: 16))
-                                        .foregroundColor(Color("mainExtraLight"))
-                                }
+                                GameStatusRow(text: "profile_level", value: viewModel.gameStatus?.level ?? 0)
                                 
-                                HStack {
-                                    Text("profile_region")
-                                        .font(.chakraPetchRegular(size: 16))
-                                        .foregroundColor(Color("disabled"))
-                                    
-                                    Text("3")
-                                        .font(.chakraPetchBold(size: 16))
-                                        .foregroundColor(Color("mainExtraLight"))
-                                }
+                                GameStatusRow(text: "profile_region", value: 3)
                             }
                             
                             VStack(alignment: .leading) {
-                                HStack {
-                                    Text("profile_currency")
-                                        .font(.chakraPetchRegular(size: 16))
-                                        .foregroundColor(Color("disabled"))
-                                    
-                                    Text("\(viewModel.gameStatus?.currency ?? 0)")
-                                        .font(.chakraPetchBold(size: 16))
-                                        .foregroundColor(Color("mainExtraLight"))
-                                }
+                                GameStatusRow(text: "profile_currency", value: viewModel.gameStatus?.currency ?? 0)
                                 
-                                HStack {
-                                    Text("profile_week")
-                                        .font(.chakraPetchRegular(size: 16))
-                                        .foregroundColor(Color("disabled"))
-                                    
-                                    Text("24")
-                                        .font(.chakraPetchBold(size: 16))
-                                        .foregroundColor(Color("mainExtraLight"))
-                                }
+                                GameStatusRow(text: "profile_week", value: 24)
                             }
                         }
                     }
@@ -85,14 +53,14 @@ struct UserProfileView: View {
                 HStack {
                     Text("profile_xp")
                         .font(.chakraPetchRegular(size: 16))
-                        .foregroundColor(Color("disabled"))
+                        .foregroundColor(Color(ColorsConstants.disabled))
                     
                     ProgressBar(value: .constant(CGFloat(viewModel.gameStatus?.experiences ?? 0)), maxValue: .constant(CGFloat(viewModel.gameStatus?.experiencesRangeTo ?? 0)),
-                                color: "main")
+                                color: ColorsConstants.main)
                     
                     Text("\(viewModel.gameStatus?.experiences ?? 0)/\(viewModel.gameStatus?.experiencesRangeTo ?? 0)")
                         .font(.chakraPetchRegular(size: 16))
-                        .foregroundColor(Color("disabled"))
+                        .foregroundColor(Color(ColorsConstants.disabled))
                 }
                 .padding()
                 
@@ -103,8 +71,8 @@ struct UserProfileView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .frame(height: 30.0)
                         .font(.chakraPetchMedium(size: 16))
-                        .foregroundColor(Color("mainExtraLight"))
-                        .background(Color("mainExtraLightExtraLow"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                        .background(Color(ColorsConstants.mainExtraLightExtraLow))
                         .cornerRadius(15)
                 }
                 .padding(.horizontal)
@@ -128,20 +96,12 @@ struct UserProfileView: View {
                 }
                 
                 Divider()
-                    .background(Color("mainLow"))
+                    .background(Color(ColorsConstants.mainLow))
                     .padding(.vertical, 16)
                 
                 VStack(spacing: 16) {
                     NavigationLink(destination: SkillsView()) {
                         MenuRowView(image: "skills", text: "profile_skills")
-                    }
-                    
-                    NavigationLink(destination: EmptyView()) {
-                        MenuRowView(image: "badges", text: "profile_badges")
-                    }
-                    
-                    NavigationLink(destination: EmptyView()) {
-                        MenuRowView(image: "overview", text: "profile_my_team")
                     }
                     
                     NavigationLink(destination: SettingsView()) {
@@ -155,7 +115,7 @@ struct UserProfileView: View {
         }
         .background(
             ZStack {
-                Color("negative")
+                Color(ColorsConstants.negative)
             }
             .edgesIgnoringSafeArea(.vertical)
         )

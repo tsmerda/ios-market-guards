@@ -16,16 +16,16 @@ struct MenuRowView: View {
         HStack {
             if image != "" {
                 Image(image)
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .opacity(0.8)
             }
             Text(text)
                 .font(.chakraPetchRegular(size: 14))
-                .foregroundColor(Color("mainExtraLight"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLight))
                 .opacity(0.8)
             Spacer()
             Image(systemName: "chevron.right")
-                .foregroundColor(Color("mainExtraLightLow"))
+                .foregroundColor(Color(ColorsConstants.mainExtraLightLow))
         }
     }
 }

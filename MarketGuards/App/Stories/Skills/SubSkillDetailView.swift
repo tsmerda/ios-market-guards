@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SubSkillDetailView: View {
-    @ObservedObject var viewModel = SubSkillDetailViewModel()
+    @StateObject var viewModel = SkillsViewModel()
     @Binding var isSubSkillDetailPresented: Bool
     @State var skillId: Int
     @State var subSkillId: Int
@@ -20,12 +20,12 @@ struct SubSkillDetailView: View {
                 VStack {
                     Text("\(viewModel.subSkillDetail?.subSkillType.description ?? "")")
                         .font(.chakraPetchRegular(size: 14))
-                        .foregroundColor(Color("mainExtraLight"))
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                 }
                 .frame(maxWidth: .infinity)
             }
             .padding()
-            .background(Color("negative"))
+            .background(Color(ColorsConstants.negative))
             .navigationBarTitle(Text(viewModel.subSkillDetail?.subSkillType.title ?? ""), displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
             .navigationBarItems(trailing: Button(action: {
@@ -33,7 +33,7 @@ struct SubSkillDetailView: View {
             }) {
                 Text("close")
                     .font(.chakraPetchMedium(size: 14))
-                    .foregroundColor(Color("mainExtraLight"))
+                    .foregroundColor(Color(ColorsConstants.mainExtraLight))
             })
             .onAppear() {
                 viewModel.fetchSubSkillDetail(skillId: skillId, subSkillId: subSkillId)

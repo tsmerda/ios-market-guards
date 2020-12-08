@@ -17,7 +17,7 @@ enum MenuType {
     var topMenu: [String] {
         switch self {
         case .dashboard:
-            return ["missions_active","missions_prepared","missions_finished"]
+            return ["missions_active","missions_finished"]
         case .questDetail:
             return ["quests_skills","quests_statistics","quests_notes"]
         case .store:
@@ -40,10 +40,10 @@ struct TopMenu: View {
             ZStack {
                 Text(LocalizedStringKey(menuType.topMenu[menu]))
                     .font(.chakraPetchSemiBold(size: 15))
-                    .foregroundColor(index == menu ? Color("mainExtraLight") : Color("disabled"))
+                    .foregroundColor(index == menu ? Color(ColorsConstants.mainExtraLight) : Color(ColorsConstants.disabled))
                 
                 Rectangle()
-                    .fill(Color("mainExtraLightExtraLow"))
+                    .fill(Color(ColorsConstants.mainExtraLightExtraLow))
                     .opacity(index == menu ? 1 : 0)
                     .cornerRadius(/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
                     .frame(height: 30)
