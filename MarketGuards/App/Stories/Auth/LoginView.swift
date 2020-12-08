@@ -19,20 +19,28 @@ struct LoginView: View {
                     .resizable()
                     .frame(width: 125.0, height: 140.0)
                 
-                VStack(spacing: 16.0) {
-                    TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "login", imageName: "name")
-                        .padding(.horizontal, 16)
+                VStack(spacing: 16) {
+                    HStack {
+                        if !viewModel.alert.isEmpty {
+                            Image(ColorsConstants.warning)
+                        }
+                        Text(LocalizedStringKey("\(viewModel.alert)".lowercased()))
+                    }
+                    .frame(height: 24)
+                    .font(.chakraPetchRegular(size: 13))
+                    .foregroundColor(Color(ColorsConstants.error))
+                    
+                    TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "user_login", imageName: "name")
                     
                     TextFieldWithIcon(type: .secured, text: $viewModel.password, label: "password", imageName: "lock")
-                        .padding(.horizontal, 16)
                     
                     Button {
                         viewModel.loginButtonPressed()
                     } label: {
-                        ButtonWithBackground(text: "login", color: "pureBlack" ,backgroundColor: "mainDark")
-                            .padding(.horizontal, 64)
+                        ButtonWithBackground(text: "login", color: ColorsConstants.pureBlack ,backgroundColor: ColorsConstants.mainDark)
+                            .frame(width: 175)
                     }
-                    .padding(.top, 16)
+                    .padding(.top, 8)
                     NavigationLink(destination: ContentView()
                                     .navigationBarTitle(Text(""))
                                     .navigationBarHidden(true), isActive:
@@ -40,7 +48,7 @@ struct LoginView: View {
                         EmptyView()
                     }
                 }
-                .padding(24)
+                .padding(16)
                 
                 Spacer()
                     .frame(height: 48)
@@ -52,16 +60,15 @@ struct LoginView: View {
                         .scaledToFill()
                     
                     Rectangle()
-                        .background(Color("negative"))
+                        .background(Color(ColorsConstants.loginBackground))
                         .opacity(0.6)
-                    
-                }.edgesIgnoringSafeArea(.all)
+                }
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.all)
             )
         }
     }
 }
-
-
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

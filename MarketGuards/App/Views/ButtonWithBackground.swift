@@ -16,12 +16,13 @@ struct ButtonWithBackground: View {
     var body: some View {
         HStack {
             Text(text)
+                .textCase(.uppercase)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .frame(height: 40.0)
-                .font(.chakraPetchSemiBold(size: 17))
+                .font(.chakraPetchSemiBold(size: 14))
                 .foregroundColor(Color(color))
                 .background(Color(backgroundColor))
-                .cornerRadius(30.0)
+                .cornerRadius(/*@START_MENU_TOKEN@*/30.0/*@END_MENU_TOKEN@*/)
         }
     }
 }

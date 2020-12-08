@@ -16,23 +16,23 @@ struct MainSkillPoint: View {
         HStack(spacing: 4) {
             Image("experiences")
                 .resizable()
-                .frame(width: 28, height: 28)
-                .foregroundColor(Color("main"))
+                .frame(width: 24, height: 24)
+                .foregroundColor(Color(ColorsConstants.main))
             
             HStack(spacing: 0) {
                 Text("\(experiences ?? 0)")
                     .font(.chakraPetchBold(size: 15))
-                    .foregroundColor(Color("main"))
+                    .foregroundColor(Color(ColorsConstants.main))
                 
                 if (bonusExperiences != 0) {
                     Text(" +\(bonusExperiences ?? 0)")
                         .font(.chakraPetchBold(size: 15))
-                        .foregroundColor(Color("warning"))
+                        .foregroundColor(Color(ColorsConstants.warning))
                 }
             }
         }
         .frame(width: 104, height: 32, alignment: .center)
-        .background(Color("mainLow"))
+        .background(Color(ColorsConstants.mainLow))
     }
 }
 

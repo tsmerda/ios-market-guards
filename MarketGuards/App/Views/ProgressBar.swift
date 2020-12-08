@@ -11,7 +11,7 @@ import SwiftUI
 struct ProgressBar: View {
     @Binding var value: CGFloat
     @Binding var maxValue: CGFloat
-    @State var color: String = "main"
+    @State var color: String = ColorsConstants.mainExtraLight
     @State var isShowing = false
     
     var body: some View {

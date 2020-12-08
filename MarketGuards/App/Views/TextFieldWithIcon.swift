@@ -24,25 +24,35 @@ struct TextFieldWithIcon: View {
             HStack {
                 if (type == .generic) {
                     Image(imageName)
-                        .foregroundColor(Color("main"))
-                    TextField(label, text: $text)
-                        .font(.chakraPetchRegular(size: 16))
-                        .foregroundColor(Color("main"))
-                        .autocapitalization(.none)
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                    ZStack(alignment: .leading) {
+                        if text.isEmpty {
+                            Text(label)
+                                .foregroundColor(Color(ColorsConstants.mainExtraLightLow))
+                        }
+                        TextField("", text: $text)
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                            .autocapitalization(.none)
+                    }
                 } else if (type == .secured) {
                     Image(imageName)
-                        .foregroundColor(Color("main"))
-                    SecureField(label, text: $text)
-                        .font(.chakraPetchRegular(size: 16))
-                        .foregroundColor(Color("main"))
-                        .autocapitalization(.none)
+                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                    
+                    ZStack(alignment: .leading) {
+                        if text.isEmpty {
+                            Text(label)
+                                .foregroundColor(Color(ColorsConstants.mainExtraLightLow))
+                        }
+                        SecureField("", text: $text)
+                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                            .autocapitalization(.none)
+                    }
                 }
             }
-            Divider()
-                .frame(height: 1)
-                .padding(.horizontal, 16)
-                .background(Color("mainDarkLow"))
-                .padding(.vertical, 4)
+            .padding(.leading, 16)
+            .frame(height: 48)
+            .background(Color(ColorsConstants.mainExtraLightLow).opacity(0.5))
+            .cornerRadius(30)
         }
     }
 }

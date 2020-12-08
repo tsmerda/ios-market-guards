@@ -13,22 +13,21 @@ enum BottomMenu {
     case story
     case library
     case store
+    case profile
     
-    private var imageName: String {
+    var imageName: String {
         switch self {
         case .dashboard:
-            return "person"
+            return "dashboard"
         case .story:
-            return "star"
+            return "story"
         case .library:
-            return "book"
+            return "library"
         case .store:
-            return "cart"
+            return "store"
+        case .profile:
+            return "user"
         }
-    }
-    
-    private var imageNameSelected: String {
-        return imageName + ".fill"
     }
     
     var localizedName: LocalizedStringKey {
@@ -41,10 +40,18 @@ enum BottomMenu {
             return "library"
         case .store:
             return "store"
+        case .profile:
+            return "profile"
         }
     }
     
-    func provideImage(isSelected: Bool) -> Image {
-        return isSelected ? Image(systemName: imageNameSelected) : Image(systemName: imageName)
-    }
+    //    MARK: If selected color is different
+    
+    //    private var imageNameSelected: String {
+    //        return imageName + ".fill"
+    //    }
+    
+    //    func provideImage(isSelected: Bool) -> Image {
+    //        return isSelected ? Image(systemName: imageNameSelected) : Image(systemName: imageName)
+    //    }
 }

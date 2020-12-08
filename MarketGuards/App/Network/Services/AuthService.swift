@@ -16,10 +16,10 @@ class AuthService {
             switch result {
             case .success(let response):
                 do {
-                    let loginRespone = try JSONDecoder().decode(LoginResponse.self, from: response.data)
+                    let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: response.data)
                     //save token
-                    CurrentUserManager.shared.setAccessToken(loginRespone.accessToken)
-                    CurrentUserManager.shared.refreshToken = loginRespone.refreshToken
+                    CurrentUserManager.shared.setAccessToken(loginResponse.accessToken)
+                    CurrentUserManager.shared.refreshToken = loginResponse.refreshToken
                     completion(.success(()))
                 } catch {
                     do {

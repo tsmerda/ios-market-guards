@@ -8,20 +8,6 @@
 
 import Foundation
 
-enum MissionsError: Error {
-    case generic
-    case underlying(Error)
-    
-    var localizedDescription: String {
-        switch self {
-        case .generic:
-            return "Something went wrong."
-        case .underlying(let error):
-            return error.localizedDescription
-        }
-    }
-}
-
 class DashboardViewModel: ObservableObject {
     @Published var missionDetail: MissionDetailResponse?
     @Published var missionId: Int?

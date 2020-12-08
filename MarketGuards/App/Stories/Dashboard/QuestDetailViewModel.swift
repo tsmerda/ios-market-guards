@@ -21,7 +21,7 @@ class QuestDetailViewModel: ObservableObject {
             case .success(let response):
                 self?.questDetail = response
                 self?.onTypeChanged()
-                self?.diff = QuestType.active.getDateDifference(activated: self?.questDetail?.activated ?? "", finished: self?.questDetail?.timeToFinish ?? 0)
+                self?.diff = QuestType.active.getRemainingTime(activated: self?.questDetail?.activated ?? "", finished: self?.questDetail?.timeToFinish ?? 0)
             case .failure(let error):
                 print("Failed fetch response with: \(error.localizedDescription)")
             }
@@ -62,9 +62,7 @@ class QuestDetailViewModel: ObservableObject {
     }
     
     func onTypeChanged() {
-        if questDetail?.activated == nil {
-            questType = QuestType.prepared
-        } else if questDetail?.activated != nil && questDetail?.finished == nil {
+        if questDetail?.activated != nil && questDetail?.finished == nil {
             questType = QuestType.active
         } else {
             questType = QuestType.finished

@@ -17,10 +17,8 @@
 "missions_active_quests" = "Active quests";
 "missions_all_quests" = "All quests";
 "missions_finished_quests" = "Finished quests";
-"missions_prepared_quests" = "Prepared quests";
 "missions_mission_detail" = "Mission detail";
 "missions_missions_list" = "Missions list";
 "missions_no_active_quests" = "You currently have no active quests";
-"missions_no_prepared_quests" = "You currently have no prepared quests";
 "missions_no_finished_quests" = "You currently have no finished quests";
 "missions_choose_mission" = "Choose mission";
