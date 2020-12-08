@@ -55,6 +55,7 @@ class LibraryViewModel: ObservableObject {
     @Published var storiesList: [StoryItem] = []
     @Published var dictionaryList: [DictionaryLetter] = []
     @Published var bestPracticeList: [BestPracticeTag] = []
+    @Published var selectedTags: [BestPracticeTag] = []
     
     init() {
         self.storiesList = [
@@ -87,5 +88,10 @@ class LibraryViewModel: ObservableObject {
                                 DictionaryItem(title: "Dovolená", description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")])
         ]
     }
+    
+    func removeFromSelectedTags(_ tag: BestPracticeTag) {
+        if let index = selectedTags.firstIndex(where: { $0.title == tag.title }){
+            selectedTags.remove(at: index)
+        }
+    }
 }
-

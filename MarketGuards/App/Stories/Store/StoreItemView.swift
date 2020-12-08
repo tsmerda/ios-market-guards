@@ -9,16 +9,11 @@
 import SwiftUI
 
 struct StoreItemView: View {
-    var image: String
-    var title: String
-    var text: String
-    var price: Int
-    var left: Int
-    var count: Int
+    var item: StoreItem
     
     var body: some View {
         HStack(spacing: 0) {
-            Image(image)
+            Image(item.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 121, height: 112)
@@ -28,12 +23,12 @@ struct StoreItemView: View {
             VStack(spacing: 0) {
                 Spacer()
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(title)
+                    Text(item.title)
                         .font(.chakraPetchBold(size: 14))
-                    Text(text)
+                    Text(item.text)
                         .lineLimit(2)
                         .font(.chakraPetchRegular(size: 12))
-                    Text("store_remaining \(left) \(count)")
+                    Text("store_remaining \(item.left)")
                         .font(.chakraPetchRegular(size: 12))
                 }
                 .foregroundColor(Color("mainExtraLight"))
@@ -49,7 +44,7 @@ struct StoreItemView: View {
                             .cornerRadius(5)
                             .frame(width: 70, height: 28)
                         HStack {
-                            Text("\(price)")
+                            Text("\(item.price)")
                                 .font(.chakraPetchBold(size: 14))
                                 .foregroundColor(Color("pureBlack"))
                             Image("currency")

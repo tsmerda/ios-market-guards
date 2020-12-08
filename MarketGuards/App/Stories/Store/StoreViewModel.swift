@@ -15,7 +15,6 @@ struct StoreItem: Identifiable {
     var text: String
     var price: Int
     var left: Int
-    var count: Int
 }
 
 class StoreViewModel: ObservableObject {
@@ -23,16 +22,18 @@ class StoreViewModel: ObservableObject {
     @Published var StoreListBought: [StoreItem] = []
     
     func buyReward(item: StoreItem) {
-        self.StoreListBought.append(item)
+        StoreListBought[0] = item
     }
     
     init() {
         self.StoreList = [
-            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 50, left: 6, count: 20),
-            StoreItem(image: "reward", title: "Sleva 10% do OE Shopu", text: "10% sleva na 1 celý nákup v Optimal Shopu.", price: 20, left: 2, count: 10),
-            StoreItem(image: "reward", title: "Aktualizační seminář 50% sleva", text: "50% sleva na Aktualizační seminář (základní cena bez přespání).", price: 30, left: 3, count: 10),
-            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 15, left: 6, count: 45),
-            StoreItem(image: "reward", title: "Brian Tracy: Jak mnohem lépe prodávat", text: "Podstatný rozdíl mezi touto knihou a návody na prodejní úspěch spočívá v tom, že se vyhýbá klišé, pěkně...", price: 15, left: 6, count: 45)
+            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 50, left: 6),
+            StoreItem(image: "reward", title: "Sleva 10% do OE Shopu", text: "10% sleva na 1 celý nákup v Optimal Shopu.", price: 20, left: 2),
+            StoreItem(image: "reward", title: "Aktualizační seminář 50% sleva", text: "50% sleva na Aktualizační seminář (základní cena bez přespání).", price: 30, left: 3),
+            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 15, left: 6),
+            StoreItem(image: "reward", title: "Brian Tracy: Jak mnohem lépe prodávat", text: "Podstatný rozdíl mezi touto knihou a návody na prodejní úspěch spočívá v tom, že se vyhýbá klišé, pěkně...", price: 15, left: 6)
         ]
+        
+        self.StoreListBought = [StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 50, left: 6)]
     }
 }

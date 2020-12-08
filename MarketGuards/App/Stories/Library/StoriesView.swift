@@ -12,15 +12,19 @@ struct StoriesView: View {
     var searchText: String
     @StateObject var viewModel = LibraryViewModel()
     @State var isTagListPresented: Bool = false
-    @State private var selectedTags: [BestPracticeTag] = []
+//    @State private var selectedTags: [BestPracticeTag] = []
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 HStack {
                     HStack {
-                        ForEach(selectedTags) { tag in
-                            TagView(title: tag.title)
+                        ForEach(viewModel.selectedTags) { tag in
+                            Button {
+                                viewModel.removeFromSelectedTags(tag)
+                            } label: {
+                                TagView(title: tag.title)
+                            }
                         }
                     }
                 }
@@ -34,9 +38,10 @@ struct StoriesView: View {
                     Image("filter")
                         .foregroundColor(Color("mainExtraLight"))
                 }
-                .sheet(isPresented: $isTagListPresented, content: { TagListView(isTagListPresented: $isTagListPresented, selectedTags: $selectedTags) })
+                .sheet(isPresented: $isTagListPresented, content: { TagListView(isTagListPresented: $isTagListPresented, selectedTags: $viewModel.selectedTags) })
             }
             .padding(.horizontal)
+            .padding(.bottom)
             
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 8) {

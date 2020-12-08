@@ -30,8 +30,6 @@ struct StoreView: View {
                     }
                     .foregroundColor(Color("mainExtraLight"))
                     Spacer()
-                    Image("filter")
-                        .foregroundColor(Color("mainExtraLight"))
                 }
                 
                 if topIndex == 0 {
@@ -39,7 +37,7 @@ struct StoreView: View {
                         VStack(spacing: 16) {
                             ForEach(viewModel.StoreList) { storeItem in
                                 NavigationLink(destination: StoreDetailView(storeItem: storeItem)) {
-                                    StoreItemView(image: storeItem.image, title: storeItem.title, text: storeItem.text, price: storeItem.price, left: storeItem.left, count: storeItem.count)
+                                    StoreItemView(item: storeItem)
                                 }
                             }
                             Spacer()
@@ -50,9 +48,9 @@ struct StoreView: View {
                 if topIndex == 1 {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 16) {
-                            ForEach(viewModel.StoreListBought) { storeItem in
-                                NavigationLink(destination: StoreDetailView(storeItem: storeItem)) {
-                                    StoreItemView(image: storeItem.image, title: storeItem.title, text: storeItem.text, price: storeItem.price, left: storeItem.left, count: storeItem.count)
+                            ForEach(viewModel.StoreListBought) { storeItemBought in
+                                NavigationLink(destination: StoreDetailView(storeItem: storeItemBought)) {
+                                    StoreItemView(item: storeItemBought)
                                 }
                             }
                             Spacer()

@@ -101,7 +101,7 @@
 "store_currency" = "Peníze";
 "store_subtitle" = "Odměna dostupná pouze pro tvůj tým";
 "store_buy %lld" = "Koupit za %lld";
-"store_remaining %lld %lld" = "Zbývá %lld / %lld";
+"store_remaining %lld" = "Zbývá %lld";
 "store_to_buy" = "K zakoupení";
 "store_my_rewards" = "Moje odměny";
 

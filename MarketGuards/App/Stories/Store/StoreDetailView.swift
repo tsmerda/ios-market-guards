@@ -53,7 +53,7 @@ struct StoreDetailView: View {
                 Divider()
                     .background(Color("mainLow"))
                 
-                Text("store_remaining \(storeItem.left) \(storeItem.count)")
+                Text("store_remaining \(storeItem.left)")
                     .font(.chakraPetchRegular(size: 12))
                     .foregroundColor(Color("warning"))
                 
@@ -92,6 +92,6 @@ struct StoreDetailView: View {
 
 struct StoreDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        StoreDetailView(storeItem: StoreItem(image: "", title: "Reward title 1", text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat volutpat. Praesent dapibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat volutpat. Praesent dapibus. ", price: 50, left: 6, count: 20))
+        StoreDetailView(storeItem: StoreItem(image: "", title: "Reward title 1", text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat volutpat. Praesent dapibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam erat volutpat. Praesent dapibus. ", price: 50, left: 6))
     }
 }
