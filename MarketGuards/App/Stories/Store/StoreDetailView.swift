@@ -35,22 +35,25 @@ struct StoreDetailView: View {
                     }
                     .frame(height: 220)
                     
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("\(storeItem.title)")
-                            .font(.chakraPetchRegular(size: 24))
-                            .foregroundColor(Color("mainExtraLight"))
-                            .padding(.top)
-                        
+                    HStack {
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("\(storeItem.title)")
+                                .font(.chakraPetchRegular(size: 24))
+                                .foregroundColor(Color("mainExtraLight"))
+                                .padding(.top)
+                            
+                            Spacer()
+                            
+                            Text("store_subtitle")
+                                .font(.chakraPetchRegular(size: 14))
+                                .foregroundColor(Color("mainExtraLight"))
+                                .opacity(0.4)
+                            
+                            Text("\(storeItem.text)")
+                                .font(.chakraPetchRegular(size: 14))
+                                .foregroundColor(Color("mainExtraLight"))
+                        }
                         Spacer()
-                        
-                        Text("store_subtitle")
-                            .font(.chakraPetchRegular(size: 14))
-                            .foregroundColor(Color("mainExtraLight"))
-                            .opacity(0.4)
-                        
-                        Text("\(storeItem.text)")
-                            .font(.chakraPetchRegular(size: 14))
-                            .foregroundColor(Color("mainExtraLight"))
                     }
                     .frame(height: 220)
                 }
