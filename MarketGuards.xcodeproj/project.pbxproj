@@ -114,6 +114,10 @@
 		C3D8E8BE2531BA84009A95A7 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */; };
 		C3DE3133257656D9000E1CAE /* BestPracticeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DE3132257656D9000E1CAE /* BestPracticeItemView.swift */; };
 		C3DE313625766876000E1CAE /* BestPracticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DE313525766876000E1CAE /* BestPracticeDetailView.swift */; };
+		C3E87F02257FBD03000223EC /* StoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E87F01257FBD03000223EC /* StoreResponse.swift */; };
+		C3E87F06257FBD22000223EC /* DictionaryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E87F05257FBD22000223EC /* DictionaryResponse.swift */; };
+		C3E87F09257FBD4D000223EC /* BestPracticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E87F08257FBD4D000223EC /* BestPracticeResponse.swift */; };
+		C3E87F0C257FBD6D000223EC /* StoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E87F0B257FBD6D000223EC /* StoryResponse.swift */; };
 		C3F038352535990600DEA541 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F038342535990600DEA541 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +234,10 @@
 		C3D8E8BD2531BA84009A95A7 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		C3DE3132257656D9000E1CAE /* BestPracticeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPracticeItemView.swift; sourceTree = "<group>"; };
 		C3DE313525766876000E1CAE /* BestPracticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPracticeDetailView.swift; sourceTree = "<group>"; };
+		C3E87F01257FBD03000223EC /* StoreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreResponse.swift; sourceTree = "<group>"; };
+		C3E87F05257FBD22000223EC /* DictionaryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryResponse.swift; sourceTree = "<group>"; };
+		C3E87F08257FBD4D000223EC /* BestPracticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPracticeResponse.swift; sourceTree = "<group>"; };
+		C3E87F0B257FBD6D000223EC /* StoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryResponse.swift; sourceTree = "<group>"; };
 		C3F038342535990600DEA541 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -463,9 +471,13 @@
 		C357FCB9252113FA00D61651 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3E87F00257FBCE1000223EC /* Dictionary */,
+				C3E87EFF257FBCDB000223EC /* BestPractice */,
 				C3519C47255B27DE007582C0 /* Player */,
 				C3519C41255B27D0007582C0 /* Skills */,
 				C3519C3B255B27C1007582C0 /* Settings */,
+				C3E87EFD257FBCAD000223EC /* Store */,
+				C3E87EFE257FBCB6000223EC /* Story */,
 				C3D8E8AA2531A79C009A95A7 /* Quests */,
 				C357FCE42521E34E00D61651 /* Missions */,
 				C357FCE32521E33E00D61651 /* Auth */,
@@ -611,6 +623,38 @@
 			path = Quests;
 			sourceTree = "<group>";
 		};
+		C3E87EFD257FBCAD000223EC /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C3E87F01257FBD03000223EC /* StoreResponse.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		C3E87EFE257FBCB6000223EC /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				C3E87F0B257FBD6D000223EC /* StoryResponse.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		C3E87EFF257FBCDB000223EC /* BestPractice */ = {
+			isa = PBXGroup;
+			children = (
+				C3E87F08257FBD4D000223EC /* BestPracticeResponse.swift */,
+			);
+			path = BestPractice;
+			sourceTree = "<group>";
+		};
+		C3E87F00257FBCE1000223EC /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				C3E87F05257FBD22000223EC /* DictionaryResponse.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
 		C3EB36302546EE1200E04FAA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -749,6 +793,7 @@
 				C3519C82255B294E007582C0 /* SubSkillsView.swift in Sources */,
 				C3608C802574111A00D21DD7 /* LibraryViewModel.swift in Sources */,
 				C357FCFC2521F98000D61651 /* StoreView.swift in Sources */,
+				C3E87F0C257FBD6D000223EC /* StoryResponse.swift in Sources */,
 				C39F5EEC2529F6E2008E04BD /* MainSkillPoint.swift in Sources */,
 				C3519C63255B291C007582C0 /* UserProfileView.swift in Sources */,
 				C39F5EF32529FA80008E04BD /* MissionDetailView.swift in Sources */,
@@ -759,6 +804,7 @@
 				C3519C60255B291C007582C0 /* UserResourceView.swift in Sources */,
 				C364A31125330D3200ABB2D4 /* TopMenu.swift in Sources */,
 				C36D25732575891100CB0B0F /* DictionaryDetailView.swift in Sources */,
+				C3E87F09257FBD4D000223EC /* BestPracticeResponse.swift in Sources */,
 				C357FC9F252111A800D61651 /* AuthenticatedProvider.swift in Sources */,
 				C3519C81255B294E007582C0 /* SkillsView.swift in Sources */,
 				C32C8FD5255EAEFD00D21E2B /* CustomNavigationElements.swift in Sources */,
@@ -766,6 +812,7 @@
 				C3D43B5B25470BF0007B6C17 /* ColorsConstants.swift in Sources */,
 				C364C2652542F8A10048B7B6 /* QuestType.swift in Sources */,
 				C32D322F255C377400CBA785 /* String+TimeFormatting.swift in Sources */,
+				C3E87F02257FBD03000223EC /* StoreResponse.swift in Sources */,
 				C3608C932574304200D21DD7 /* StoryDetailView.swift in Sources */,
 				C39F5EF02529F7B3008E04BD /* SkillPoint.swift in Sources */,
 				C3608C962574313000D21DD7 /* StoryItemView.swift in Sources */,
@@ -775,10 +822,10 @@
 				C3519C59255B280C007582C0 /* PlayerTarget.swift in Sources */,
 				C3D8E8BE2531BA84009A95A7 /* NavigationBarModifier.swift in Sources */,
 				C3D8E8AD2531A7D9009A95A7 /* QuestRequest.swift in Sources */,
+				C3E87F06257FBD22000223EC /* DictionaryResponse.swift in Sources */,
 				C357FCA52521122000D61651 /* CurrentUserManager.swift in Sources */,
 				C3519C7D255B294E007582C0 /* SubSkillItemView.swift in Sources */,
 				C3519C7F255B294E007582C0 /* SkillsViewModel.swift in Sources */,
-				C3519C80255B294E007582C0 /* SubSkillsViewModel.swift in Sources */,
 				C3608C8C25742B2D00D21DD7 /* DictionaryView.swift in Sources */,
 				C3A807372579013600DCE825 /* TagListView.swift in Sources */,
 				C3D8E8A22531A29B009A95A7 /* Int+TimeFormatting.swift in Sources */,

@@ -69,7 +69,7 @@ struct StoryDetailView: View {
                     Spacer()
                     
                     Divider()
-                        .background(Color("mainLow"))
+                        .background(Color(ColorsConstants.mainExtraLow))
                     
                     HStack {
                         ForEach(storyItem.tags) { tag in

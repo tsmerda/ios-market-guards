@@ -54,6 +54,7 @@ struct SettingsView: View {
                 .font(.chakraPetchRegular(size: 14))
                 
                 Divider()
+                    .background(Color(ColorsConstants.mainExtraLow))
                 
                 NavigationLink(destination: ChangePasswordView()) {
                     MenuRowView(image: "", text: "settings_change_password")

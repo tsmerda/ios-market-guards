@@ -7,33 +7,35 @@
 //
 
 import Foundation
-
-struct StoreItem: Identifiable {
-    var id = UUID()
-    var image: String
-    var title: String
-    var text: String
-    var price: Int
-    var left: Int
-}
+import SwiftUI
+import CoreImage.CIFilterBuiltins
 
 class StoreViewModel: ObservableObject {
     @Published var StoreList: [StoreItem] = []
-    @Published var StoreListBought: [StoreItem] = []
-    
-    func buyReward(item: StoreItem) {
-        StoreListBought[0] = item
-    }
+    @Published var currency: Int = 1000
+    let context = CIContext()
+    let filter = CIFilter.qrCodeGenerator()
     
     init() {
         self.StoreList = [
-            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 50, left: 6),
-            StoreItem(image: "reward", title: "Sleva 10% do OE Shopu", text: "10% sleva na 1 celý nákup v Optimal Shopu.", price: 20, left: 2),
-            StoreItem(image: "reward", title: "Aktualizační seminář 50% sleva", text: "50% sleva na Aktualizační seminář (základní cena bez přespání).", price: 30, left: 3),
-            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 15, left: 6),
-            StoreItem(image: "reward", title: "Brian Tracy: Jak mnohem lépe prodávat", text: "Podstatný rozdíl mezi touto knihou a návody na prodejní úspěch spočívá v tom, že se vyhýbá klišé, pěkně...", price: 15, left: 6)
+            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 50, bought: 1),
+            StoreItem(image: "reward", title: "Sleva 10% do OE Shopu", text: "10% sleva na 1 celý nákup v Optimal Shopu.", price: 20, bought: 2),
+            StoreItem(image: "reward", title: "Aktualizační seminář 50% sleva", text: "50% sleva na Aktualizační seminář (základní cena bez přespání).", price: 30, bought: 0),
+            StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 15, bought: 0),
+            StoreItem(image: "reward", title: "Brian Tracy: Jak mnohem lépe prodávat", text: "Podstatný rozdíl mezi touto knihou a návody na prodejní úspěch spočívá v tom, že se vyhýbá klišé, pěkně...", price: 15, bought: 0)
         ]
+    }
+    
+    func generateQRCode(from string: String) -> UIImage {
+        let data = Data(string.utf8)
+        filter.setValue(data, forKey: "inputMessage")
         
-        self.StoreListBought = [StoreItem(image: "reward", title: "Káva/Čaj s ředitelem sítě", text: "Pozvání na kávu nebo čaj od ředitele obchodní sítě (T5 a výš) dle vlastní volby.", price: 50, left: 6)]
+        if let outputImage = filter.outputImage {
+            if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
+                return UIImage(cgImage: cgimg)
+            }
+        }
+        
+        return UIImage(systemName: "xmark.circle") ?? UIImage()
     }
 }

@@ -36,7 +36,7 @@ struct InviteView: View {
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color(ColorsConstants.mainExtraLightLow))
+                        .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
                         if lastName.isEmpty {
@@ -51,7 +51,7 @@ struct InviteView: View {
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color(ColorsConstants.mainExtraLightLow))
+                        .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
                         if email.isEmpty {

@@ -97,10 +97,12 @@
 
 "store_currency" = "Peníze";
 "store_subtitle" = "Odměna dostupná pouze pro tvůj tým";
+"store_scan_qrcode" = "Pro uplatnění odměny naskenujte QR code";
 "store_buy %lld" = "Koupit za %lld";
-"store_remaining %lld" = "Zbývá %lld";
+"store_own %lld" = "Vlastníš: %lld";
 "store_to_buy" = "K zakoupení";
 "store_my_rewards" = "Moje odměny";
+
 
 "acquisitions" = "Akvizice";
 "administration" = "Administrativa";

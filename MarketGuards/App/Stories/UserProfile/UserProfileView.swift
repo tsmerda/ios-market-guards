@@ -96,7 +96,7 @@ struct UserProfileView: View {
                 }
                 
                 Divider()
-                    .background(Color(ColorsConstants.mainLow))
+                    .background(Color(ColorsConstants.mainExtraLow))
                     .padding(.vertical, 16)
                 
                 VStack(spacing: 16) {

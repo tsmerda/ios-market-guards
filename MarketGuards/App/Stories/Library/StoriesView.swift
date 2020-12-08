@@ -12,7 +12,6 @@ struct StoriesView: View {
     var searchText: String
     @StateObject var viewModel = LibraryViewModel()
     @State var isTagListPresented: Bool = false
-//    @State private var selectedTags: [BestPracticeTag] = []
     
     var body: some View {
         VStack(spacing: 0) {
@@ -54,7 +53,7 @@ struct StoriesView: View {
                         }
                         
                         Divider()
-                            .background(Color("mainExtraLightExtraLow"))
+                            .background(Color(ColorsConstants.mainExtraLow))
                     }
                 }
             }.padding(.leading)

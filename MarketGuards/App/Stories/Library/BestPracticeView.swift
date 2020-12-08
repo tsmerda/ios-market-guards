@@ -34,7 +34,7 @@ struct BestPracticeView: View {
                             }
                             // TODO -- Hide Divider() at last element of an array
                             Divider()
-                                .background(Color("mainExtraLightExtraLow"))
+                                .background(Color(ColorsConstants.mainExtraLow))
                         }
                     }
                     .background(Color("disabledLow"))

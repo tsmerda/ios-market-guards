@@ -24,7 +24,7 @@ struct StoreView: View {
                 
                 HStack {
                     HStack {
-                        Text("1000")
+                        Text("\(viewModel.currency)")
                             .font(.chakraPetchMedium(size: 16))
                         Image("currency")
                     }
@@ -36,7 +36,7 @@ struct StoreView: View {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 16) {
                             ForEach(viewModel.StoreList) { storeItem in
-                                NavigationLink(destination: StoreDetailView(storeItem: storeItem)) {
+                                NavigationLink(destination: StoreDetailView(storeList: $viewModel.StoreList, storeItem: storeItem, appliable: false, currency: $viewModel.currency)) {
                                     StoreItemView(item: storeItem)
                                 }
                             }
@@ -48,9 +48,11 @@ struct StoreView: View {
                 if topIndex == 1 {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 16) {
-                            ForEach(viewModel.StoreListBought) { storeItemBought in
-                                NavigationLink(destination: StoreDetailView(storeItem: storeItemBought)) {
-                                    StoreItemView(item: storeItemBought)
+                            ForEach(viewModel.StoreList) { storeItem in
+                                if storeItem.bought != 0 {
+                                    NavigationLink(destination: StoreDetailView(storeList: $viewModel.StoreList, storeItem: storeItem, appliable: true, currency: $viewModel.currency)) {
+                                        StoreItemView(item: storeItem)
+                                    }
                                 }
                             }
                             Spacer()
@@ -60,6 +62,7 @@ struct StoreView: View {
             }
             .padding(.horizontal)
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

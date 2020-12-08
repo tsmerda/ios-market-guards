@@ -8,54 +8,11 @@
 
 import Foundation
 
-struct StoryItem: Identifiable {
-    var id = UUID()
-    var image: String
-    var title: String
-    var text: String
-    var author: String
-    var date: String
-    var place: String
-    var read: Int
-    var tags: [Tag]
-}
-
-struct Tag: Identifiable {
-    var id = UUID()
-    var title: String
-}
-
-struct DictionaryItem: Identifiable {
-    var id = UUID()
-    var title: String
-    var description: String
-}
-
-struct DictionaryLetter: Identifiable {
-    var id = UUID()
-    var letter: String
-    var dictionaryItem: [DictionaryItem]
-}
-
-struct BestPracticeTag: Identifiable {
-    var id = UUID()
-    var title: String
-    var bestPracticeItem: [BestPracticeItem]
-}
-
-struct BestPracticeItem: Identifiable {
-    var id = UUID()
-    var image: String
-    var title: String
-    var text: String
-    var difficulty: String
-}
-
 class LibraryViewModel: ObservableObject {
     @Published var storiesList: [StoryItem] = []
     @Published var dictionaryList: [DictionaryLetter] = []
     @Published var bestPracticeList: [BestPracticeTag] = []
-    @Published var selectedTags: [BestPracticeTag] = []
+    @Published var selectedTags: [Tag] = []
     
     init() {
         self.storiesList = [
@@ -89,7 +46,7 @@ class LibraryViewModel: ObservableObject {
         ]
     }
     
-    func removeFromSelectedTags(_ tag: BestPracticeTag) {
+    func removeFromSelectedTags(_ tag: Tag) {
         if let index = selectedTags.firstIndex(where: { $0.title == tag.title }){
             selectedTags.remove(at: index)
         }

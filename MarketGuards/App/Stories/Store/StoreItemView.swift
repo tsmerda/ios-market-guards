@@ -22,17 +22,19 @@ struct StoreItemView: View {
             
             VStack(spacing: 0) {
                 Spacer()
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(item.title)
-                        .font(.chakraPetchBold(size: 14))
-                    Text(item.text)
-                        .lineLimit(2)
-                        .font(.chakraPetchRegular(size: 12))
-                    Text("store_remaining \(item.left)")
-                        .font(.chakraPetchRegular(size: 12))
+                HStack {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(item.title)
+                            .font(.chakraPetchBold(size: 14))
+                        Text(item.text)
+                            .lineLimit(2)
+                            .font(.chakraPetchRegular(size: 12))
+                        Text("store_own \(item.bought)")
+                            .font(.chakraPetchRegular(size: 12))
+                    }
+                    .foregroundColor(Color("mainExtraLight"))
+                    Spacer()
                 }
-                .foregroundColor(Color("mainExtraLight"))
-                .padding(.trailing, 8)
                 
                 Spacer()
                 
@@ -53,7 +55,6 @@ struct StoreItemView: View {
                     }
                 }
             }
-            
         }
         .background(Color("disabledLow"))
         .cornerRadius(5)

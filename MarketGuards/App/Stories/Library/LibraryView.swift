@@ -42,6 +42,7 @@ struct LibraryView: View {
                 Spacer()
             }
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

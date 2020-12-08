@@ -34,7 +34,7 @@ struct ChangePasswordView: View {
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color(ColorsConstants.mainExtraLightLow))
+                        .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
                         if newPassword.isEmpty {
@@ -49,7 +49,7 @@ struct ChangePasswordView: View {
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color(ColorsConstants.mainExtraLightLow))
+                        .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
                         if confirmNewPassword.isEmpty {

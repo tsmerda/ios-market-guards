@@ -11,15 +11,16 @@ import SwiftUI
 struct TagListView: View {
     @StateObject var viewModel = LibraryViewModel()
     @Binding var isTagListPresented: Bool
-    @Binding var selectedTags: [BestPracticeTag]
+    @Binding var selectedTags: [Tag]
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 8) {
-                    ForEach(viewModel.bestPracticeList) { tag in
+                    ForEach(viewModel.storiesList) { story in
+                        ForEach(story.tags) { tag in
                         Button {
-                            addToSelectedTags(tag: tag)
+                            addToSelectedTags(tag)
                         } label: {
                             HStack {
                                 Text(tag.title)
@@ -36,7 +37,8 @@ struct TagListView: View {
                         }
                         
                         Divider()
-                            .background(Color("mainExtraLightExtraLow"))
+                            .background(Color(ColorsConstants.mainExtraLow))
+                    }
                     }
                     
                     Spacer()
@@ -56,7 +58,7 @@ struct TagListView: View {
         }
     }
     
-    func addToSelectedTags(tag: BestPracticeTag) {
+    func addToSelectedTags(_ tag: Tag) {
         if !selectedTags.contains(where: { $0.title == tag.title }) {
             selectedTags.append(tag)
         } else if let index = selectedTags.firstIndex(where: { $0.title == tag.title }){

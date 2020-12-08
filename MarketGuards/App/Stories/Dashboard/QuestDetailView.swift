@@ -70,7 +70,7 @@ struct QuestDetailView: View {
                 }
                 
                 Divider()
-                    .background(Color(ColorsConstants.mainExtraLightLow))
+                    .background(Color(ColorsConstants.mainExtraLow))
                     .padding(.vertical)
                 
                 HStack {
