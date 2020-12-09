@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct Tag: Identifiable {
+    var id = UUID()
+    var title: String
+}
+
 struct StoryItem: Identifiable {
     var id = UUID()
     var image: String

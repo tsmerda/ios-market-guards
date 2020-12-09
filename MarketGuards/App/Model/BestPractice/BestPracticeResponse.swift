@@ -8,11 +8,6 @@
 
 import Foundation
 
-struct Tag: Identifiable {
-    var id = UUID()
-    var title: String
-}
-
 struct BestPracticeTag: Identifiable {
     var id = UUID()
     var title: String
