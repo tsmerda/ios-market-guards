@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		839E648C25035CE4365E8EE2 /* Pods_MarketGuards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D17985F84F277FD1D576F5 /* Pods_MarketGuards.framework */; };
+		C3189895258295CB006432E5 /* MarketGuardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3189894258295CB006432E5 /* MarketGuardsUITests.swift */; };
 		C31A75D32573D0C3009A80FB /* StoreItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31A75D22573D0C3009A80FB /* StoreItemView.swift */; };
 		C320C8EB254ACEC50056C5B2 /* MissionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320C8EA254ACEC50056C5B2 /* MissionRow.swift */; };
 		C32C8FD5255EAEFD00D21E2B /* CustomNavigationElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32C8FD4255EAEFD00D21E2B /* CustomNavigationElements.swift */; };
@@ -83,6 +84,7 @@
 		C364C2682542F9820048B7B6 /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364C2672542F9820048B7B6 /* BottomMenu.swift */; };
 		C36D25732575891100CB0B0F /* DictionaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D25722575891100CB0B0F /* DictionaryDetailView.swift */; };
 		C36D25762575892500CB0B0F /* DictionaryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D25752575892500CB0B0F /* DictionaryItemView.swift */; };
+		C38DEDDB25816ADB0064142B /* MarketGuardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DEDDA25816ADB0064142B /* MarketGuardsTests.swift */; };
 		C39BB5B0257E7B4600F7543D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BB5AF257E7B4600F7543D /* Errors.swift */; };
 		C39BB5B4257E7E1A00F7543D /* GameStatusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BB5B3257E7E1A00F7543D /* GameStatusRow.swift */; };
 		C39BB5B7257E840900F7543D /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BB5B6257E840900F7543D /* AvatarView.swift */; };
@@ -121,10 +123,30 @@
 		C3F038352535990600DEA541 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F038342535990600DEA541 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C3189897258295CB006432E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C357FC5E2520FABA00D61651 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C357FC652520FABA00D61651;
+			remoteInfo = MarketGuards;
+		};
+		C38DEDDD25816ADB0064142B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C357FC5E2520FABA00D61651 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C357FC652520FABA00D61651;
+			remoteInfo = MarketGuards;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		046A1C0E7972CADFA5B586DF /* Pods-MarketGuards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGuards.release.xcconfig"; path = "Target Support Files/Pods-MarketGuards/Pods-MarketGuards.release.xcconfig"; sourceTree = "<group>"; };
 		24347BD1151DCD6362CBD6C0 /* Pods-MarketGuards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketGuards.debug.xcconfig"; path = "Target Support Files/Pods-MarketGuards/Pods-MarketGuards.debug.xcconfig"; sourceTree = "<group>"; };
 		71D17985F84F277FD1D576F5 /* Pods_MarketGuards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketGuards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3189892258295CB006432E5 /* MarketGuardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketGuardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3189894258295CB006432E5 /* MarketGuardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGuardsUITests.swift; sourceTree = "<group>"; };
+		C3189896258295CB006432E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C31A75D22573D0C3009A80FB /* StoreItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemView.swift; sourceTree = "<group>"; };
 		C320C8EA254ACEC50056C5B2 /* MissionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRow.swift; sourceTree = "<group>"; };
 		C32C8FD4255EAEFD00D21E2B /* CustomNavigationElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationElements.swift; sourceTree = "<group>"; };
@@ -203,6 +225,9 @@
 		C364C2672542F9820048B7B6 /* BottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenu.swift; sourceTree = "<group>"; };
 		C36D25722575891100CB0B0F /* DictionaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDetailView.swift; sourceTree = "<group>"; };
 		C36D25752575892500CB0B0F /* DictionaryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryItemView.swift; sourceTree = "<group>"; };
+		C38DEDD825816ADB0064142B /* MarketGuardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketGuardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C38DEDDA25816ADB0064142B /* MarketGuardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketGuardsTests.swift; sourceTree = "<group>"; };
+		C38DEDDC25816ADB0064142B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C39BB5AF257E7B4600F7543D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		C39BB5B3257E7E1A00F7543D /* GameStatusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatusRow.swift; sourceTree = "<group>"; };
 		C39BB5B6257E840900F7543D /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
@@ -242,11 +267,25 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C318988F258295CB006432E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C357FC632520FABA00D61651 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				839E648C25035CE4365E8EE2 /* Pods_MarketGuards.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C38DEDD525816ADB0064142B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +307,15 @@
 				046A1C0E7972CADFA5B586DF /* Pods-MarketGuards.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C3189893258295CB006432E5 /* MarketGuardsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C3189894258295CB006432E5 /* MarketGuardsUITests.swift */,
+				C3189896258295CB006432E5 /* Info.plist */,
+			);
+			path = MarketGuardsUITests;
 			sourceTree = "<group>";
 		};
 		C3519C3B255B27C1007582C0 /* Settings */ = {
@@ -338,6 +386,8 @@
 			isa = PBXGroup;
 			children = (
 				C357FC682520FABA00D61651 /* MarketGuards */,
+				C38DEDD925816ADB0064142B /* MarketGuardsTests */,
+				C3189893258295CB006432E5 /* MarketGuardsUITests */,
 				C357FC672520FABA00D61651 /* Products */,
 				9814A9CA06CE052E3BE11CD7 /* Pods */,
 				965B7A9B38ADCAB4BFF78E25 /* Frameworks */,
@@ -348,6 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				C357FC662520FABA00D61651 /* MarketGuards.app */,
+				C38DEDD825816ADB0064142B /* MarketGuardsTests.xctest */,
+				C3189892258295CB006432E5 /* MarketGuardsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -601,6 +653,15 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		C38DEDD925816ADB0064142B /* MarketGuardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				C38DEDDA25816ADB0064142B /* MarketGuardsTests.swift */,
+				C38DEDDC25816ADB0064142B /* Info.plist */,
+			);
+			path = MarketGuardsTests;
+			sourceTree = "<group>";
+		};
 		C3D43B4A2546FD2F007B6C17 /* ChakraPetch */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,6 +727,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C3189891258295CB006432E5 /* MarketGuardsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C318989B258295CB006432E5 /* Build configuration list for PBXNativeTarget "MarketGuardsUITests" */;
+			buildPhases = (
+				C318988E258295CB006432E5 /* Sources */,
+				C318988F258295CB006432E5 /* Frameworks */,
+				C3189890258295CB006432E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3189898258295CB006432E5 /* PBXTargetDependency */,
+			);
+			name = MarketGuardsUITests;
+			productName = MarketGuardsUITests;
+			productReference = C3189892258295CB006432E5 /* MarketGuardsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C357FC652520FABA00D61651 /* MarketGuards */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C357FC752520FABC00D61651 /* Build configuration list for PBXNativeTarget "MarketGuards" */;
@@ -685,18 +764,44 @@
 			productReference = C357FC662520FABA00D61651 /* MarketGuards.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C38DEDD725816ADB0064142B /* MarketGuardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C38DEDE125816ADB0064142B /* Build configuration list for PBXNativeTarget "MarketGuardsTests" */;
+			buildPhases = (
+				C38DEDD425816ADB0064142B /* Sources */,
+				C38DEDD525816ADB0064142B /* Frameworks */,
+				C38DEDD625816ADB0064142B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C38DEDDE25816ADB0064142B /* PBXTargetDependency */,
+			);
+			name = MarketGuardsTests;
+			productName = MarketGuardsTests;
+			productReference = C38DEDD825816ADB0064142B /* MarketGuardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C357FC5E2520FABA00D61651 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Gamifika, s.r.o.";
 				TargetAttributes = {
+					C3189891258295CB006432E5 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = C357FC652520FABA00D61651;
+					};
 					C357FC652520FABA00D61651 = {
 						CreatedOnToolsVersion = 12.0.1;
+					};
+					C38DEDD725816ADB0064142B = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = C357FC652520FABA00D61651;
 					};
 				};
 			};
@@ -715,11 +820,20 @@
 			projectRoot = "";
 			targets = (
 				C357FC652520FABA00D61651 /* MarketGuards */,
+				C38DEDD725816ADB0064142B /* MarketGuardsTests */,
+				C3189891258295CB006432E5 /* MarketGuardsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C3189890258295CB006432E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C357FC642520FABA00D61651 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -734,6 +848,13 @@
 				C357FC6E2520FABC00D61651 /* Assets.xcassets in Resources */,
 				C3D43B542546FD49007B6C17 /* ChakraPetch-Bold.ttf in Resources */,
 				C3D43B562546FD49007B6C17 /* ChakraPetch-Italic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C38DEDD625816ADB0064142B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +903,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C318988E258295CB006432E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3189895258295CB006432E5 /* MarketGuardsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C357FC622520FABA00D61651 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -890,7 +1019,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C38DEDD425816ADB0064142B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C38DEDDB25816ADB0064142B /* MarketGuardsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3189898258295CB006432E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C357FC652520FABA00D61651 /* MarketGuards */;
+			targetProxy = C3189897258295CB006432E5 /* PBXContainerItemProxy */;
+		};
+		C38DEDDE25816ADB0064142B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C357FC652520FABA00D61651 /* MarketGuards */;
+			targetProxy = C38DEDDD25816ADB0064142B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C357FCD72521D34B00D61651 /* Localizable.strings */ = {
@@ -905,10 +1055,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C3189899258295CB006432E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 925K52UM4K;
+				INFOPLIST_FILE = MarketGuardsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamifika.oe.MarketGuardsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MarketGuards;
+			};
+			name = Debug;
+		};
+		C318989A258295CB006432E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 925K52UM4K;
+				INFOPLIST_FILE = MarketGuardsUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamifika.oe.MarketGuardsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MarketGuards;
+			};
+			name = Release;
+		};
 		C357FC732520FABC00D61651 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -970,6 +1161,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1038,7 +1230,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamifika.oe.MarketGuards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledevelopment.oe.MarketGuards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1063,7 +1255,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gamifika.oe.MarketGuards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledevelopment.oe.MarketGuards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1071,9 +1263,60 @@
 			};
 			name = Release;
 		};
+		C38DEDDF25816ADB0064142B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 925K52UM4K;
+				INFOPLIST_FILE = MarketGuardsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamifika.oe.MarketGuardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketGuards.app/MarketGuards";
+			};
+			name = Debug;
+		};
+		C38DEDE025816ADB0064142B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 925K52UM4K;
+				INFOPLIST_FILE = MarketGuardsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamifika.oe.MarketGuardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketGuards.app/MarketGuards";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C318989B258295CB006432E5 /* Build configuration list for PBXNativeTarget "MarketGuardsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3189899258295CB006432E5 /* Debug */,
+				C318989A258295CB006432E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C357FC612520FABA00D61651 /* Build configuration list for PBXProject "MarketGuards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1088,6 +1331,15 @@
 			buildConfigurations = (
 				C357FC762520FABC00D61651 /* Debug */,
 				C357FC772520FABC00D61651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C38DEDE125816ADB0064142B /* Build configuration list for PBXNativeTarget "MarketGuardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C38DEDDF25816ADB0064142B /* Debug */,
+				C38DEDE025816ADB0064142B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
