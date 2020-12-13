@@ -25,7 +25,7 @@ struct ProgressBar: View {
                         .foregroundColor(Color(color))
                         .shadow(color: Color(color), radius: 5)
                         .frame(width: self.isShowing ? geometryReader.size.width * (value / maxValue) : 0)
-                        .animation(.easeOut(duration: 0.5))
+                        .animation(.easeOut(duration: 1))
                 }
             }
             .frame(height: 12)

@@ -10,9 +10,15 @@ import SwiftUI
 
 @main
 struct MarketGuardsApp: App {
+    @StateObject var viewModel = CurrentUserManager.shared
+    
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            if viewModel.accessToken == nil {
+                LoginView().preferredColorScheme(.dark)
+            } else {
+                ContentView().preferredColorScheme(.dark)
+            }
         }
     }
 }

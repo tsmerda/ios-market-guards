@@ -11,7 +11,7 @@ import SwiftUI
 struct QuestRow: View {
     @State var quest: MissionDetailQuestsResponse
     @State var type: QuestType
-    @State var diff: Int? = 0
+    @State var diff: Int = 0 // TODO -- Resolve changing QuestType
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -37,13 +37,13 @@ struct QuestRow: View {
                     Text(type.timeText)
                     
                     if type == .active {
-                        Text("\((diff ?? 0).secondsTimeFormating)")
+                        Text("\(diff.secondsTimeFormating)")
                             .onReceive(timer) { _ in
-                                if diff ?? 0 > 0 {
-                                    diff? -= 1
+                                if diff > 0 {
+                                    diff -= 1
                                 }
                             }
-                    } else {
+                    } else if type == .finished {
                         Text("\((quest.finished ?? "").formatFinishedDate)")
                     }
                 }
@@ -64,6 +64,11 @@ struct QuestRow: View {
     
     func getFormatedTime() {
         diff = QuestType.active.getRemainingTime(activated: quest.activated ?? "", finished: quest.timeToFinish)
+        if diff > 0 {
+            type = .active
+        } else {
+            type = .unfinished
+        }
     }
 }
 

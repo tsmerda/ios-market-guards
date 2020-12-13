@@ -36,14 +36,14 @@ struct QuestDetailView: View {
                         Text(viewModel.questType?.timeText ?? "")
                         
                         if viewModel.questType == QuestType.active {
-                            Text("\(viewModel.diff?.secondsTimeFormating ?? "")")
+                            Text("\(viewModel.diff.secondsTimeFormating)")
                                 .onReceive(timer) { _ in
-                                    if viewModel.diff ?? 0 > 0 {
-                                        viewModel.diff? -= 1
+                                    if viewModel.diff > 0 {
+                                        viewModel.diff -= 1
                                     }
                                 }
-                        } else {
-                            Text( "\((viewModel.questDetail?.finished ?? "").formatFinishedDate)")
+                        } else if viewModel.questType == QuestType.finished {
+                            Text("\((viewModel.questDetail?.finished ?? "").formatFinishedDate)")
                         }
                         
                     }

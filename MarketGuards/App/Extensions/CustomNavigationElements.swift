@@ -14,6 +14,7 @@ extension UINavigationController {
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor(Color("negative"))
+        appearance.shadowColor = .clear
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor(Color("mainExtraLight"))
         ]

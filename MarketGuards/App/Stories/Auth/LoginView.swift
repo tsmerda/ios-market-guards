@@ -12,60 +12,51 @@ struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center, spacing: 120.0) {
-                Spacer()
-                Image("logo_vertical")
-                    .resizable()
-                    .frame(width: 125.0, height: 140.0)
-                
-                VStack(spacing: 16) {
-                    HStack {
-                        if !viewModel.alert.isEmpty {
-                            Image(ColorsConstants.warning)
-                        }
-                        Text(LocalizedStringKey("\(viewModel.alert)".lowercased()))
-                    }
-                    .frame(height: 24)
-                    .font(.chakraPetchRegular(size: 13))
-                    .foregroundColor(Color(ColorsConstants.error))
-                    
-                    TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "user_login", imageName: "name")
-                    
-                    TextFieldWithIcon(type: .secured, text: $viewModel.password, label: "password", imageName: "lock")
-                    
-                    Button {
-                        viewModel.loginButtonPressed()
-                    } label: {
-                        ButtonWithBackground(text: "login", color: ColorsConstants.pureBlack ,backgroundColor: ColorsConstants.mainDark)
-                            .frame(width: 175)
-                    }
-                    .padding(.top, 8)
-                    NavigationLink(destination: ContentView()
-                                    .navigationBarTitle(Text(""))
-                                    .navigationBarHidden(true), isActive:
-                                        $viewModel.userLoggedIn) {
-                        EmptyView()
-                    }
-                }
-                .padding(16)
-                
-                Spacer()
-                    .frame(height: 48)
-            }
-            .background(
-                ZStack {
-                    Image("background")
+        LoadingView(isShowing: .constant(viewModel.loading)) {
+            NavigationView {
+                VStack(alignment: .center, spacing: 72.0) {
+                    Spacer()
+                    Image("logo_vertical")
                         .resizable()
-                        .scaledToFill()
+                        .frame(width: 125.0, height: 140.0)
                     
-                    Rectangle()
-                        .background(Color(ColorsConstants.loginBackground))
-                        .opacity(0.6)
+                    VStack(spacing: 16) {
+                        HStack {
+                            if !viewModel.alert.isEmpty {
+                                Image(ColorsConstants.warning)
+                            }
+                            Text(LocalizedStringKey("\(viewModel.alert)".lowercased()))
+                        }
+                        .frame(height: 24)
+                        .font(.chakraPetchRegular(size: 13))
+                        .foregroundColor(Color(ColorsConstants.error))
+                        
+                        TextFieldWithIcon(type: .generic, text: $viewModel.login, label: "user_login", imageName: "name")
+                        
+                        TextFieldWithIcon(type: .secured, text: $viewModel.password, label: "password", imageName: "lock")
+                        
+                        Button {
+                            viewModel.loginButtonPressed(login: viewModel.login, password: viewModel.password)
+                        } label: {
+                            ButtonWithBackground(text: "login", color: ColorsConstants.pureBlack ,backgroundColor: ColorsConstants.mainDark)
+                                .frame(width: 180)
+                        }
+                        .padding(.top, 8)
+                    }
+                    .padding(16)
+                    Spacer()
+                        .frame(height: 100)
                 }
-                .navigationBarHidden(true)
-                .edgesIgnoringSafeArea(.all)
-            )
+                .background(
+                    ZStack {
+                        Image("background")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    .navigationBarHidden(true)
+                    .edgesIgnoringSafeArea(.all)
+                )
+            }
         }
     }
 }

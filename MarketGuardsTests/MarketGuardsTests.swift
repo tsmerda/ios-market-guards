@@ -7,27 +7,50 @@
 //
 
 import XCTest
+@testable import MarketGuards
 
 class MarketGuardsTests: XCTestCase {
-
+    var missionsServiceMock: MissionsServiceMock!
+    var viewModel: MissionListViewModel!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        missionsServiceMock = MissionsServiceMock()
+        viewModel = MissionListViewModel(service: missionsServiceMock)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDownWithError() throws {}
+    
+    func test_fetchMissionsPreview_success() {
+        let data = [MissionsPreviewResponse(id: 1, missionType: MissionType(id: 1, code: "mission1"), title: "mise 1", dateCreated: "", dateFinished: "", finishedQuests: 0, totalQuests: 0, finishedOptionalQuests: 0, totalOptionalQuests: 0, questsSeen: true, firstSeen: true)]
+        
+        missionsServiceMock.data = data
+        viewModel.fetchMissionsPreviewData()
+        XCTAssertEqual(data, viewModel.missionsPreview)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_fetchMissionsPreview_failure() {
+        missionsServiceMock.data = nil
+        viewModel.fetchMissionsPreviewData()
+        XCTAssertNil(viewModel.missionsPreview)
     }
-
+    
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+        measure {}
     }
+}
 
+class MissionsServiceMock: MissionsService {
+    var resultToReturn: Result<[MissionsPreviewResponse], MissionsError>?
+    var data: [MissionsPreviewResponse]?
+    var error: MissionsError?
+    
+    override func fetchMissionsPreview(completion: @escaping (Result<[MissionsPreviewResponse], MissionsError>) -> Void) {
+        if let data = self.data {
+            completion(.success(data))
+        } else {
+            completion(.failure(error ?? .generic))
+        }
+
+    }
 }

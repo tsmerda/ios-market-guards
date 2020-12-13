@@ -9,16 +9,16 @@
 import Foundation
 import JWTDecode
 
-extension String {
-    var getFromToken: String {
-        do {
-            let jwt = try decode(jwt: CurrentUserManager.shared.accessToken ?? "")
-            return jwt.claim(name: self).string ?? ""
-        } catch {
-            return ""
-        }
-    }
-}
+//extension String {
+//    var getFromToken: String {
+//        do {
+//            let jwt = try decode(jwt: CurrentUserManager.shared.accessToken ?? "")
+//            return jwt.claim(name: self).string ?? ""
+//        } catch {
+//            return ""
+//        }
+//    }
+//}
 
 class TokenManager {    
     static let shared = TokenManager()

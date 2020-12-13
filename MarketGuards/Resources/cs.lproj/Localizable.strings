@@ -51,6 +51,7 @@
 "quests_finish_quest" = "Splnit quest";
 "quests_remaining_time" = "Zbývající čas:";
 "quests_time_to_finish" = "Čas na splnění:";
+"quests_unfinished" = "Čas na splnění questu vypršel";
 "quests_finished" = "Splněno:";
 "quests_my_time" = "Můj čas";
 "quests_notes_placeholder" = "Zde si můžeš psát poznámky k plnění questu.";

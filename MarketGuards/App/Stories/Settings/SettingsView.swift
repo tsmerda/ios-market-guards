@@ -69,7 +69,7 @@ struct SettingsView: View {
                 Spacer()
                 
                 Button {
-                    //                    viewModel.userLoggedIn = false
+                    viewModel.signOut()
                 } label: {
                     ButtonWithBackground(text: "settings_logout", color: ColorsConstants.pureBlack, backgroundColor: ColorsConstants.mainExtraLight)
                         .frame(width: 175)

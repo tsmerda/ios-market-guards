@@ -28,7 +28,7 @@ struct TextFieldWithIcon: View {
                     ZStack(alignment: .leading) {
                         if text.isEmpty {
                             Text(label)
-                                .foregroundColor(Color(ColorsConstants.mainExtraLightLow))
+                                .foregroundColor(Color(ColorsConstants.disabled))
                         }
                         TextField("", text: $text)
                             .foregroundColor(Color(ColorsConstants.mainExtraLight))
@@ -41,7 +41,7 @@ struct TextFieldWithIcon: View {
                     ZStack(alignment: .leading) {
                         if text.isEmpty {
                             Text(label)
-                                .foregroundColor(Color(ColorsConstants.mainExtraLightLow))
+                                .foregroundColor(Color(ColorsConstants.disabled))
                         }
                         SecureField("", text: $text)
                             .foregroundColor(Color(ColorsConstants.mainExtraLight))

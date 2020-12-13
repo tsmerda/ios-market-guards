@@ -8,29 +8,32 @@
 
 import SwiftUI
 
+
+
 struct ChangeAvatarView: View {
     @Binding var isChangeAvatarPresented: Bool
     @Binding var avatar: String
+    @State var avatarColors: [String] = ["blue","green","orange","pink","violet","white"]
     
     var body: some View {
         NavigationView {
             GeometryReader { geometryReader in
                 ScrollView {
                     VStack(spacing: 0) {
-                        ForEach(1..<7) { index in
+                        ForEach(avatarColors, id: \.self) { color in
                             HStack(spacing: 0) {
                                 Button {
-                                    avatar = "MAN_\(index)"
+                                    avatar = "man_\(color)".uppercased()
                                     isChangeAvatarPresented.toggle()
                                 } label: {
-                                    AvatarView(avatar: "man_\(index)")
+                                    AvatarView(avatar: "man_\(color)")
                                 }
                                 
                                 Button {
-                                    avatar = "WOMAN_\(index)"
+                                    avatar = "woman_\(color)".uppercased()
                                     isChangeAvatarPresented.toggle()
                                 } label: {
-                                    AvatarView(avatar: "woman_\(index)")
+                                    AvatarView(avatar: "woman_\(color)")
                                 }
                             }
                         }
