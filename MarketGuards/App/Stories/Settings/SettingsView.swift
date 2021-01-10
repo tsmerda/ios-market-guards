@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = SettingsViewModel()
     
     var body: some View {
@@ -78,13 +77,6 @@ struct SettingsView: View {
             .padding(16)
         }
         .navigationBarTitle(Text("settings"), displayMode: .inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color(ColorsConstants.mainExtraLight))
-        })
     }
 }
 

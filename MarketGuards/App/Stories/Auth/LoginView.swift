@@ -13,7 +13,14 @@ struct LoginView: View {
     
     var body: some View {
         LoadingView(isShowing: .constant(viewModel.loading)) {
-            NavigationView {
+            ZStack {
+                GeometryReader { geo in
+                    Image("background")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geo.size.width)
+                        .edgesIgnoringSafeArea(.all)
+                }
                 VStack(alignment: .center, spacing: 72.0) {
                     Spacer()
                     Image("logo_vertical")
@@ -47,15 +54,6 @@ struct LoginView: View {
                     Spacer()
                         .frame(height: 100)
                 }
-                .background(
-                    ZStack {
-                        Image("background")
-                            .resizable()
-                            .scaledToFill()
-                    }
-                    .navigationBarHidden(true)
-                    .edgesIgnoringSafeArea(.all)
-                )
             }
         }
     }

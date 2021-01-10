@@ -10,7 +10,6 @@ import SwiftUI
 import CoreImage.CIFilterBuiltins
 
 struct StoreDetailView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = StoreViewModel()
     @Binding var storeList: [StoreItem]
     var storeItem: StoreItem
@@ -108,14 +107,7 @@ struct StoreDetailView: View {
             .padding(.horizontal)
         }
         .edgesIgnoringSafeArea(.bottom)
-        .navigationBarBackButtonHidden(true)
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
-        })
     }
     
     func buyReward(_ item: StoreItem) {

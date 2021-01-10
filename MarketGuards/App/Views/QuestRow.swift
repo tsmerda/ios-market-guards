@@ -27,7 +27,7 @@ struct QuestRow: View {
                     .foregroundColor(Color(ColorsConstants.mainExtraLight))
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    MainSkillPoint(experiences: quest.experiences ?? 0, bonusExperiences: quest.bonusExperiences ?? 0)
+                    MainSkillPoint(experiences: .constant(quest.experiences ?? 0), bonusExperiences: .constant(quest.bonusExperiences ?? 0))
                     SkillRow(skillPoints: quest.questSkillDtos)
                 }
                 
@@ -64,9 +64,7 @@ struct QuestRow: View {
     
     func getFormatedTime() {
         diff = QuestType.active.getRemainingTime(activated: quest.activated ?? "", finished: quest.timeToFinish)
-        if diff > 0 {
-            type = .active
-        } else {
+        if type == .active && diff < 0 {
             type = .unfinished
         }
     }

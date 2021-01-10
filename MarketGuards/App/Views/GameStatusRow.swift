@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GameStatusRow: View {
     @State var text: LocalizedStringKey
-    @State var value: Int
+    @Binding var value: Int
     
     var body: some View {
         HStack {

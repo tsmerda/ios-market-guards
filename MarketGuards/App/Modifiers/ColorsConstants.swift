@@ -38,8 +38,14 @@ struct ColorsConstants {
     
     // MARK: - State colors
     static let success = "success"
+    static let successLow = "successLow"
+    static let successLight = "successLight"
     static let warning = "warning"
+    static let warningLow = "warningLow"
+    static let warningLight = "warningLight"
     static let error = "error"
+    static let errorLow = "errorLow"
+    static let errorLight = "errorLight"
 
     // MARK: - Other colors
     static let loginBackground = "loginBackground"

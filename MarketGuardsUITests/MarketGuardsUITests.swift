@@ -13,8 +13,8 @@ import SwiftUI
 class MarketGuardsUITests: XCTestCase {
     
     override func setUpWithError() throws {
-//        super.setUp()
-//        continueAfterFailure = false
+        //        super.setUp()
+        //        continueAfterFailure = false
     }
     
     override func tearDownWithError() throws {
@@ -23,16 +23,28 @@ class MarketGuardsUITests: XCTestCase {
     func testExample() throws {
         // for test succeed add UserProfileView() to struct MarketGuardsApp
         
+        // MARK: - Checking choosing player avatar
+        
+        //        let app = XCUIApplication()
+        //        app.launch()
+        //
+        //        let elementsQuery = app.scrollViews.otherElements
+        //        elementsQuery.buttons["Upravit profil"].tap()
+        //        app.buttons["ZMĚNIT FOTKU"].tap()
+        //        elementsQuery.buttons["man_blue"].tap()
+        //
+        //        let choosenImage = app.images["man_blue"]
+        //        XCTAssertTrue(choosenImage.label == "man_blue")
+        
+        // MARK: - Checking logging in with invalid credentials
+        
         let app = XCUIApplication()
         app.launch()
-
-        let elementsQuery = app.scrollViews.otherElements
-        elementsQuery.buttons["Upravit profil"].tap()
-        app.buttons["ZMĚNIT FOTKU"].tap()
-        elementsQuery.buttons["man_blue"].tap()
         
-        let choosenImage = app.images["man_blue"]
-        XCTAssertTrue(choosenImage.label == "man_blue")
+        app.buttons["PŘIHLÁSIT SE"].tap()
+        let alert = app.staticTexts["Nesprávné přihlašovací údaje"]
+        
+        XCTAssertTrue(alert.label == "Nesprávné přihlašovací údaje")
     }
     
     func testLaunchPerformance() throws {

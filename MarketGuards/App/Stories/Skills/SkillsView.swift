@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct SkillsView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel = SkillsViewModel()
+    
+    //TODO -- Add locked item
+//    @State var isActive: Bool = true
     
     var body: some View {
         ZStack {
@@ -31,18 +33,14 @@ struct SkillsView: View {
             Spacer()
         }
         .navigationBarTitle(Text("skills"), displayMode: .inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color(ColorsConstants.mainExtraLight))
-        })
+        .onAppear {
+            viewModel.fetchSkills()
+        }
     }
 }
 
-struct SkillsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SkillsView()
-    }
-}
+//struct SkillsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SkillsView()
+//    }
+//}

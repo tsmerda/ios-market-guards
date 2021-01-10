@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct StoryDetailView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = LibraryViewModel()
     var storyItem: StoryItem
     
@@ -41,7 +40,7 @@ struct StoryDetailView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
-                        Image("man_1")
+                        Image("man_blue")
                             .resizable()
                             .clipShape(Circle())
                             .aspectRatio(contentMode: .fill)
@@ -89,14 +88,7 @@ struct StoryDetailView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
-        .navigationBarBackButtonHidden(true)
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
-        })
     }
 }
 

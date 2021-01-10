@@ -36,13 +36,13 @@ class LibraryViewModel: ObservableObject {
         ]
         self.dictionaryList = [
             DictionaryLetter(letter: "A", dictionaryItem: [
-                                DictionaryItem(title: "Atribut", description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."),
-                                DictionaryItem(title: "Akce", description: "Lorem ipsum dolor sit amet.")]),
+                                DictionaryItem(title: "Atribut", description: "Rozlišovací rys, podstatná vlastnost nějakého objektu."),
+                                DictionaryItem(title: "Akce", description: "Integrální charakteristika mechanického systému, určující jeho časový vývoj.")]),
             DictionaryLetter(letter: "B", dictionaryItem: [
-                                DictionaryItem(title: "Boj se zlem", description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."),
-                                DictionaryItem(title: "Bojkot", description: "Lorem ipsum dolor sit amet.")]),
+                                DictionaryItem(title: "Boj se zlem", description: "Boje mezi dobrem a zlem jsou staré jako lidstvo samo."),
+                                DictionaryItem(title: "Bojkot", description: "Nátlakový prostředek skupiny lidí sloužící k prosazení společného zájmu.")]),
             DictionaryLetter(letter: "D", dictionaryItem: [
-                                DictionaryItem(title: "Dovolená", description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")])
+                                DictionaryItem(title: "Dovolená", description: "Smyslem dovolené je poskytnout zaměstnanci čas, aby se zregeneroval a nabral síly k řádnému výkonu zaměstnání.")])
         ]
     }
     

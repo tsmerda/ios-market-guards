@@ -16,6 +16,7 @@ struct QuestDetailResponse: Codable, Identifiable, Hashable {
     let missionTitle: String
     let story: String
     let storyFinish: String?
+    let description: String?
     let created: String?
     let activated: String?
     let finished: String?

@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct BestPracticeDetailView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var bestPracticeItem: BestPracticeItem
     
     var body: some View {
@@ -53,14 +52,7 @@ struct BestPracticeDetailView: View {
             
         }
         .edgesIgnoringSafeArea(.bottom)
-        .navigationBarBackButtonHidden(true)
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
-        })
     }
 }
 

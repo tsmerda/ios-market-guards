@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct MainSkillPoint: View {
-    @State var experiences: Int?
-    @State var bonusExperiences: Int?
+    @Binding var experiences: Int?
+    @Binding var bonusExperiences: Int?
     
     var body: some View {
         HStack(spacing: 4) {
@@ -38,6 +38,6 @@ struct MainSkillPoint: View {
 
 struct MainSkillPoint_Previews: PreviewProvider {
     static var previews: some View {
-        MainSkillPoint(experiences: 10, bonusExperiences: 5)
+        MainSkillPoint(experiences: .constant(10), bonusExperiences: .constant(5))
     }
 }

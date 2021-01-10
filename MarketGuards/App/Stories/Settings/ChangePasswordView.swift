@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ChangePasswordView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = SettingsViewModel()
     @State private var oldPassword: String = ""
     @State private var newPassword: String = ""
@@ -87,13 +86,6 @@ struct ChangePasswordView: View {
             .padding(16)
         }
         .navigationBarTitle(Text("settings_change_password"), displayMode: .inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color(ColorsConstants.mainExtraLight))
-        })
     }
 }
 

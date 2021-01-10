@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct DictionaryDetailView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var dictionaryItem: DictionaryItem
     
     var body: some View {
@@ -27,14 +26,7 @@ struct DictionaryDetailView: View {
             .padding()
         }
         .edgesIgnoringSafeArea(.bottom)
-        .navigationBarBackButtonHidden(true)
         .navigationBarTitle(Text(""), displayMode: .inline)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color("mainExtraLight"))
-        })
     }
 }
 
