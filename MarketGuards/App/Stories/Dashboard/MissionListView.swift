@@ -32,9 +32,9 @@ struct MissionsListView: View {
                 .padding(.bottom, 8)
                 
                 Divider()
-                    .background(Color(ColorsConstants.mainLow))
+                    .background(Color(ColorsConstants.mainExtraLow))
                 Divider()
-                    .background(Color(ColorsConstants.mainLow))
+                    .background(Color(ColorsConstants.mainExtraLow))
                     .padding(.bottom, 2)
                 
                 ScrollView(showsIndicators: false) {
@@ -50,7 +50,7 @@ struct MissionsListView: View {
                                 MissionRow(title: "\(mission.missionType.id ?? 0). \(mission.title)", totalQuests: mission.totalQuests ?? 0, finishedQuests: mission.finishedQuests ?? 0)
                             }
                             Divider()
-                                .background(Color(ColorsConstants.mainLow))
+                                .background(Color(ColorsConstants.mainExtraLow))
                         }
                     }
                     Spacer()

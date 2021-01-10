@@ -10,8 +10,8 @@ import Foundation
 
 class QuestDetailViewModel: ObservableObject {
     @Published var questDetail: QuestDetailResponse?
-    @Published var questType: QuestType?
-    @Published var diff: Int? = 0
+    @Published var questType: QuestType? // TODO -- Resolve globaly fetching QuestType to modifi text & color
+    @Published var diff: Int = 0
     
     private var service = QuestsService()
     
@@ -63,7 +63,12 @@ class QuestDetailViewModel: ObservableObject {
     
     func onTypeChanged() {
         if questDetail?.activated != nil && questDetail?.finished == nil {
-            questType = QuestType.active
+            // TODO -- Fix diff time
+            if (QuestType.active.getRemainingTime(activated: questDetail?.activated ?? "", finished: questDetail?.timeToFinish ?? 0) > 0) {
+                questType = QuestType.active
+            } else {
+                questType = QuestType.unfinished
+            }
         } else {
             questType = QuestType.finished
         }

@@ -10,16 +10,18 @@ import Foundation
 
 class UserProfileViewModel: ObservableObject {
     @Published var gameStatus: GameStatusResponse?
-    private var service = PlayerService()
     let avatar: String = TokenManager.shared.getFromToken("avatar")
     let nickName: String = TokenManager.shared.getFromToken("nickName")
+    let firstName: String = TokenManager.shared.getFromToken("firstName")
+    
+    private var service = PlayerService()
     
     func fetchGameStatusData() {
         service.fetchGameStatus { [weak self] result in
             switch result {
             case .success(let response):
                 self?.gameStatus = response
-            //                print(response)
+//                            print(response)
             case .failure(let error):
                 print("Failed fetch response with: \(error.localizedDescription)")
             }
@@ -32,6 +34,5 @@ class UserProfileViewModel: ObservableObject {
     
     init(service: PlayerService) {
         self.service = service
-        fetchGameStatusData()
     }
 }

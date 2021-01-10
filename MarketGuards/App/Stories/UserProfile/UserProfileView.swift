@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct UserProfileView: View {
-    @ObservedObject var viewModel = UserProfileViewModel()
+    @StateObject var viewModel = UserProfileViewModel()
     @State private var isEditProfilePresented = false
     
     var body: some View {
@@ -25,22 +25,22 @@ struct UserProfileView: View {
                         .padding(.top)
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(viewModel.nickName)
+                        Text(viewModel.nickName != "" ? viewModel.nickName : viewModel.firstName)
                             .font(.chakraPetchSemiBold(size: 20))
                             .foregroundColor(Color(ColorsConstants.mainExtraLight))
                             .padding(.bottom, 8)
                         
                         HStack(spacing: 24) {
                             VStack(alignment: .leading) {
-                                GameStatusRow(text: "profile_level", value: viewModel.gameStatus?.level ?? 0)
+                                GameStatusRow(text: "profile_level", value: .constant(viewModel.gameStatus?.level ?? 0))
                                 
-                                GameStatusRow(text: "profile_region", value: 3)
+                                GameStatusRow(text: "profile_region", value: .constant(3))
                             }
                             
                             VStack(alignment: .leading) {
-                                GameStatusRow(text: "profile_currency", value: viewModel.gameStatus?.currency ?? 0)
+                                GameStatusRow(text: "profile_currency", value: .constant(viewModel.gameStatus?.currency ?? 0))
                                 
-                                GameStatusRow(text: "profile_week", value: 24)
+                                GameStatusRow(text: "profile_week", value: .constant(24))
                             }
                         }
                     }
@@ -82,21 +82,21 @@ struct UserProfileView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         Text("")
-                        UserResourceView(image: "analysis", text: "profile_analysis", value: viewModel.gameStatus?.analysis ?? 0)
+                        UserResourceView(image: "analysis", text: "profile_analysis", value: .constant(viewModel.gameStatus?.analysis ?? 0))
                         
-                        UserResourceView(image: "contacts", text: "profile_contacts", value: viewModel.gameStatus?.contacts ?? 0)
+                        UserResourceView(image: "contacts", text: "profile_contacts", value: .constant(viewModel.gameStatus?.contacts ?? 0))
                         
-                        UserResourceView(image: "addressing", text: "profile_addressing", value: viewModel.gameStatus?.addressing ?? 0)
+                        UserResourceView(image: "addressing", text: "profile_addressing", value: .constant(viewModel.gameStatus?.addressing ?? 0))
                         
-                        UserResourceView(image: "consulting", text: "profile_consulting", value: viewModel.gameStatus?.consulting ?? 0)
+                        UserResourceView(image: "consulting", text: "profile_consulting", value: .constant(viewModel.gameStatus?.consulting ?? 0))
                         
-                        UserResourceView(image: "services", text: "profile_services", value: viewModel.gameStatus?.services ?? 0)
+                        UserResourceView(image: "services", text: "profile_services", value: .constant(viewModel.gameStatus?.services ?? 0))
                     }
                     .padding(.horizontal, 8)
                 }
                 
                 Divider()
-                    .background(Color(ColorsConstants.mainLow))
+                    .background(Color(ColorsConstants.mainExtraLow))
                     .padding(.vertical, 16)
                 
                 VStack(spacing: 16) {
@@ -119,6 +119,9 @@ struct UserProfileView: View {
             }
             .edgesIgnoringSafeArea(.vertical)
         )
+        .onAppear {
+            viewModel.fetchGameStatusData()
+        }
     }
 }
 

@@ -17,11 +17,16 @@
 "confirm" = "Potvrdit";
 "close" = "Zavřít";
 "done" = "Hotovo";
+"search" = "Hledat";
 
 "dashboard" = "Základna";
 "story" = "Můj příběh";
 "library" = "Knihovna";
 "store" = "Obchod";
+
+"library_stories" = "Příběhy";
+"library_best-practice" = "Best-practice";
+"library_dictionary" = "Slovníček";
 
 "missions_active" = "Aktivní";
 "missions_finished" = "Splněné";
@@ -46,6 +51,7 @@
 "quests_finish_quest" = "Splnit quest";
 "quests_remaining_time" = "Zbývající čas:";
 "quests_time_to_finish" = "Čas na splnění:";
+"quests_unfinished" = "Čas na splnění questu vypršel";
 "quests_finished" = "Splněno:";
 "quests_my_time" = "Můj čas";
 "quests_notes_placeholder" = "Zde si můžeš psát poznámky k plnění questu.";
@@ -89,6 +95,15 @@
 "settings_confirm_new_password" = "Nové heslo znovu";
 "settings_version" = "Verze";
 "settings_email_not_valid" = "Nesprávný formát emailu";
+
+"store_currency" = "Peníze";
+"store_subtitle" = "Odměna dostupná pouze pro tvůj tým";
+"store_scan_qrcode" = "Pro uplatnění odměny naskenujte QR code";
+"store_buy %lld" = "Koupit za %lld";
+"store_own %lld" = "Vlastníš: %lld";
+"store_to_buy" = "K zakoupení";
+"store_my_rewards" = "Moje odměny";
+
 
 "acquisitions" = "Akvizice";
 "administration" = "Administrativa";

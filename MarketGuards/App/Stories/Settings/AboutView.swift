@@ -8,9 +8,7 @@
 
 import SwiftUI
 
-struct AboutView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+struct AboutView: View {    
     var body: some View {
         ZStack {
             Color(ColorsConstants.negative)
@@ -37,13 +35,6 @@ struct AboutView: View {
             .padding(16)
         }
         .navigationBarTitle(Text("settings_about_application"), displayMode: .inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button {
-            presentationMode.wrappedValue.dismiss()
-        } label: {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color(ColorsConstants.mainExtraLight))
-        })
     }
 }
 

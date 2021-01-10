@@ -21,11 +21,6 @@ struct ContentView: View {
                             Image(BottomMenu.dashboard.imageName)
                         })
                         .tag(BottomMenu.dashboard)
-                    StoryView()
-                        .tabItem({
-                            Image(BottomMenu.story.imageName)
-                        })
-                        .tag(BottomMenu.story)
                     LibraryView()
                         .tabItem({
                             Image(BottomMenu.library.imageName)

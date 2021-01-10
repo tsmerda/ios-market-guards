@@ -11,8 +11,8 @@ import SwiftUI
 struct SkillPoint: View {
     @State var code: String?
     @State var subSkillCode: String?
-    @State var experiences: Int?
-    @State var bonusExperiences: Int?
+    @Binding var experiences: Int?
+    @Binding var bonusExperiences: Int?
     
     var body: some View {
         HStack(spacing: 4) {
@@ -39,8 +39,8 @@ struct SkillPoint: View {
 }
 
 
-struct SkillPoint_Previews: PreviewProvider {
-    static var previews: some View {
-        SkillPoint()
-    }
-}
+//struct SkillPoint_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SkillPoint()
+//    }
+//}

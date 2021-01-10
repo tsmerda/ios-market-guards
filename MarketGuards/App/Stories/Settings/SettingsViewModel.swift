@@ -16,6 +16,7 @@ class SettingsViewModel: ObservableObject {
     let lastName: String = TokenManager.shared.getFromToken("lastName")
     let email: String = TokenManager.shared.getFromToken("email")
     let registerDate: String = TokenManager.shared.getFromToken("registerDate")
+    private var currentUserManager: CurrentUserManager
     
     func createInvitation(email: String, firstName: String, lastName: String) {
         settingsService.createInvitation(email: email, firstName: firstName, lastName: lastName) { result in
@@ -62,13 +63,18 @@ class SettingsViewModel: ObservableObject {
         return emailPredicate.evaluate(with: string)
     }
     
-    convenience init() {
-        self.init(settingsService: SettingsService(), playerService: PlayerService())
+    func signOut() {
+        CurrentUserManager.shared.removeAccessToken()
     }
     
-    init(settingsService: SettingsService, playerService: PlayerService) {
+    convenience init() {
+        self.init(settingsService: SettingsService(), playerService: PlayerService(), currentUserManager: CurrentUserManager.shared)
+    }
+    
+    init(settingsService: SettingsService, playerService: PlayerService, currentUserManager: CurrentUserManager) {
         self.settingsService = settingsService
         self.playerService = playerService
+        self.currentUserManager = currentUserManager
     }
     
 }

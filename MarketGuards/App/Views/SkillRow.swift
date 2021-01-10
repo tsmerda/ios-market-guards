@@ -31,7 +31,7 @@ struct SkillRow: View {
         
         return ZStack(alignment: .topLeading) {
             ForEach(self.skillPoints, id: \.self) { skillPoint in
-                SkillPoint(code: skillPoint.code, experiences: skillPoint.experiences  ?? 0, bonusExperiences: skillPoint.bonusExperiences ?? 0)
+                SkillPoint(code: skillPoint.code, experiences: .constant(skillPoint.experiences  ?? 0), bonusExperiences: .constant(skillPoint.bonusExperiences ?? 0))
                     .padding([.trailing, .bottom], 4)
                     .alignmentGuide(.leading, computeValue: { d in
                         if (abs(width - d.width) > g.size.width) {

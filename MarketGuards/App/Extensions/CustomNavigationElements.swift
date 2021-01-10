@@ -14,16 +14,18 @@ extension UINavigationController {
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor(Color("negative"))
+        appearance.shadowColor = .clear
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor(Color("mainExtraLight"))
         ]
         appearance.largeTitleTextAttributes = [
-            .foregroundColor: UIColor(Color("mainExtraLight")),
+            .foregroundColor: UIColor(Color("mainExtraLight"))
         ]
         
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().tintColor = UIColor(Color("mainExtraLight"))
         
         UITabBar.appearance().barTintColor = UIColor(Color("negative"))
     }

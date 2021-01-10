@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct SubSkillsView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = SkillsViewModel()
     @State private var isSubSkillDetailPresented = false
     @State var skillId: Int
@@ -27,7 +26,10 @@ struct SubSkillsView: View {
                 ScrollView {
                     ForEach(viewModel.skillDetail?.subSkills ?? []) { subSkill in
                         Button {
-                            isSubSkillDetailPresented.toggle()
+                            //TODO -- Add locked item
+//                            if viewModel.isUnlockedSkill(subSkill.experiences) {
+                                isSubSkillDetailPresented.toggle()
+//                            }
                         } label: {
                             SubSkillItemView(subSkill: subSkill, skillType: viewModel.skillDetail?.skillType)
                         }
@@ -40,13 +42,6 @@ struct SubSkillsView: View {
         .onAppear() {
             viewModel.fetchSkillDetail(skillId: skillId)
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color(ColorsConstants.mainExtraLight))
-        })
     }
 }
 

@@ -45,7 +45,7 @@ struct EditProfileView: View {
                 
                 Divider()
                     .frame(width:215)
-                    .background(Color(ColorsConstants.mainExtraLightLow))
+                    .background(Color(ColorsConstants.mainExtraLow))
                     .padding(.vertical, 8)
                 
                 Text("profile_change_nickname")

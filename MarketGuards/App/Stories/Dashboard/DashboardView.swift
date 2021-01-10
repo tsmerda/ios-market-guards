@@ -44,7 +44,7 @@ struct DashboardView: View {
                     }
                     
                     Divider()
-                        .background(Color(ColorsConstants.mainExtraLightLow))
+                        .background(Color(ColorsConstants.mainExtraLow))
                         .padding(.vertical)
                     
                     HStack {
@@ -86,12 +86,16 @@ struct DashboardView: View {
             Button {
                 isMissionListPresented.toggle()
             } label: {
-                Image("burger_menu_full")
-                    .padding(4)
-                    .foregroundColor(Color(ColorsConstants.negative))
-                    .background(Color(ColorsConstants.mainExtraLight))
-                    .clipShape(Circle())
-                    .padding()
+                HStack(spacing: 0) {
+                    Image("burger_menu_full")
+                    Text("missions_choose_mission")
+                        .font(.chakraPetchSemiBold(size: 15))
+                }
+                .padding(.init(top: 0, leading: 4, bottom: 0, trailing: 12))
+                .foregroundColor(Color(ColorsConstants.negative))
+                .background(Color(ColorsConstants.mainExtraLight).opacity(0.9))
+                .cornerRadius(50)
+                .padding()
             }
             .sheet(isPresented: $isMissionListPresented, onDismiss: {viewModel.fetchMissionDetailData(missionId: missionId)}, content: { MissionsListView(isMissionsListPresented: $isMissionListPresented, missionId: $missionId) })
         }

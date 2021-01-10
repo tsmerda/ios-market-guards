@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct InviteView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = SettingsViewModel()
     @State private var firstName: String = ""
     @State private var lastName: String = ""
@@ -36,7 +35,7 @@ struct InviteView: View {
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color(ColorsConstants.mainExtraLightLow))
+                        .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
                         if lastName.isEmpty {
@@ -51,7 +50,7 @@ struct InviteView: View {
                     .padding(.horizontal, 16)
                     
                     Divider()
-                        .background(Color(ColorsConstants.mainExtraLightLow))
+                        .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
                         if email.isEmpty {
@@ -103,13 +102,6 @@ struct InviteView: View {
             .padding(16)
         }
         .navigationBarTitle(Text("settings_invite_player"), displayMode: .inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button {
-            presentationMode.wrappedValue.dismiss()
-        } label: {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color(ColorsConstants.mainExtraLight))
-        })
     }
 }
 

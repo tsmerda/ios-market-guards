@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// TODO -- Add function to viewModel -> (subSkill?.experiences ?? 0) != 0)
 struct SubSkillItemView: View {
     @State var subSkill: SubSkills?
     @State var skillType: SkillType?
@@ -15,34 +16,32 @@ struct SubSkillItemView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(subSkill?.code ?? "")
+                Image(((subSkill?.experiences ?? 0) != 0) ? subSkill?.code ?? "" : "disabled")
                     .resizable()
                     .frame(width: 68, height: 68)
-                    .foregroundColor(Color("\(subSkill?.code ?? "")"))
-                    .border(Color("\(skillType?.code ?? "")Low"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color(((subSkill?.experiences ?? 0) != 0) ? "\(skillType?.code ?? "")" : ColorsConstants.disabled))
+                    .border(Color(((subSkill?.experiences ?? 0) != 0) ? "\(skillType?.code ?? "")Low" : ColorsConstants.disabledLow), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text((subSkill?.title ?? "").uppercased())
                         .font(.chakraPetchRegular(size: 18))
-                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
+                        .foregroundColor(Color(((subSkill?.experiences ?? 0) != 0) ? ColorsConstants.mainExtraLight : ColorsConstants.disabled))
                     HStack {
                         HStack {
                             Text("skills_level")
                             Text("\(subSkill?.level ?? 0)")
                         }
-                        .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         
                         Text("|")
-                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         
                         Text("\(subSkill?.experiences ?? 0) / \(subSkill?.experiencesToNextLevel ?? 0)")
-                            .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     }
                     .font(.chakraPetchRegular(size: 16))
+                    .foregroundColor(Color(((subSkill?.experiences ?? 0) != 0) ? ColorsConstants.mainExtraLight : ColorsConstants.disabled))
                     
                     ProgressBar(value: .constant(CGFloat(subSkill?.experiences ?? 0)),
                                 maxValue: .constant(CGFloat(subSkill?.experiencesToNextLevel ?? 0)),
-                                color: skillType?.code ?? ColorsConstants.main)
+                                color: ((subSkill?.experiences ?? 0) != 0) ? skillType?.code ?? ColorsConstants.main : ColorsConstants.disabled)
                 }
             }
             .padding(.vertical, 8)

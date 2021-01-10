@@ -12,14 +12,11 @@ class SkillsViewModel: ObservableObject {
     @Published var skills: [SkillsResponse]?
     @Published var skillDetail: SkillDetail?
     @Published var subSkillDetail: SubSkillDetail?
-    private let skillsService = SkillsService()
     
-    init() {
-        fetchSkills()
-    }
+    private var service = SkillsService()
     
     func fetchSkills() {
-        skillsService.fetchSkills { [weak self] result in
+        service.fetchSkills { [weak self] result in
             switch result {
             case .success(let response):
                 self?.skills = response
@@ -31,7 +28,7 @@ class SkillsViewModel: ObservableObject {
     }
     
     func fetchSkillDetail(skillId: Int) {
-        skillsService.fetchSkillDetail(skillId: skillId) { [weak self] result in
+        service.fetchSkillDetail(skillId: skillId) { [weak self] result in
             switch result {
             case .success(let response):
                 self?.skillDetail = response
@@ -43,7 +40,7 @@ class SkillsViewModel: ObservableObject {
     }
     
     func fetchSubSkillDetail(skillId: Int, subSkillId: Int) {
-        skillsService.fetchSubSkillDetail(skillId: skillId, subSkillId: subSkillId) { [weak self] result in
+        service.fetchSubSkillDetail(skillId: skillId, subSkillId: subSkillId) { [weak self] result in
             switch result {
             case .success(let response):
                 self?.subSkillDetail = response
@@ -58,4 +55,15 @@ class SkillsViewModel: ObservableObject {
         return code == "selfDevelopment" || code == "leadership" || code == "management" || code == "others" ? false : true
     }
     
+    func isUnlockedSkill(_ experiences: Int) -> Bool {
+        return experiences != 0
+    }
+    
+    convenience init() {
+        self.init(service: SkillsService())
+    }
+    
+    init(service: SkillsService) {
+        self.service = service
+    }
 }

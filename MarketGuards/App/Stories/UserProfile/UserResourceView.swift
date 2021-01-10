@@ -11,7 +11,7 @@ import SwiftUI
 struct UserResourceView: View {
     let image: String
     let text: LocalizedStringKey
-    let value: Int
+    @Binding var value: Int
     
     var body: some View {
         VStack(spacing: 4) {
@@ -34,7 +34,7 @@ struct UserResourceView: View {
 
 struct UserResourceView_Previews: PreviewProvider {
     static var previews: some View {
-        UserResourceView(image: "analysis", text: "Analysis", value: 1).background(Color(ColorsConstants.mainExtraLow))
+        UserResourceView(image: "analysis", text: "Analysis", value: .constant(1)).background(Color(ColorsConstants.mainExtraLow))
             .background(Color(ColorsConstants.negative))
     }
 }

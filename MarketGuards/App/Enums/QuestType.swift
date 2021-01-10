@@ -11,6 +11,7 @@ import SwiftUI
 enum QuestType {
     case active
     case finished
+    case unfinished
     
     var timeText: LocalizedStringKey {
         switch self {
@@ -18,6 +19,8 @@ enum QuestType {
             return "quests_remaining_time"
         case .finished:
             return "quests_finished"
+        case .unfinished:
+            return "quests_unfinished"
         }
     }
     
@@ -27,6 +30,8 @@ enum QuestType {
             return "remaining_time"
         case .finished:
             return "ok"
+        case .unfinished:
+            return "warning"
         }
     }
     
@@ -36,6 +41,8 @@ enum QuestType {
             return "warningLight"
         case .finished:
             return "successLight"
+        case .unfinished:
+            return "errorLight"
         }
     }
     

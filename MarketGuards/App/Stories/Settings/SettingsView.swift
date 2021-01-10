@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var viewModel = SettingsViewModel()
     
     var body: some View {
@@ -54,6 +53,7 @@ struct SettingsView: View {
                 .font(.chakraPetchRegular(size: 14))
                 
                 Divider()
+                    .background(Color(ColorsConstants.mainExtraLow))
                 
                 NavigationLink(destination: ChangePasswordView()) {
                     MenuRowView(image: "", text: "settings_change_password")
@@ -68,7 +68,7 @@ struct SettingsView: View {
                 Spacer()
                 
                 Button {
-                    //                    viewModel.userLoggedIn = false
+                    viewModel.signOut()
                 } label: {
                     ButtonWithBackground(text: "settings_logout", color: ColorsConstants.pureBlack, backgroundColor: ColorsConstants.mainExtraLight)
                         .frame(width: 175)
@@ -77,13 +77,6 @@ struct SettingsView: View {
             .padding(16)
         }
         .navigationBarTitle(Text("settings"), displayMode: .inline)
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(Color(ColorsConstants.mainExtraLight))
-        })
     }
 }
 

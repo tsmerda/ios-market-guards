@@ -8,9 +8,13 @@
 
 import Foundation
 
-class CurrentUserManager {
-    private(set) var accessToken: String?
+class CurrentUserManager: ObservableObject {
+    @Published private(set) var accessToken: String?
     var refreshToken: String?
+    
+//    var isLoggedIn: Bool {
+//        return CoreDataManager.getToken != nil
+//    }
     
     static let shared = CurrentUserManager()
     
@@ -18,5 +22,9 @@ class CurrentUserManager {
     
     func setAccessToken(_ token: String) {
         self.accessToken = token.replacingOccurrences(of: "Bearer ", with: "")
+    }
+    
+    func removeAccessToken() {
+        self.accessToken = nil
     }
 }

@@ -29,7 +29,7 @@ struct MissionRow: View {
     }
     
     func getColor(totalQuests: Int, finishedQuests: Int) -> String {
-        if (totalQuests != 0 && finishedQuests != 0) {
+        if (totalQuests != 0 || finishedQuests != 0) {
             return isFinished(totalQuests: totalQuests, finishedQuests: finishedQuests) ? ColorsConstants.success : ColorsConstants.main
         } else {
             return ColorsConstants.disabled
@@ -37,7 +37,7 @@ struct MissionRow: View {
     }
     
     func getImage(totalQuests: Int, finishedQuests: Int) -> String {
-        if (totalQuests != 0 && finishedQuests != 0)  {
+        if (totalQuests != 0 || finishedQuests != 0)  {
             return isFinished(totalQuests: totalQuests, finishedQuests: finishedQuests) ? "ok" : "remaining_time"
         } else {
             return "lock"
