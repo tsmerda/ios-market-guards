@@ -95,7 +95,6 @@
 		C39F5EF32529FA80008E04BD /* MissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EF22529FA80008E04BD /* MissionDetailView.swift */; };
 		C3A807342578FD2200DCE825 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A807332578FD2200DCE825 /* TagView.swift */; };
 		C3A807372579013600DCE825 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A807362579013600DCE825 /* TagListView.swift */; };
-		C3C9329B25E05215005BC235 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C9329A25E05215005BC235 /* Launch Screen.storyboard */; };
 		C3D43B432546F621007B6C17 /* FontNameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D43B422546F621007B6C17 /* FontNameManager.swift */; };
 		C3D43B512546FD49007B6C17 /* ChakraPetch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3D43B4B2546FD49007B6C17 /* ChakraPetch-Regular.ttf */; };
 		C3D43B522546FD49007B6C17 /* ChakraPetch-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3D43B4C2546FD49007B6C17 /* ChakraPetch-SemiBold.ttf */; };
@@ -240,7 +239,6 @@
 		C39F5EF22529FA80008E04BD /* MissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailView.swift; sourceTree = "<group>"; };
 		C3A807332578FD2200DCE825 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C3A807362579013600DCE825 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
-		C3C9329A25E05215005BC235 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C3D43B422546F621007B6C17 /* FontNameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNameManager.swift; sourceTree = "<group>"; };
 		C3D43B4B2546FD49007B6C17 /* ChakraPetch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChakraPetch-Regular.ttf"; sourceTree = "<group>"; };
 		C3D43B4C2546FD49007B6C17 /* ChakraPetch-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChakraPetch-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -477,7 +475,6 @@
 				C357FCF22521F84900D61651 /* Library */,
 				C357FCF32521F85000D61651 /* Store */,
 				C357FCB42521137F00D61651 /* Auth */,
-				C3C9329A25E05215005BC235 /* Launch Screen.storyboard */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -850,7 +847,6 @@
 				C357FCD52521D34B00D61651 /* Localizable.strings in Resources */,
 				C3D43B532546FD49007B6C17 /* ChakraPetch-Light.ttf in Resources */,
 				C357FC712520FABC00D61651 /* Preview Assets.xcassets in Resources */,
-				C3C9329B25E05215005BC235 /* Launch Screen.storyboard in Resources */,
 				C3D43B522546FD49007B6C17 /* ChakraPetch-SemiBold.ttf in Resources */,
 				C357FC6E2520FABC00D61651 /* Assets.xcassets in Resources */,
 				C3D43B542546FD49007B6C17 /* ChakraPetch-Bold.ttf in Resources */,
