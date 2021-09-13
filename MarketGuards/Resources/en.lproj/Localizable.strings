@@ -7,18 +7,134 @@
 */
 
 "login" = "Login";
+"user_login" = "User name";
 "password" = "Password";
+
+"invalid_credentials" = "Invalid credentials";
+
+"save" = "Save";
+"cancel" = "Cancel";
+"confirm" = "Confirm";
+"close" = "Close";
+"done" = "Done";
+"search" = "Search";
 
 "dashboard" = "Dashboard";
 "story" = "Story";
 "library" = "Library";
 "store" = "Store";
 
+"library_stories" = "Stories";
+"library_best-practice" = "Best-practice";
+"library_dictionary" = "Dictionary";
+
+"missions_active" = "Active";
+"missions_finished" = "Finished";
 "missions_active_quests" = "Active quests";
 "missions_all_quests" = "All quests";
 "missions_finished_quests" = "Finished quests";
 "missions_mission_detail" = "Mission detail";
 "missions_missions_list" = "Missions list";
-"missions_no_active_quests" = "You currently have no active quests";
-"missions_no_finished_quests" = "You currently have no finished quests";
+"missions_no_active_quests" = "You currently have no active quests.";
+"missions_no_finished_quests" = "You currently have no finished quests.";
 "missions_choose_mission" = "Choose mission";
+"missions_show_more" = "Show more";
+
+"quests_finished_quest_points" = "Finished quest points";
+"quests_finished_quest_points_subtitle" = "Basic points + bonus for timely fulfillment";
+"quests_experiences" = "Total experience";
+"quests_statistics" = "Statistics";
+"quests_average_time" = "Average time";
+"quests_notes" = "Notes";
+"quests_skills" = "Skills";
+"quests_start_quest" = "Start quest";
+"quests_finish_quest" = "Finish quest";
+"quests_remaining_time" = "Remaining time:";
+"quests_time_to_finish" = "Time to finish:";
+"quests_unfinished" = "Time to complete the quest has expired";
+"quests_finished" = "Finished:";
+"quests_my_time" = "My time";
+"quests_notes_placeholder" = "Here you can write notes to complete the quest.";
+"quests_notes_saved" = "Saved automatically";
+
+"profile_edit_profile" = "Edit profile";
+"profile_level" = "Level";
+"profile_currency" = "Currency";
+"profile_xp" = "XP";
+"profile" = "Profile";
+"profile_change_photo" = "Change photo";
+"profile_change_nickname" = "Change your nickname";
+"profile_analysis" = "Analysis";
+"profile_contacts" = "Contacts";
+"profile_addressing" = "Addressing";
+"profile_consulting" = "Consulting";
+"profile_services" = "Services";
+"profile_skills" = "Skills";
+"profile_badges" = "Badges";
+"profile_my_team" = "My team";
+"profile_settings" = "Settings";
+"profile_week" = "Week";
+"profile_region" = "Region";
+
+"skills" = "Skills";
+"skills_level" = "Level";
+"skills_subskill_detail" = "Sub-skill detail";
+
+"settings" = "Settings";
+"settings_name" = "Name";
+"settings_lastname" = "Surname";
+"settings_email" = "Email";
+"settings_registration_date" = "Registration date";
+"settings_change_password" = "Change password";
+"settings_invite_player" = "Invite player";
+"settings_send_invitation" = "Send invitation";
+"settings_about_application" = "About application";
+"settings_logout" = "Logout";
+"settings_actual_password" = "Current password";
+"settings_new_password" = "New password";
+"settings_confirm_new_password" = "New password again";
+"settings_version" = "Version";
+"settings_email_not_valid" = "Incorrect email format";
+
+"store_currency" = "Currency";
+"store_subtitle" = "Reward available only to your team";
+"store_scan_qrcode" = "Scan the QR code to claim the reward";
+"store_buy %lld" = "Buy for %lld";
+"store_own %lld" = "You own: %lld";
+"store_to_buy" = "To buy";
+"store_my_rewards" = "My rewards";
+
+
+"acquisitions" = "Acquisitions";
+"administration" = "Administration";
+"business" = "Business";
+"clientContacting" = "Client contacting";
+"communication" = "Communication";
+"conductingMeetings" = "Conducting meetings";
+"coworkers" = "Coworkers";
+"coworkerContacting" = "Coworker contacting";
+"delegation" = "Delegation";
+"directive" = "Directive";
+"electricity" = "Electricity";
+"employeeCare" = "Employee care";
+"energyManagement" = "Energy management";
+"evaluation" = "Evaluation";
+"firms" = "Firms";
+"follow-up" = "Follow-up";
+"fve" = "FVE";
+"gas" = "Gas";
+"households" = "Households";
+"listening" = "Listening";
+"mentoring" = "Mentoring";
+"mzu" = "MZU";
+"networking" = "Networking";
+"organization" = "Organization";
+"planning" = "Planning";
+"products" = "Products";
+"prospecting" = "Prospecting";
+"recruitment" = "Recruitment";
+"selectionAndRegistration" = "Selection and registration";
+"service" = "Service";
+"speaking" = "Speaking";
+"supporting" = "Supporting";
+"teamCare" = "Team care";

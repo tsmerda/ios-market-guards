@@ -22,8 +22,8 @@ struct SettingsView: View {
                         .opacity(0.8)
                     Spacer()
                     HStack {
-                        Text(viewModel.firstName)
-                        Text(viewModel.lastName)
+                        Text(viewModel.tokenFirstName)
+                        Text(viewModel.tokenLastName)
                     }
                     .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .opacity(0.4)
@@ -35,7 +35,7 @@ struct SettingsView: View {
                         .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.8)
                     Spacer()
-                    Text(viewModel.email)
+                    Text(viewModel.tokenEmail)
                         .foregroundColor(Color(ColorsConstants.mainExtraLight))
                         .opacity(0.4)
                 }

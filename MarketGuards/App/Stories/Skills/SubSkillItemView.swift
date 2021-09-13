@@ -10,6 +10,7 @@ import SwiftUI
 
 // TODO -- Add function to viewModel -> (subSkill?.experiences ?? 0) != 0)
 struct SubSkillItemView: View {
+    @StateObject var viewModel = SkillsViewModel()
     @State var subSkill: SubSkills?
     @State var skillType: SkillType?
     
