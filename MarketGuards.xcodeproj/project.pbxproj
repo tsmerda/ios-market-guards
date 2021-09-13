@@ -95,6 +95,7 @@
 		C39F5EF32529FA80008E04BD /* MissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F5EF22529FA80008E04BD /* MissionDetailView.swift */; };
 		C3A807342578FD2200DCE825 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A807332578FD2200DCE825 /* TagView.swift */; };
 		C3A807372579013600DCE825 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A807362579013600DCE825 /* TagListView.swift */; };
+		C3C9329B25E05215005BC235 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3C9329A25E05215005BC235 /* Launch Screen.storyboard */; };
 		C3D43B432546F621007B6C17 /* FontNameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D43B422546F621007B6C17 /* FontNameManager.swift */; };
 		C3D43B512546FD49007B6C17 /* ChakraPetch-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3D43B4B2546FD49007B6C17 /* ChakraPetch-Regular.ttf */; };
 		C3D43B522546FD49007B6C17 /* ChakraPetch-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3D43B4C2546FD49007B6C17 /* ChakraPetch-SemiBold.ttf */; };
@@ -239,6 +240,7 @@
 		C39F5EF22529FA80008E04BD /* MissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailView.swift; sourceTree = "<group>"; };
 		C3A807332578FD2200DCE825 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		C3A807362579013600DCE825 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		C3C9329A25E05215005BC235 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C3D43B422546F621007B6C17 /* FontNameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNameManager.swift; sourceTree = "<group>"; };
 		C3D43B4B2546FD49007B6C17 /* ChakraPetch-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChakraPetch-Regular.ttf"; sourceTree = "<group>"; };
 		C3D43B4C2546FD49007B6C17 /* ChakraPetch-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChakraPetch-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -353,8 +355,8 @@
 				C3519C5D255B291C007582C0 /* EditProfileView.swift */,
 				C3519C69255B2939007582C0 /* ChangeAvatarView.swift */,
 				C3519C5F255B291C007582C0 /* UserProfileView.swift */,
-				C3519C5E255B291C007582C0 /* UserProfileViewModel.swift */,
 				C3519C5C255B291B007582C0 /* UserResourceView.swift */,
+				C3519C5E255B291C007582C0 /* UserProfileViewModel.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -375,11 +377,12 @@
 			isa = PBXGroup;
 			children = (
 				C3519C79255B294E007582C0 /* SkillsView.swift */,
-				C3519C77255B294E007582C0 /* SkillsViewModel.swift */,
 				C3519C74255B294D007582C0 /* SkillItemView.swift */,
 				C3519C76255B294D007582C0 /* SubSkillDetailView.swift */,
 				C3519C75255B294D007582C0 /* SubSkillItemView.swift */,
 				C3519C7A255B294E007582C0 /* SubSkillsView.swift */,
+				C32D322B255C11CB00CBA785 /* SkillRow.swift */,
+				C3519C77255B294E007582C0 /* SkillsViewModel.swift */,
 			);
 			path = Skills;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				C357FCF22521F84900D61651 /* Library */,
 				C357FCF32521F85000D61651 /* Store */,
 				C357FCB42521137F00D61651 /* Auth */,
+				C3C9329A25E05215005BC235 /* Launch Screen.storyboard */,
 			);
 			path = Stories;
 			sourceTree = "<group>";
@@ -557,14 +561,11 @@
 			children = (
 				C357FCCE2521C7F300D61651 /* TextFieldWithIcon.swift */,
 				C357FCE02521D7E500D61651 /* ButtonWithBackground.swift */,
-				C3D7F32B252515B300D44576 /* QuestRow.swift */,
 				C39F5EEB2529F6E2008E04BD /* MainSkillPoint.swift */,
 				C39F5EEF2529F7B3008E04BD /* SkillPoint.swift */,
 				C364A31025330D3200ABB2D4 /* TopMenu.swift */,
 				C3F038342535990600DEA541 /* ProgressBar.swift */,
-				C320C8EA254ACEC50056C5B2 /* MissionRow.swift */,
 				C3519C34255B2792007582C0 /* MenuRowView.swift */,
-				C32D322B255C11CB00CBA785 /* SkillRow.swift */,
 				C3608C8225741B6E00D21DD7 /* SearchBar.swift */,
 				C3A807332578FD2200DCE825 /* TagView.swift */,
 				C39BB5B3257E7E1A00F7543D /* GameStatusRow.swift */,
@@ -577,13 +578,15 @@
 			isa = PBXGroup;
 			children = (
 				C357FC8B2521079800D61651 /* DashboardView.swift */,
-				C357FCDC2521D76E00D61651 /* DashboardViewModel.swift */,
 				C3D7F32E2525276800D44576 /* MissionListView.swift */,
-				C3D7F3312525278700D44576 /* MissionListViewModel.swift */,
 				C39F5EF22529FA80008E04BD /* MissionDetailView.swift */,
 				C39F5EE52529F019008E04BD /* ActiveQuestsView.swift */,
 				C39F5EE22529EFF6008E04BD /* FinishedQuestsView.swift */,
 				C3D8E8A42531A70A009A95A7 /* QuestDetailView.swift */,
+				C320C8EA254ACEC50056C5B2 /* MissionRow.swift */,
+				C3D7F32B252515B300D44576 /* QuestRow.swift */,
+				C357FCDC2521D76E00D61651 /* DashboardViewModel.swift */,
+				C3D7F3312525278700D44576 /* MissionListViewModel.swift */,
 				C3D8E8A72531A71C009A95A7 /* QuestDetailViewModel.swift */,
 			);
 			path = Dashboard;
@@ -847,6 +850,7 @@
 				C357FCD52521D34B00D61651 /* Localizable.strings in Resources */,
 				C3D43B532546FD49007B6C17 /* ChakraPetch-Light.ttf in Resources */,
 				C357FC712520FABC00D61651 /* Preview Assets.xcassets in Resources */,
+				C3C9329B25E05215005BC235 /* Launch Screen.storyboard in Resources */,
 				C3D43B522546FD49007B6C17 /* ChakraPetch-SemiBold.ttf in Resources */,
 				C357FC6E2520FABC00D61651 /* Assets.xcassets in Resources */,
 				C3D43B542546FD49007B6C17 /* ChakraPetch-Bold.ttf in Resources */,

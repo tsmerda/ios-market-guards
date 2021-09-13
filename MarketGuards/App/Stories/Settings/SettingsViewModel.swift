@@ -12,10 +12,14 @@ class SettingsViewModel: ObservableObject {
     private var settingsService = SettingsService()
     private var playerService = PlayerService()
     let idPlayer: String = TokenManager.shared.getFromToken("sub")
-    let firstName: String = TokenManager.shared.getFromToken("firstName")
-    let lastName: String = TokenManager.shared.getFromToken("lastName")
-    let email: String = TokenManager.shared.getFromToken("email")
+    let tokenFirstName: String = TokenManager.shared.getFromToken("firstName")
+    let tokenLastName: String = TokenManager.shared.getFromToken("lastName")
+    let tokenEmail: String = TokenManager.shared.getFromToken("email")
     let registerDate: String = TokenManager.shared.getFromToken("registerDate")
+    @Published var firstName: String = ""
+    @Published var lastName: String = ""
+    @Published var email: String = ""
+    @Published var isEmailValid: Bool = true
     private var currentUserManager: CurrentUserManager
     
     func createInvitation(email: String, firstName: String, lastName: String) {
@@ -65,6 +69,10 @@ class SettingsViewModel: ObservableObject {
     
     func signOut() {
         CurrentUserManager.shared.removeAccessToken()
+    }
+    
+    func isDisabled() -> Bool {
+        return !isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty
     }
     
     convenience init() {
