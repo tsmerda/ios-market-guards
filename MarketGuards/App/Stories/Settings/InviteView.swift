@@ -10,10 +10,6 @@ import SwiftUI
 
 struct InviteView: View {
     @StateObject var viewModel = SettingsViewModel()
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var email: String = ""
-    @State private var isEmailValid: Bool = true
     
     var body: some View {
         ZStack {
@@ -22,12 +18,12 @@ struct InviteView: View {
             VStack(spacing: 16) {
                 VStack(spacing: 16) {
                     ZStack(alignment: .leading) {
-                        if firstName.isEmpty {
+                        if viewModel.firstName.isEmpty {
                             Text("settings_name")
                                 .opacity(0.4)
                             
                         }
-                        TextField("", text: $firstName)
+                        TextField("", text: $viewModel.firstName)
                             .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
@@ -38,11 +34,11 @@ struct InviteView: View {
                         .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
-                        if lastName.isEmpty {
+                        if viewModel.lastName.isEmpty {
                             Text("settings_lastname")
                                 .opacity(0.4)
                         }
-                        TextField("", text: $lastName)
+                        TextField("", text: $viewModel.lastName)
                             .autocapitalization(.none)
                     }
                     .font(.chakraPetchRegular(size: 13))
@@ -53,17 +49,17 @@ struct InviteView: View {
                         .background(Color(ColorsConstants.mainExtraLow))
                     
                     ZStack(alignment: .leading) {
-                        if email.isEmpty {
+                        if viewModel.email.isEmpty {
                             Text("settings_email")
                                 .opacity(0.4)
                         }
-                        TextField("", text: $email, onEditingChanged: { (isChanged) in
+                        TextField("", text: $viewModel.email, onEditingChanged: { (isChanged) in
                             if !isChanged {
-                                if self.viewModel.textFieldValidatorEmail(self.email) {
-                                    self.isEmailValid = true
+                                if viewModel.textFieldValidatorEmail(viewModel.email) {
+                                    viewModel.isEmailValid = true
                                 } else {
-                                    self.isEmailValid = false
-                                    self.email = ""
+                                    viewModel.isEmailValid = false
+                                    viewModel.email = ""
                                 }
                             }
                         })
@@ -73,7 +69,7 @@ struct InviteView: View {
                     .foregroundColor(Color(ColorsConstants.mainExtraLight))
                     .padding(.horizontal, 16)
                     
-                    if !self.isEmailValid {
+                    if !viewModel.isEmailValid {
                         Text("settings_email_not_valid")
                             .font(.chakraPetchRegular(size: 13))
                             .foregroundColor(Color(ColorsConstants.error))
@@ -85,17 +81,17 @@ struct InviteView: View {
                 .cornerRadius(5)
                 
                 Button {
-                    viewModel.createInvitation(email: email, firstName: firstName, lastName: lastName)
+                    viewModel.createInvitation(email: viewModel.email, firstName: viewModel.firstName, lastName: viewModel.lastName)
                 } label: {
                     Text("settings_send_invitation")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .frame(height: 30.0)
                         .font(.chakraPetchMedium(size: 16))
-                        .foregroundColor(Color((!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty) ? ColorsConstants.disabled : ColorsConstants.mainExtraLight))
-                        .background(Color((!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty) ? ColorsConstants.mainExtraLightExtraLow : ColorsConstants.mainExtraLightLow))
+                        .foregroundColor(Color((viewModel.isDisabled()) ? ColorsConstants.disabled : ColorsConstants.mainExtraLight))
+                        .background(Color((viewModel.isDisabled()) ? ColorsConstants.mainExtraLightExtraLow : ColorsConstants.mainExtraLightLow))
                         .cornerRadius(15)
                 }
-                .disabled(!isEmailValid || email.isEmpty || firstName.isEmpty || lastName.isEmpty)
+                .disabled(viewModel.isDisabled())
                 
                 Spacer()
             }

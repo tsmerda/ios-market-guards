@@ -9,10 +9,7 @@
 import SwiftUI
 
 struct SkillsView: View {
-    @ObservedObject var viewModel = SkillsViewModel()
-    
-    //TODO -- Add locked item
-//    @State var isActive: Bool = true
+    @StateObject var viewModel = SkillsViewModel()
     
     var body: some View {
         ZStack {
@@ -21,10 +18,11 @@ struct SkillsView: View {
             ScrollView {
                 ForEach(viewModel.skills ?? []) { skill in
                     if self.viewModel.isAllowedSkill(code: skill.code) {
-                        NavigationLink(destination: SubSkillsView(skillId: skill.id)
+                        NavigationLink(destination: SubSkillsView(viewModel: SkillsViewModel(service: SkillsService(), skillId: skill.id, subSkillId: viewModel.subSkillId))
                                         .navigationBarTitle(Text(skill.title), displayMode: .inline)) {
                             SkillItemView(skill: skill)
                         }
+                        .disabled(viewModel.isDisabledSkill(skill.experiences))
                     }
                 }
             }

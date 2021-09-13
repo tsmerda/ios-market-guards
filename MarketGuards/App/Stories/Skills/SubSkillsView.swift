@@ -10,8 +10,6 @@ import SwiftUI
 
 struct SubSkillsView: View {
     @StateObject var viewModel = SkillsViewModel()
-    @State private var isSubSkillDetailPresented = false
-    @State var skillId: Int
     
     var body: some View {
         ZStack {
@@ -25,22 +23,18 @@ struct SubSkillsView: View {
                 
                 ScrollView {
                     ForEach(viewModel.skillDetail?.subSkills ?? []) { subSkill in
-                        Button {
-                            //TODO -- Add locked item
-//                            if viewModel.isUnlockedSkill(subSkill.experiences) {
-                                isSubSkillDetailPresented.toggle()
-//                            }
-                        } label: {
+                        NavigationLink(destination: SubSkillDetailView(viewModel: SkillsViewModel(service: SkillsService(), skillId: viewModel.skillId, subSkillId: subSkill.id))
+                                        .navigationBarTitle(Text(subSkill.title), displayMode: .inline)) {
                             SubSkillItemView(subSkill: subSkill, skillType: viewModel.skillDetail?.skillType)
                         }
-                        .sheet(isPresented: $isSubSkillDetailPresented, content: { SubSkillDetailView(isSubSkillDetailPresented: $isSubSkillDetailPresented, skillId: skillId, subSkillId: subSkill.id)})
+                        .disabled(viewModel.isDisabledSkill(subSkill.experiences))
                     }
                 }
             }
             .padding()
         }
         .onAppear() {
-            viewModel.fetchSkillDetail(skillId: skillId)
+            viewModel.fetchSkillDetail(viewModel.skillId)
         }
     }
 }
